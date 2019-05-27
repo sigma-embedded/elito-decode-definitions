@@ -1,0 +1,467 @@
+@register y_addr_start
+  @addr 0x3002 16
+  @field top
+    @uint 15-0
+
+@register x_addr_start
+  @addr 0x3004 16
+  @field left
+    @uint 15-0
+
+@register y_addr_end
+  @addr 0x3006 16
+  @field bottom
+    @uint 15-0
+
+@register x_addr_end
+  @addr 0x3008 16
+  @field right
+    @uint 15-0
+
+@register frame_length_lines
+  @addr 0x300a 16
+  @field rows
+    @uint 15-0
+
+@register line_length_pck
+  @addr 0x300c 16
+  @field cols
+    @uint 15-0
+
+@register row_speed
+  @addr 0x3016 16
+  @field op_speed
+    @uint 10-8
+  @field pc_spec
+    @uint 2-0
+
+@register extra_delay
+  @addr 0x3018 16
+
+@register reset_register
+  @addr 0x301a 16
+  @field grouped_parameter_hold_ctl
+    @boolean 15
+  @field gain_insert_all_frame
+    @boolean 14
+  @field fast_integration_time_insert
+    @boolean 13
+  @field serial_disable
+    @description "undocumented; marked as 'reserved'"
+    @bits 12
+    #reserved
+    @boolean
+  @field pll_always_on
+    @boolean 11
+  @field restart_bad
+    @boolean 10
+  @field mask_bad
+    @boolean 9
+  @field gpi_en
+    @boolean 8
+  @field reset_lpf_enable
+    @boolean 5
+  @field lock_reg
+    @boolean 3
+  @field stream
+    @boolean 2
+  @field restart
+    @boolean 1
+  @field reset
+    @boolean 0
+
+@register gpi_status
+  @addr 0x3026 16
+  @field standby_pin_select
+    @bits 15-13
+    @enum 0 "GPI0"
+    @enum 1 "GPI1"
+    @enum 2 "GPI2"
+    @enum 3 "GPI3"
+    @enum 7 "-no pin-"
+  @field trigger_pin_select
+    @bits 9-7
+    @enum 0 "GPI0"
+    @enum 1 "GPI1"
+    @enum 2 "GPI2"
+    @enum 3 "GPI3"
+    @enum 7 "-no pin-"
+  @field saddr_pin_select
+    @bits 6-4
+    @enum 0 "GPI0"
+    @enum 1 "GPI1"
+    @enum 2 "GPI2"
+    @enum 3 "GPI3"
+    @enum 7 "-no pin-"
+  @field gpi3
+    @boolean 3
+    @ro
+  @field gpi2
+    @boolean 2
+    @ro
+  @field gpi1
+    @boolean 1
+    @ro
+  @field gpi0
+    @boolean 0
+    @ro
+
+@register analogue_gain_code_global
+  @addr 0x3028
+  @field v
+    @frac 15-4 3-0
+
+@register frame_status
+  @addr 0x303c
+  @field bad_frame
+    @boolean 2
+  @field standby
+    @boolean 1
+  @field framesync
+    @boolean 0
+
+@register read_style
+  @addr 0x303e
+  @field ihdr_fdc_select
+    @bits 9
+      @enum 0 "group0"
+      @enum 1 "group1"
+  @field hdr_field_auto_swap
+    @boolean 6
+
+@register read_mode
+  @addr 0x3040
+  @field vert_flip
+    @boolean 15
+  @field horiz_mirror
+    @boolean 14
+  @field x_bin_en
+    @boolean 11
+  @field x_odd_inc
+    @bits 8-6
+    @enum 1 "normal"
+    @enum 3 "1-of-2"
+    @enum 5 "1-of-3"
+    @enum 7 "1-of-4"
+  @field y_odd_inc
+    @bits 5-0
+    @enum 1 "normal"
+    @enum 3 "1-of-2"
+    @enum 5 "1-of-3"
+    @enum 7 "1-of-4"
+
+@register hispi_test
+  @addr 0x3066
+  @field test_lane3_en
+    @boolean 9
+  @field test_lane2_en
+    @boolean 8
+  @field test_lane1_en
+    @boolean 7
+  @field test_lane0_en
+    @boolean 6
+  @field test_mode
+    @uint 5-2
+  @field test_slvds_data_en
+   @boolean 1
+  @field test_slvds_en
+   @boolean 0
+
+@register datapath_status
+  @addr 0x306a
+  @ro
+  @field mipi_preamble_err
+    @boolean 5
+    @ro
+  @field mipi_line_byte_err
+    @boolean 4
+    @ro
+
+@register scaler_test
+  @addr 0x306c
+  @ro
+
+@register datapath_select
+  @addr 0x306e
+  @field slew_a
+    @uint 15-13
+  @field sum_2x2
+    @boolean 6
+  @field true_bin
+    @boolean 5
+  @field true_bayer
+    @boolean 4
+  @field cont_lv
+    @boolean 0
+
+@register test_pattern_mode
+  @addr 0x3070
+  @field mode
+    @bits 9-0
+      @enum 0 "normal operation"
+      @enum 1 "solid color"
+      @enum 2 "100% color bar"
+      @enum 3 "fade to grey"
+      @enum 4 "PN9 link integrity"
+      @enum 256 "walking 1 (10 bit)"
+      @enum 257 "walking 1 (8 bit)"
+
+@register test_data_red
+  @addr 0x3072
+
+@register test_data_greenr
+  @addr 0x3074
+
+@register test_data_blue
+  @addr 0x3076
+
+@register test_data_greenb
+  @addr 0x3078
+
+@register test_raw_mode
+  @addr 0x307a
+  @field raw_data
+    @boolean 0
+  @field test_pat_override
+    @boolean 1
+
+@register digital_test
+  @addr 0x30b0
+  @field reset_skipped_rows
+    @boolean 0
+  @field adc_raw_op
+    @boolean 6
+  @field again_limit
+    @bits 9-8
+      @enum 0 "16x"
+      @enum 1 "8x"
+      @enum 2 "4x"
+      @enum 3 "2x"
+  @field halt_col
+    @boolean 11
+
+@register y_output_offset
+  @addr 0x30bc
+  @field v
+    @uint 15-0
+
+@register x_output_offset
+  @addr 0x30be
+  @field v
+    @uint 15-0
+
+########
+
+@register gempsens_theshold
+  @addr 0x3122
+
+@register tempsens_data_reg
+  @addr 0x3124
+
+@register tempsens_ctrl_reg
+  @addr 0x3126
+  @field clear_value
+    @boolean 5
+  @field start_conv
+    @boolean 4
+  @field test_ctrl
+    @uint 3-1
+  @field power_on
+    @boolean 0
+
+
+########
+
+@register serial_format
+  @addr 0x31ae
+  @field serial_format_Type
+    @bits 9-8
+    @enum 2 "MIPI"
+  @field serial_format_lanes
+    @uint 3-0
+
+@register frame_preamble
+  @addr 0x31b0
+
+@register line_preamble
+  @addr 0x31b2
+
+@register mipi_timing_0
+  @addr 0x31b4
+  @field t_hs_preapre
+    @uint 15-12
+  @field t_hs_zero
+    @uint 11-6
+  @field t_hs_trail
+    @uint 5-1
+
+@register mipi_timing_1
+  @addr 0x31b6
+  @field t_clk_preapre
+    @uint 15-12
+  @field t_clk_zero
+    @uint 11-5
+  @field t_clk_trail
+    @uint 4-0
+
+@register mipi_timing_2
+  @addr 0x31b8
+  @field t_bgap
+    @uint 15-10
+  @field t_clk_pre
+    @uint 9-4
+  @field t_clk_post_msbs
+    @uint 3-0
+
+@register mipi_timing_3
+  @addr 0x31ba
+  @field t_lpx
+    @uint 15-10
+  @field t_wake_up
+    @uint 9-3
+  @field t_clk_post
+    @uint 1-0
+
+@register mipi_timing_4
+  @addr 0x31bc
+  @field cont_tx_clk
+    @boolean 15
+  @field vreg_mode
+    @bits 13
+    @enum 0 "int reg OFF"
+    @enum 1 "int reg ON"
+  @field t_hs_exit
+    @uint 12-7
+  @field t_init
+    @uint 6-0
+
+@register mipi_config_status
+  @addr 0x31be
+  @field reg_frame_sync
+    @boolean 15
+    @ro
+  @field mipi_standby
+    @boolean 14
+    @ro
+  @field mipi_rdy_for_data
+    @boolean 13
+    @ro
+  @field hsipi_mode_change_req
+    @boolean 11
+  @field mipi_mirror_2lanes
+    @boolean 10
+  @field test_mipi_start_crc
+    @boolean 9
+  @field lp_slew_in
+    @uint 6-4
+  @field hispi_phy_mode
+    @bits 3-2
+    @enum 0 "SLVS int reg"
+    @enum 1 "SLVS ext reg"
+    @enum 2 "subLVDS"
+  @field frame_cnt_rst
+    @boolean 1
+  @field frame_cnt_en
+    @boolean 0
+
+@register hispi_control_status
+  @addr 0x31c6
+  @field mipi_idle
+    @boolean 15
+    @ro
+  @field crc_valid
+    @boolean 14
+    @ro
+  @field mask_framer_standby
+    @boolean 13
+  @field xmit_crc
+    @boolean 12
+  @field hispi_mode
+    @bits 11-10
+    @enum 1 "hispi_spi"
+  @field io_tr_state_test
+    @boolean 8
+  @field framer_test_mode_enable
+    @boolean 7
+  @field framer_test_mode
+    @uint 6-4
+  @field blanking_data_enable
+    @boolean 3
+  @field hispi_sp_protocol
+    @bits 2
+    @enum 0 "packatized"
+    @enum 1 "streaming"
+  @field output_msb_first
+    @boolean 1
+  @field vert_left_bar_en
+    @boolean 0
+
+@register mipi_interleave_control
+  @addr 0x31d8
+  @field mipi_short_pck_intvl
+    @uint 7-0
+
+@register mipi_interleave_control2
+  @addr 0x3220
+  @field data_type_xmit
+    @uint 5-0
+  @field mipi_padding_en
+    @boolean 8
+
+@register green1_gain_t2
+  @addr 0x3402
+  @field digital_gain_for_green1_t2
+    @uint 15-7
+  @field analog_coarse_gain_t2
+    @uint 6-4
+  @field analog_fine_gain_t2
+    @uint 3-0
+
+@register blue_gain_t2
+  @addr 0x3404
+  @field digital_gain_for_blue_t2
+    @uint 15-7
+  @field analog_coarse_gain_t2
+    @uint 6-4
+  @field analog_fine_gain_t2
+    @uint 3-0
+
+@register red_gain_t2
+  @addr 0x3406
+  @field digital_gain_for_red_t2
+    @uint 15-7
+  @field analog_coarse_gain_t2
+    @uint 6-4
+  @field analog_fine_gain_t2
+    @uint 3-0
+
+@register green2_gain_t2
+  @addr 0x3408
+  @field digital_gain_for_green2_t2
+    @uint 15-7
+  @field analog_coarse_gain_t2
+    @uint 6-4
+  @field analog_fine_gain_t2
+    @uint 3-0
+
+@register global_gain_t2
+  @addr 0x340A
+  @field digital_gain_for_global_t2
+    @uint 15-7
+  @field analog_coarse_gain_t2
+    @uint 6-4
+  @field analog_fine_gain_t2
+    @uint 3-0
+
+
+@register analog_control6
+  @addr 0x317a
+  @field row_sf_bin2
+    @boolean 12
+
+@register analog_control10
+  @addr 0x3f3e
+  @field adc_10_12
+    @boolean 0
+  @field cms_en
+    @boolean 1

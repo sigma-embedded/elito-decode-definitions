@@ -1,0 +1,15 @@
+@register FBUF_PARA
+  @addr 0x0030
+  @field FBUF_STRIDE
+    @uint 15-0
+
+  @field DEINTERLACE_STRIDE
+    @uint 31-16
+
+@register IMAG_PARA
+  @addr 0x0034
+  @field IMAGE_HEIGHT
+    @uint 15-0
+
+  @field IMAGE_WIDTH
+    @uint 31-16

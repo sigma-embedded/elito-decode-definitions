@@ -1,0 +1,53 @@
+@register CR2
+  @addr 0x0004
+  @field HSC
+    @uint 7-0
+
+  @field VSC
+    @uint 15-8
+
+  @field LVRM
+    @bits 18-16
+      @enum 0 "512x384"
+      @enum 1 "448x336"
+      @enum 2 "384x288"
+      @enum 3 "384x256"
+      @enum 4 "320x240"
+      @enum 5 "288x216"
+      @enum 6 "400x300"
+
+  @field BTS
+    @bits 20-19
+      @enum 0 "GR"
+      @enum 1 "RG"
+      @enum 2 "BG"
+      @enum 3 "GB"
+      
+  @field SCE
+    @boolean 23
+
+  @field AFS
+    @bits 25-24
+      @enum 0 "1 green pixel"
+      @enum 1 "3 green pixel"
+      @enum 2 "4 green pixel (2)"
+      @enum 3 "4 green pixel (3)"
+
+  @field DRM
+    @bits 26
+      @enum 0 "8x6"
+      @enum 1 "8x12"
+
+  @field DMA_BURST_TYPE_SFF
+    @bits 29-28
+      @enum 0 "INCR8 (0)"
+      @enum 1 "INCR4"
+      @enum 2 "INCR8 (2)"
+      @enum 3 "INCR16"
+
+  @field DMA_BURST_TYPE_RFF
+    @bits 31-30
+      @enum 0 "INCR8 (0)"
+      @enum 1 "INCR4"
+      @enum 2 "INCR8 (2)"
+      @enum 3 "INCR16"

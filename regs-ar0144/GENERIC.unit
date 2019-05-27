@@ -1,0 +1,4 @@
+@unit GENERIC
+  @reg 0x0000 0x4000
+  @registers GENERIC/
+  @regwidth 16

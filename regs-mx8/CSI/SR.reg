@@ -1,0 +1,59 @@
+@register SR
+  @addr 0x0018
+  @field DRDY
+    @bits 0
+      @enum 0 "no data"
+      @enum 1 "data in RXFIFO"
+
+  @field ECC_INT
+    @bits 1
+      @enum 0 "no error"
+      @enum 1 "error in CCIR"
+
+  @field HRESP_ERR_INT
+    @boolean 7
+
+  @field COF_INT
+    @boolean 13
+
+  @field F1_INT
+    @boolean 14
+
+  @field F2_INT
+    @boolean 15
+
+  @field SOF_INT
+    @boolean 16
+
+  @field EOF_INT
+    @boolean 17
+
+  @field RxFF_INT
+    @boolean 18
+
+  @field DMA_TSF_DONE_FB1
+    @boolean 19
+
+  @field DMA_TSF_DONE_FB2
+    @boolean 20
+
+  @field STATFF_INT
+    @boolean 21
+
+  @field DMA_TSF_DONE_SFF
+    @boolean 22
+
+  @field RF_OR_INT
+    @boolean 24
+
+  @field SF_OR_INT
+    @boolean 25
+
+  @field DMA_FIELD1_DONE
+    @boolean 26
+
+  @field DMA_FIELD0_DONE
+    @boolean 27
+
+  @field BASEADDR_CHANGE_ERROR
+    @boolean 28

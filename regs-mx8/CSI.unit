@@ -1,0 +1,7 @@
+@unit CSI1
+  @reg 0x30a90000 0x10000
+  @registers CSI/
+
+@unit CSI2
+  @reg 0x30b80000 0x10000
+  @registers CSI/

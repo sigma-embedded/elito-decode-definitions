@@ -1,0 +1,19 @@
+@register STATFIFO0
+  @addr 0x0020
+  @field DMA_START_ADDR_SFF
+    @uint 31-0
+
+@register STATFIFO1
+  @addr 0x0024
+  @field DMA_TSF_SIZE_SFF
+    @uint 31-0
+
+@register DMASA_FB1
+  @addr 0x0028
+  @field DMA_START_ADDR_FB1
+    @uint 31-0
+
+@register DMASA_FB2
+  @addr 0x002c
+  @field DMA_START_ADDR_FB2
+    @uint 31-0

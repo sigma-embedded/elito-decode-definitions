@@ -1,0 +1,114 @@
+@register GPR34
+  @addr 0x0088
+  @field RX_ENABLE
+    @boolean 13
+  @field VID_INTFC_ENB
+    @boolean 12
+  @field PD_RX
+    @boolean 11
+  @field HSEL
+    @boolean 10
+  @field AUTO_PD_EN
+    @boolean 9
+  @field CONT_CLK_MODE
+    @boolean 8
+  @field S_PRG_RXHS_SETTLE
+    @uint 7-2
+  @field RX_RCAL
+    @uint 1-0
+    
+@register GPR35
+  @addr 0x008c
+  @ro
+  @field ERR_SEND_LEVEL
+    @boolean 24
+  @field ERR_FIFO_WR_OVFL
+    @boolean 23
+  @field ULPS_ACTIVE
+    @uint 22-18
+  @field CRC_ERR
+    @boolean 17
+  @field RX_DPHY_RDY
+    @boolean 16
+  @field ULPS_MARK_ACTIVE
+    @uint 15-11
+  @field ECC_ERR
+    @uint 10
+  @field ECC_ERR_POS
+    @uint 9-7
+  @field ECC_ONE_BIT_ERROR
+    @boolean 6
+  @field ECC_ONE_BIT_ERR_POS
+    @uint 5-1
+  @field ECC_TWO_BIT_ERR
+    @boolean 0
+
+@register GPR36
+  @addr 0x0090
+  @ro
+  @field TEST_PATTERN
+    @uint 31-0
+
+@register GPR37
+  @addr 0x0094
+  @field D0_LB_ACTIVE
+    @boolean 20
+  @field D0_INT_LB_ERR_CNT
+    @uint 19-10
+  @field D0_INT_LB_BYTE_CNT
+    @uint 9-0
+
+@register GPR38
+  @addr 0x0098
+  @field D1_LB_ACTIVE
+    @boolean 20
+  @field D1_INT_LB_ERR_CNT
+    @uint 19-10
+  @field D1_INT_LB_BYTE_CNT
+    @uint 9-0
+
+@register GPR39
+  @addr 0x009c
+  @field D2_LB_ACTIVE
+    @boolean 20
+  @field D2_INT_LB_ERR_CNT
+    @uint 19-10
+  @field D2_INT_LB_BYTE_CNT
+    @uint 9-0
+
+@register GPR40
+  @addr 0x00a0
+  @field D3_LB_ACTIVE
+    @boolean 20
+  @field D3_INT_LB_ERR_CNT
+    @uint 19-10
+  @field D3_INT_LB_BYTE_CNT
+    @uint 9-0
+
+@register GPR41
+  @use GPR34
+  @addr 0x00a4
+
+@register GPR42
+  @use GPR35
+  @addr 0x00a8
+
+@register GPR43
+  @use GPR36
+  @addr 0x00ac
+
+@register GPR44
+  @use GPR37
+  @addr 0x00b0
+
+@register GPR45
+  @use GPR38
+  @addr 0x00b4
+
+@register GPR46
+  @use GPR39
+  @addr 0x00b8
+
+@register GPR47
+  @use GPR40
+  @addr 0x00bc

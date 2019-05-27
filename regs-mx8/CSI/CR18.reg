@@ -1,0 +1,81 @@
+@register CR18
+  @addr 0x0048
+  @field NTSC_EN
+    @boolean 0
+
+  @field TVDECODER_IN_EN
+    @boolean 1
+
+  @field CCIR656
+    @boolean 2
+    
+  @field PARALLEL24_EN
+    @boolean 3
+
+  @field BASEADDR_SWITCH_SEL
+    @bits 5
+      @enum 0 "vsync edge"
+      @enum 1 "first data"
+
+  @field FIELD0_DONE_IE
+    @boolean 6
+
+  @field DMA_FIELD1_DONE_IE
+    @boolean 7
+
+  @field LAST_DMA_REQ_SEL
+    @bits 8
+      @enum 0 "fifo_full_level"
+      @enum 1 "hburst_length"
+
+  @field BASEADDR_CHANGE_ERROR_IE
+    @boolean 9
+
+  @field RGB888A_FORMAT_SEL
+    @bits 10
+      @enum 0 "(8, data[23:0])"
+      @enum 1 "(data[23:0], 8)"
+
+  @field AHB_HPROT
+    @uint 15-12
+ 
+  @field CSI_LCDIF_BUFFER_LINES
+    @bits 17-16
+      @enum 0 "4 lines"
+      @enum 1 "8 lines"
+      @enum 2 "16 lines"
+      @enum 3 "16 lines"
+
+  @field MASK_OPTION
+    @bits 19-18
+      @enum 0 "first frame"
+      @enum 1 "when CSI_ENABLE"
+      @enum 2 "second frame"
+      @enum 3 "always"
+
+  @field MIPI_DOUBLE_CMPNT
+    @boolean 20
+
+  @field MIPI_YU_SWAP
+    @boolean 21
+
+  @field DATA_FROM_MIPI
+    @bits 22
+      @enum 0 "parallel sensor"
+      @enum 1 "MIPI"
+
+  @field LINE_STRIDE_EN
+    @boolean 24
+
+  @field MIPI_DATA_FORMAT
+    @bits 30-25
+      @enum 0x18 "YUV420 (8-bit)"
+      @enum 0x19 "YUV420 (10-bit)"
+      @enum 0x1e "YUV422 (8-bit)"
+      @enum 0x1f "YUV422 (10-bit)"
+      @enum 0x2a "RAW8"
+      @enum 0x2b "RAW10"
+      @enum 0x2c "RAW12"
+
+  @field CSI_ENABLE
+    @boolean 31

@@ -1,0 +1,42 @@
+@register CR3
+  @addr 0x0008
+  @field ECC_AUTO_EN
+    @boolean 0
+  @field ECC_INT_EN
+    @boolean 1
+  @field ZERO_PACK_EN
+    @boolean 2
+  @field TWO_8BIT_SENSOR
+    @boolean 3
+  @field RxFF_LEVEL
+    @bits 6-4
+      @enum 0 "4 double words"
+      @enum 1 "8 double words"
+      @enum 2 "16 double words"
+      @enum 3 "24 double words"
+      @enum 4 "32 double words"
+      @enum 5 "48 double words"
+      @enum 6 "64 double words"
+      @enum 7 "96 double words"
+  @field HRESP_ERR_EN
+    @boolean 7
+  @field STATFF_LEVEL
+    @bits 10-8
+      @enum 0 "4 double words"
+      @enum 1 "8 double words"
+      @enum 2 "12 double words"
+      @enum 3 "16 double words"
+      @enum 4 "24 double words"
+      @enum 5 "32 double words"
+      @enum 6 "48 double words"
+      @enum 7 "64 double words"
+  @field DMA_REQ_EN_SFF
+    @boolean 11
+  @field DMA_REQ_EN_RFF
+    @boolean 12
+  @field DMA_REFLASH_SFF
+    @boolean 13
+  @field DMA_REFLASH_RFF
+    @boolean 13
+  @field FRMCNT
+    @uint 31-16

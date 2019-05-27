@@ -1,0 +1,91 @@
+@register CR1
+  @addr 0x0000
+  @field PIXEL_BIT
+    @bits 0
+      @enum 0 "8-bit"
+      @enum 1 "10-bit"
+
+  @field REDGE
+    @bits 1
+      @enum 0 "falling edge"
+      @enum 1 "rising edge"
+
+  @field INV_PCLK
+    @boolean 2
+
+  @field INV_DATA
+    @boolean 3
+
+  @field GCLK_MODE
+    @boolean 4
+
+  @field CLR_RXFIFO
+    @boolean 5
+    @write-only
+
+  @field CLR_STATFIFO
+    @boolean 6
+    @write-only
+
+  @field PACK_DIR
+    @bits 7
+      @enum 0 "LSB first"
+      @enum 1 "MSB first"
+
+  @field FCC
+    @bits 8
+      @enum 0 "asynch FIFO"
+      @enum 1 "synch FIFO"
+
+  @field CCIR_EN
+    @boolean 10
+
+  @field HSYNC_POL
+    @boolean 11
+
+  @field SOF_INTEN
+    @boolean 16
+
+  @field SOF_POL
+    @boolean 17
+
+  @field RXFF_INTEN
+    @boolean 18
+
+  @field FB1_DMA_DONE_INTEN
+    @boolean 19
+
+  @field FB2_DMA_DONE_INTEN
+    @boolean 20
+
+  @field STATFF_INTEN
+    @boolean 21
+
+  @field SFF_INTEN
+    @boolean 22
+
+  @field RF_OR_INTEN
+    @boolean 24
+
+  @field SF_OR_INTEN
+    @boolean 25
+
+  @field COF_OR_INTEN
+    @boolean 26
+
+  @field VIDEO_MODE
+    @bits 27
+    @enum 0 "progressive"
+    @enum 1 "interlace"
+
+  @field PnP_IF_EN
+    @boolean 28
+
+  @field EOF_INT_EN
+    @boolean 29
+
+  @field EXT_VSYNC
+    @boolean 30
+
+  @field SWAP16_EN
+    @boolean 31

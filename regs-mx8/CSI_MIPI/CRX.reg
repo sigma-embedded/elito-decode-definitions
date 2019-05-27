@@ -1,0 +1,160 @@
+@register CFG_NUM_LANES
+  @addr 0x100
+  @field NUM_LANES
+    @uint 1-0
+
+@register CFG_DISALBE_DATA_LANES
+  @addr 0x104
+  @field LANE0
+    @boolean 0
+  @field LANE1
+    @boolean 1
+  @field LANE2
+    @boolean 2
+  @field LANE3
+    @boolean 3
+
+@register BIT_ERR
+  @addr 0x108
+  @field ECC_TWO_BIT_ERR
+    @boolean 0
+  @field ECC_ONE_BIT_ERR
+    @boolean 1
+  @field ERR_POS
+    @uint 6-2
+  @field CRC_ERR
+    @boolean 7
+  @field SEND_LEVEL_FLAG
+    @boolean 8
+  @field FIFO_WR_OVFL
+    @boolean 9
+
+@register IRQ_STATUS
+  @addr 0x10c
+  @field CRC_ERROR
+    @boolean 0
+  @field ONE_BIT_ECC_ERROR
+    @boolean 1
+  @field TWO_BIT_ECC_ERROR
+    @boolean 2
+  @field ULPS_STATUS_CHANGE
+    @boolean 3
+  @field ERR_SOT_HS
+    @boolean 4
+  @field ERR_SOT_SYNC_HS
+    @boolean 5
+  @field ERR_ESC
+    @boolean 6
+  @field ERR_SYNC_ESC
+    @boolean 7
+  @field ERR_CONTROL
+    @boolean 8
+
+@register IRQ_MASK
+  @use IRQ_STATUS
+  @addr 0x110
+
+@register ULPS_STATUS
+  @addr 0x114
+  @field CLK_ULPS
+    @boolean 0
+  @field DATA0_ULPS
+    @boolean 1
+  @field DATA1_ULPS
+    @boolean 2
+  @field DATA2_ULPS
+    @boolean 3
+  @field DATA3_ULPS
+    @boolean 4
+  @field CLK_MARK
+    @boolean 5
+  @field DATA0_MARK
+    @boolean 6
+  @field DATA1_MARK
+    @boolean 7
+  @field DATA2_MARK
+    @boolean 8
+  @field DATA3_MARK
+    @boolean 9
+
+@register PPI_ERRSOT_HS
+  @addr 0x118
+  @field LANE0
+    @boolean 0
+  @field LANE1
+    @boolean 1
+  @field LANE2
+    @boolean 2
+  @field LANE3
+    @boolean 3
+
+@register PPI_ERRSOTSYNC_HS
+  @addr 0x118
+  @field LANE0
+    @boolean 0
+  @field LANE1
+    @boolean 1
+  @field LANE2
+    @boolean 2
+  @field LANE3
+    @boolean 3
+
+@register PPI_ERRESC
+  @addr 0x120
+  @field LANE0
+    @boolean 0
+  @field LANE1
+    @boolean 1
+  @field LANE2
+    @boolean 2
+  @field LANE3
+    @boolean 3
+
+@register PPI_ERRSYNCESC
+  @addr 0x124
+  @field LANE0
+    @boolean 0
+  @field LANE1
+    @boolean 1
+  @field LANE2
+    @boolean 2
+  @field LANE3
+    @boolean 3
+
+@register PPI_ERRCONTROL
+  @addr 0x128
+  @field LANE0
+    @boolean 0
+  @field LANE1
+    @boolean 1
+  @field LANE2
+    @boolean 2
+  @field LANE3
+    @boolean 3
+
+@register DISABLE_PAYLOAD_0
+  @addr 0x12c
+
+@register DISABLE_PAYLOAD_1
+  @addr 0x130
+
+@register IGNORE_VC
+  @addr 0x180
+
+@register VID_VC
+  @addr 0x184
+
+@register FIFO_SEND_LEVEL
+  @addr 0x188
+
+@register VID_VSYNC
+  @addr 0x18c
+
+@register VID_SYNC_FP
+  @addr 0x190
+
+@register VID_HSYNC
+  @addr 0x194
+
+@register VID_HSYNC_BP
+  @addr 0x198

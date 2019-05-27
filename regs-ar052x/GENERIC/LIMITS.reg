@@ -1,0 +1,5 @@
+@register integration_time_capability
+  @addr 0x1000
+
+@register coarse_integration_time_min
+  @addr 0x1004

@@ -1,0 +1,56 @@
+@register PLM_CTRL
+  @addr 0x0000
+
+@register PHY_CTRL
+  @addr 0x0004
+
+@register PHY_STATUS
+  @addr 0x0008
+
+@register PHY_TEST_STATUS
+  @addr 0x0010
+
+@register PHY_TEST_STATUS_D0
+  @addr 0x0014
+
+@register PHY_TEST_STATUS_D1
+  @addr 0x0018
+
+@register PHY_TEST_STATUS_D2
+  @addr 0x001c
+
+@register PHY_TEST_STATUS_D3
+  @addr 0x0020
+
+@register VC_INTERLACED
+  @addr 0x0030
+
+@register DATA_TYPE
+  @addr 0x0038
+  @field LEGACY_YUV420_8BIT
+    @boolean 2
+  @field YUV322_8BIT
+    @boolean 6
+  @field YUV422_16BIT
+    @boolean 7
+  @field RGB444
+    @boolean 8
+  @field RGB555
+    @boolean 9
+  @field RGB565
+    @boolean 10
+  @field RGB666
+    @boolean 11
+  @field RGB888
+    @boolean 12
+  @field RAW6
+    @boolean 16
+  @field RAW8
+    @boolean 18
+  @field RAW10
+    @boolean 19
+  @field RAW12
+    @boolean 20
+  @field RAW14
+    @boolean 21
+    

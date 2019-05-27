@@ -1,0 +1,173 @@
+@register chip_version
+  @addr 0
+  @ro
+
+@register manufacturer_id
+  @addr 3 8
+
+@register smia_version
+  @addr 4 8
+
+@register frame_count
+  @addr 5 8
+
+@register pixel_order
+  @addr 6 8
+  @field v
+    @bits 7-0
+    @enum 0 "GRBG"
+    @enum 1 "RGGB"
+    @enum 2 "BGGR"
+    @enum 3 "GBRG"     
+
+@register data_pedestal
+  @addr 8
+
+@register frame_format_model_type
+  @addr 0x40 8
+
+@register frame_format_model_subtype
+  @addr 0x41 8
+
+
+@register frame_format_decriptor_0
+  @addr 0x42
+  @field pixel_code
+    @uint 15-12
+  @field x_size
+    @uint 11-0
+
+@register frame_format_decriptor_1
+  @addr 0x44
+  #description "Should be 0x1000"
+
+@register frame_format_decriptor_2
+  @addr 0x46
+  @field pixel_code
+    @uint 15-12
+  @field y_size
+    @uint 11-0
+
+@register frame_format_decriptor_3
+  @addr 0x48
+
+@register frame_format_decriptor_4
+  @addr 0x4a
+
+@register analogue_gain_capability
+  @addr 0x0080
+
+@register analogue_gain_code_min
+  @addr 0x0084
+
+@register analogue_gain_code_max
+  @addr 0x0086
+
+##########
+
+@register data_format_model_type
+  @addr 0x00c0 8
+
+@register data_format_model_subtype
+  @addr 0x00c1 8
+
+@register data_format_descriptor_0
+  @addr 0x00c2 16
+
+@register data_format_descriptor_1
+  @addr 0x00c4 16
+
+@register data_format_descriptor_2
+  @addr 0x00c6 16
+
+@register data_format_descriptor_3
+  @addr 0x00c8 16
+
+@register data_format_descriptor_4
+  @addr 0x00ca 16
+
+#########
+
+@register mode_select
+  @addr 0x301c 8
+  @field stream
+    @boolean 0
+
+@register image_orientation
+  @addr 0x0101 8
+  @field vert_flip
+    @boolean 1
+  @field horiz_mirror
+    @boolean 0      
+
+@register grouped_parameter_hold
+  @addr 0x0104 8
+    
+@register mask_corrupted_frames
+  @addr 0x0105 8
+    
+@register ccp2_channel_mode
+  @addr 0x0110 8
+  @field id
+    @uint 2-0  
+    
+@register ccp2_signalling_mode
+  @addr 0x0111 8
+    
+@register ccp_data_format
+  @addr 0x0112 16
+  @field raw_data_format
+    @uint 11-8
+  @field compressed_data_format
+    @uint 3-0
+
+@register gain_mode
+  @addr 0x0120 8
+    
+#######
+
+@register x_output_size
+  @addr 0x034c 16
+  @field width
+    @uint 15-0
+
+@register y_output_size
+  @addr 0x034e 16
+  @field height
+    @uint 15-0
+
+@register x_even_inc
+  @addr 0x0380 16
+
+@register x_odd_inc
+  @addr 0x0382 16
+  
+@register y_even_inc
+  @addr 0x0384 16
+
+@register y_odd_inc
+  @addr 0x0386 16
+  
+@register scaling_mode
+  @addr 0x0400 16
+  @field mode
+    @bits 15-0
+      @enum 0 "disabled"
+      @enum 1 "horizontal"
+      @enum 2 "hoitzontal + vertical"
+  
+@register satial_sampling
+  @addr 0x0402 16
+
+@register scale_m
+  @addr 0x0404 16
+  @field h-scale
+    @uint 15-0
+
+@register "compression (ro)"
+  @addr 0x0500 16
+  @field compression
+    @bits 15-0
+      @enum 1 "10-to-8"
+
+####
