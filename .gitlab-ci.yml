@@ -12,9 +12,9 @@ before_script:
   - |
     _make() {
         set -x
-        make -e "$@" all
-        make -e "$@" install DESTDIR=`tmp-inst`
-        make -e "$@" clean
+        make -j -e "$@" all
+        make -j -e "$@" install DESTDIR=`tmp-inst`
+        make -j -e "$@" clean
         set +x
     }
 
