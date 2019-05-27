@@ -4,7 +4,15 @@ variables:
 
 before_script:
   - rm -rf ../decode-lib ${X_CI_INSTDIR}
-  - git clone "${X_CI_LIBURI}" ../decode-lib
+  - |
+    if test x"${CI_BUILD_TRIGGERED}" = xtrue; then
+      git clone "${X_CI_UPSTREAM_URI}" ../decode-lib
+      git -C ../decode-lib reset --no-quiet --hard "${X_CI_UPSTREAM_REF}"
+    else
+      git clone "${X_CI_LIBURI}" ../decode-lib
+    fi
+
+    git -C ../decode-lib branch -av
   - prefix=${X_CI_INSTDIR}
   - export prefix
   - make -e -C ../decode-lib install
