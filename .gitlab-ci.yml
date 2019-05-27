@@ -1,0 +1,28 @@
+variables:
+  X_CI_LIBURI: "https://github.com/sigma-embedded/elito-decode-registers.git"
+  X_CI_INSTDIR: "${CI_PROJECT_DIR}/../inst"
+
+before_script:
+  - git clone "${X_CI_LIBURI}" ../decode-lib
+  - prefix=${X_CI_INSTDIR}
+  - export prefix
+  - make -e -C ../decode-lib install
+  - PATH=${X_CI_INSTDIR}/bin:$PATH
+
+  - |
+    _make() {
+        set -x
+        make -e "$@" all
+        make -e "$@" install DESTDIR=`tmp-inst`
+        make -e "$@" clean
+        set +x
+    }
+
+build:direct:
+  script:
+    - _make
+
+build:vpath:
+  script:
+    - mkdir -p build
+    - _make -C build -f ../Makefile
