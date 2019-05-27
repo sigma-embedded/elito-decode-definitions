@@ -3,6 +3,7 @@ variables:
   X_CI_INSTDIR: "${CI_PROJECT_DIR}/../inst"
 
 before_script:
+  - rm -rf ../decode-lib ${X_CI_INSTDIR}
   - git clone "${X_CI_LIBURI}" ../decode-lib
   - prefix=${X_CI_INSTDIR}
   - export prefix
