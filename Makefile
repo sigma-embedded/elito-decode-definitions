@@ -13,6 +13,8 @@ bin_PROGRAMS = \
 	decode-mx8m \
 	decode-ar0144 \
 	decode-ar052x \
+\
+	contrib/set-ar0144 \
 
 REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl

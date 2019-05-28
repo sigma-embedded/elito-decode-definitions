@@ -1,0 +1,105 @@
+#! /bin/bash
+
+PATH=/usr/local/bin:$PATH
+
+: ${CAM_ADDR:=0x10}
+: ${I2C_BUS=0}
+: ${DECODE_PROG=decode-ar0144}
+: ${I2CTRANSFER=i2ctransfer}
+
+panic() {
+    echo "$*" >&2
+    exit 1
+}
+
+wsz=2
+do_get=false
+addr=0
+
+while test $# -gt 0; do
+    case $1 in
+      b)
+	    do_get=false
+	    wsz=1
+	    shift
+	    test $# -ge 2 || panic "missing args"
+	    ;;
+
+      h)
+	    do_get=false
+	    wsz=2
+	    shift
+	    test $# -ge 2 || panic "missing args"
+	    ;;
+
+      H)
+	    test $# -ge 3 || panic "missing args"
+
+	    do_get=false
+	    addr=$2
+	    val=$3
+	    shift 3
+	    set -- R "$addr" h "$addr" "$val" "?" "$@"
+	    continue
+	    ;;
+
+      R)
+	    do_get=true
+	    shift
+	    test $# -ge 1 || panic "missing args"
+	    ;;
+
+      \?)
+	    do_get=true
+	    shift
+	    set -- "$addr" "$@"
+	    ;;
+
+      :TEST)
+	    shift
+	    test $# -ge 5 || panic "missing args"
+	    args=( h 0x3070 "$1" 0x3072 "$2" 0x3074 "$3" 0x3076 "$4" 0x3078 "$5" 0x307a 0 0x301e 0 )
+	    shift 5
+	    set -- "${args[@]}" "$@"
+	    continue
+	    ;;
+    esac
+
+    if $do_get; then
+	case $1 in
+	  *-*)
+		start=${1%%-*}
+		end=${1##*-}
+		;;
+	  *)
+		start=$1
+		end=$1
+		;;
+	esac
+	shift
+
+	addr=$start
+	${DECODE_PROG} "/dev/i2c-${I2C_BUS}" "${CAM_ADDR}" "$start" "$end" || {
+	    args=( "w2"@"${CAM_ADDR}" "$[ (addr >> 8) & 0xff ]" "$[ (addr >> 0) & 0xff ]" )
+	    $I2CTRANSFER -f -y "${I2C_BUS}" "${args[@]}" r2@"${CAM_ADDR}"
+	}
+    else
+	addr=$1
+	val=$2
+	shift 2
+
+	args=( "w$[ wsz + 2 ]"@"${CAM_ADDR}" "$[ (addr >> 8) & 0xff ]" "$[ (addr >> 0) & 0xff ]" )
+
+	case $wsz in
+	  1)
+		args+=( "$[ (val >> 0) & 0xff ]" )
+		;;
+
+	  2)
+		args+=( "$[ (val >> 8) & 0xff ]" "$[ (val >> 0) & 0xff ]" )
+		;;
+	esac
+
+	$I2CTRANSFER -f -y "${I2C_BUS}" "${args[@]}"
+    fi
+done
