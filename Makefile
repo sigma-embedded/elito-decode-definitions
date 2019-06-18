@@ -1,6 +1,8 @@
 srcdir := $(dir ${firstword ${MAKEFILE_LIST}})
 abs_srcdir := $(abspath ${srcdir})
 
+VPATH = ${srcdir}
+
 prefix ?= /usr/local
 bindir ?= ${prefix}/bin
 datadir ?= ${prefix}/data
