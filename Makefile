@@ -24,11 +24,11 @@ REGISTERS_GENDESC_FLAGS_mx8m  = --define imx8m
 REGISTERS_GENDESC_FLAGS_ar0144 = --define ar0144
 REGISTERS_GENDESC_FLAGS_ar052x = --define ar052x
 
-REGISTERS_DEFDIR_mx6q = regs-mx6
-REGISTERS_DEFDIR_mx6dl = regs-mx6
-REGISTERS_DEFDIR_mx8m = regs-mx8
-REGISTERS_DEFDIR_ar0144 = regs-ar0144
-REGISTERS_DEFDIR_ar052x = regs-ar052x
+REGISTERS_DEFDIR_mx6q = 	${srcdir}/regs-mx6
+REGISTERS_DEFDIR_mx6dl =	${srcdir}/regs-mx6
+REGISTERS_DEFDIR_mx8m =		${srcdir}/regs-mx8
+REGISTERS_DEFDIR_ar0144 =	${srcdir}/regs-ar0144
+REGISTERS_DEFDIR_ar052x =	${srcdir}/regs-ar052x
 
 INSTALL = install
 INSTALL_BIN = ${INSTALL} -p -m 0755
