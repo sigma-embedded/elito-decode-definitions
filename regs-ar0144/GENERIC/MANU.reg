@@ -1,3 +1,8 @@
+@register chip_version_reg
+  @addr 0x3000
+  @field model_id
+    @uint 15-0
+
 @register y_addr_start
   @addr 0x3002 16
   @field top
@@ -37,6 +42,11 @@
   @field otpm
     @uint 3-0
 
+@register lock_control
+  @addr 0x3010
+  @field magic_beef
+    @uint 15-0
+
 @register coarse_integration_time
   @addr 0x3012 16
 
@@ -51,11 +61,10 @@
 
 @register reset_register
   @addr 0x301a 16
+  @field grouped_parameter_hold
+    @boolean 15
   @field smia_serialiser_dis
-    @description "undocumented; marked as 'reserved'"
-    @bits 12
-    #reserved
-    @boolean
+    @boolean 12
   @field pll_always_on
     @boolean 11
   @field restart_bad
@@ -69,7 +78,8 @@
   @field drive_pins
     @boolean 6
   @field reset_lpf_enable
-    @boolean 5
+    @reserved
+    @bits 5
   @field lock_reg
     @boolean 3
   @field stream
@@ -78,6 +88,34 @@
     @boolean 1
   @field reset
     @boolean 0
+
+@register mode_select_
+  @addr 0x301c 8
+  @field stream
+    @boolean 0
+
+@register image_orientation_
+  @addr 0x301d 8
+  @field vert_flip
+    @boolean 1
+  @field horiz_mirror
+    @boolean 0
+
+@register data_pedestal
+  @addr 0x301e
+
+@register software_reset_
+  @addr 0x3021 8
+
+@register grouped_parameter_hold_
+  @addr 0x3022 8
+
+@register mask_corrupted_frames_
+  @addr 0x3023 8
+
+@register pixel_order_
+  @addr 0x3024 8
+  @ro
 
 @register gpi_status
   @addr 0x3026 16
@@ -151,8 +189,13 @@
   @field op_sys_clk_div
     @uint 15-0
 
+@register frame_count
+  @addr 0x303a
+  @ro
+
 @register frame_status
   @addr 0x303c
+  @ro
   @field pll_locked
     @boolean 3
   @field bad_frame
@@ -162,14 +205,8 @@
   @field framesync
     @boolean 0
 
-@register read_style
+@register line_length_pck_cb
   @addr 0x303e
-  @field ihdr_fdc_select
-    @bits 9
-      @enum 0 "group0"
-      @enum 1 "group1"
-  @field hdr_field_auto_swap
-    @boolean 6
 
 @register read_mode
   @addr 0x3040
@@ -201,6 +238,21 @@
   @field extra_delay
     @uint 15-0
 
+@register green1_gain
+  @addr 0x3056
+
+@register blue_gain
+  @addr 0x3058
+
+@register red_gain
+  @addr 0x305a
+
+@register green2_gain
+  @addr 0x305c
+
+@register global_gain
+  @addr 0x305e
+
 @register analogue_gain
   @addr 0x3060
   @field coarse_gain_b
@@ -218,6 +270,9 @@
     @boolean 8
   @field embedded_stats_en
     @boolean 7
+  @field reserved_02
+    @reserved
+    @bits 3-0
 
 @register ctx_wr_data_reg
   @addr 0x3066
@@ -249,8 +304,7 @@
       @enum 2 "100% color bar"
       @enum 3 "fade to grey"
       @enum 4 "PN9 link integrity"
-      @enum 256 "walking 1 (10 bit)"
-      @enum 257 "walking 1 (8 bit)"
+      @enum 256 "walking 1 (12 bit)"
 
 @register test_data_red
   @addr 0x3072
@@ -263,13 +317,6 @@
 
 @register test_data_greenb
   @addr 0x3078
-
-@register test_raw_mode
-  @addr 0x307a
-  @field raw_data
-    @boolean 0
-  @field test_pat_override
-    @boolean 1
 
 @register operation_mode_ctrl
   @addr 0x3082

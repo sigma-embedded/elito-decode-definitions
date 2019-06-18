@@ -8,9 +8,6 @@
 @register smia_version
   @addr 4 8
 
-@register frame_count
-  @addr 5 8
-
 @register pixel_order
   @addr 6 8
   @field v
@@ -19,9 +16,6 @@
     @enum 1 "RGGB"
     @enum 2 "BGGR"
     @enum 3 "GBRG"     
-
-@register data_pedestal
-  @addr 8
 
 @register frame_format_model_type
   @addr 0x40 8
