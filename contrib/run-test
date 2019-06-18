@@ -1,0 +1,23 @@
+#! /bin/bash
+
+set -e
+
+PATH=.:$PATH
+
+for i; do
+    : $i
+    case $i in
+      *decode-ar0144)
+	    $i /dev/null 0 ?0x301a 0
+	    $i /dev/null 0 ?0x301a 0xffff
+	    ;;
+
+      *decode-mx6*)
+	    $i ?0x020c4018 0x23
+	    ;;
+
+      *decode-mx8*)
+	    $i ?0x30a90000 0x23
+	    ;;
+    esac
+done

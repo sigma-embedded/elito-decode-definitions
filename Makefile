@@ -7,6 +7,8 @@ prefix ?= /usr/local
 bindir ?= ${prefix}/bin
 datadir ?= ${prefix}/data
 
+PATH := ${bindir}:${PATH}
+
 DECODE_PKGDATA_DIR ?= ${datadir}/decode-registers
 
 bin_PROGRAMS = \
@@ -43,6 +45,9 @@ all:	${bin_PROGRAMS}
 
 install:	.install-bin
 
+run-tests:	${bin_PROGRAMS}
+	${srcdir}/contrib/run-test $^
+
 $(call set_dev_type,mx6q,devmem)
 $(call set_dev_type,mx6dl,devmem)
 $(call set_dev_type,mx8m,devmem)
@@ -53,3 +58,6 @@ $(call set_dev_type,ar052x,i2c)
 .install-bin:	${bin_PROGRAMS}
 	${INSTALL_D} ${DESTDIR}${bindir}
 	${INSTALL} $^ ${DESTDIR}${bindir}/
+
+
+.PHONY:	run-tests
