@@ -201,6 +201,17 @@
   @field extra_delay
     @uint 15-0
 
+@register analogue_gain
+  @addr 0x3060
+  @field coarse_gain_b
+    @uint 14-12
+  @field fine_gain_b
+    @uint 11-8
+  @field coarse_gain
+    @uint 6-4
+  @field fine_gain
+    @uint 3-0
+
 @register smia_test
   @addr 0x3064
   @field embedded_data
@@ -541,7 +552,7 @@
 
 @register data_format_bits
   @addr 0x31ac
-  @field datA_format_in
+  @field data_format_in
     @uint 12-8
   @field data_format_out
     @uint  4-0
@@ -550,3 +561,14 @@
   @addr 0x31fe
   @field cra
     @uint 9-4
+
+@register digital_ctrl_1
+  @addr 0x3786
+  @field lsb_align_para_out
+    @boolean 5
+  @field use_1frame_synced
+    @boolean 4
+  @field pll_test_mode
+    @boolean 3
+  @field drive_pix_clk
+    @boolean 0
