@@ -1,0 +1,4 @@
+@unit GENERIC
+  @reg 0x00 0xff
+  @registers GENERIC/
+  @regwidth 8

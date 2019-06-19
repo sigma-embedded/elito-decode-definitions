@@ -1,0 +1,112 @@
+@register ID
+  @addr 0x00
+  @field id
+    @uint 7-3
+  @field revision
+    @uint 2-0
+
+
+@register STATUS1
+  @addr 0x01
+  @field VDLOSS
+    @boolean 7
+  @field HLOCK
+    @boolean 6
+  @field SLOCK
+    @boolean 5
+  @field FIELD
+    @boolean 4
+  @field VLOCK
+    @boolean 3
+  @field MONO
+    @boolean 1
+  @field DET50
+    @bits 0
+    @enum 0 "60Hz"
+    @enum 1 "50Hz"
+
+@register INFORM
+  @addr 0x02
+  @field DIFF_ENB
+    @boolean 7
+  @field FC27
+    @boolean 6
+  @field IFSEL
+    @bits 5-4
+    @enum 1 "S-Video"
+    @enum 0 "composite"
+  @field YSEL
+    @bits 3-2
+    @enum 0 "mux0"
+    @enum 1 "mux1"
+
+@register OPFORM
+  @addr 0x03
+  @field MODE
+    @boolean 7
+  @field LEN
+    @bits 6
+    @enum 0 "8-bit YCrCb 4:2:2"
+  @field LLCMODE
+    @boolean 5
+  @field ANNC
+    @boolean 4
+  @field OEN
+    @boolean 2
+  @field TRISEL
+    @bits 2-0
+    @enum 0 "all on"
+    @enum 1 "data + clk on"
+    @enum 2 "all on"
+    @enum 4 "tristate except clk"
+    @enum 5 "data + clk on"
+    @enum 7 "tristate"
+
+@register OCONTROL1
+  @addr 0x05
+  @field VSP
+    @boolean 7
+  @field VSSL
+    @bits 6-4
+    @enum 0 "VSYNC"
+    @enum 1 "VACT"
+    @enum 2 "FIELD"
+    @enum 6 "factory test"
+    @enum 7 "none"
+  @field HSP
+    @boolean 3
+  @field HSSL
+    @bits 2-0
+    @enum 0 "HACT"
+    @enum 1 "HSYNC"
+    @enum 2 "HLOCK"
+    @enum 3 "ASYNCW"
+    @enum 6 "factory test"
+    @enum 7 "none"
+
+@register SDT
+  @addr 0x1c
+  @field DETSTUS
+    @boolean 7
+    @ro
+  @field STDNOW
+    @bits 6-4
+    @ro
+    @enum 0 "NTSC(M)"
+    @enum 1 "PAL (B,D,G,H,I)"
+    @enum 2 "SECAM"
+    @enum 3 "NTSC4.43"
+    @enum 4 "PAL (M)"
+    @enum 5 "PAL (CN)"
+    @enum 6 "PAL 60"
+  @field ATREG
+    @boolean 3
+  @field STD
+    @bits 2-0
+    @enum 0 "NTSC(M)"
+    @enum 1 "PAL (B,D,G,H,I)"
+    @enum 2 "SECAM"
+    @enum 3 "NTSC4.43"
+    @enum 4 "PAL (M)"
+    @enum 5 "PAL (CN)"
+    @enum 6 "PAL 60"

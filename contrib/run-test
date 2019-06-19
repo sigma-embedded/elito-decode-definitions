@@ -12,6 +12,10 @@ for i; do
 	    $i /dev/null 0 ?0x301a 0xffff
 	    ;;
 
+      *decode-tw99x0)
+	    $i /dev/null 0 ?0x01 0x23
+	    ;;
+
       *decode-mx6*)
 	    $i ?0x020c4018 0x23
 	    ;;
