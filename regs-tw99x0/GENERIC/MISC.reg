@@ -43,7 +43,9 @@
 @register OPFORM
   @addr 0x03
   @field MODE
-    @boolean 7
+    @bits 7
+    @enum 0 "CCIR601"
+    @enum 1 "ITU-R-656"
   @field LEN
     @bits 6
     @enum 0 "8-bit YCrCb 4:2:2"
@@ -87,8 +89,10 @@
 @register SDT
   @addr 0x1c
   @field DETSTUS
-    @boolean 7
+    @bits 7
     @ro
+    @enum 0 "idle"
+    @enum 1 "in progress"
   @field STDNOW
     @bits 6-4
     @ro
@@ -110,3 +114,13 @@
     @enum 4 "PAL (M)"
     @enum 5 "PAL (CN)"
     @enum 6 "PAL 60"
+    @enum 7 "auto"
+
+@register VVBI
+  @addr 0x55
+  @field HAMM84
+    @boolean 5
+  @field NTSC656
+    @boolean 4
+  @field VVBI
+    @sint 3-0
