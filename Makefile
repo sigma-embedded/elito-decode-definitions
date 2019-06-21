@@ -1,3 +1,5 @@
+PACKAGE = elito-decode-definitions
+
 srcdir := $(dir ${firstword ${MAKEFILE_LIST}})
 abs_srcdir := $(abspath ${srcdir})
 
@@ -6,6 +8,7 @@ VPATH = ${srcdir}
 prefix ?= /usr/local
 bindir ?= ${prefix}/bin
 datadir ?= ${prefix}/data
+pkgdatadir ?= ${datadir}/${PACKAGE}
 
 PATH := ${bindir}:${PATH}
 
@@ -38,6 +41,10 @@ REGISTERS_DEFDIR_tw99x0 =	${srcdir}/regs-tw99x0
 
 INSTALL = install
 INSTALL_BIN = ${INSTALL} -p -m 0755
+SED =	sed
+SED_CMD = \
+	-e 's!@PKGDATADIR@!${pkgdatadir}!g'
+
 INSTALL_DATA = ${INSTALL} -p -m 0644
 INSTALL_D = ${INSTALL} -d -m 0755
 
