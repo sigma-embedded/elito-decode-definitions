@@ -28,6 +28,9 @@ bin_PROGRAMS = \
 bin_SCRIPTS = \
 	decode-wrapper
 
+bin_LNKS = \
+	$(addprefix x,$(filter decode-%,${bin_PROGRAMS}))
+
 REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl
 REGISTERS_GENDESC_FLAGS_mx8m  = --define imx8m
@@ -57,7 +60,7 @@ include ${DECODE_PKGDATA_DIR}/mk/build.mk
 
 all:	${bin_PROGRAMS} ${bin_SCRIPTS}
 
-install:	.install-bin
+install:	.install-bin .install-bin-links
 
 run-tests:	${bin_PROGRAMS}
 	${srcdir}/contrib/run-test $^
@@ -81,5 +84,10 @@ decode-wrapper:	contrib/decode.sh.in
 	${INSTALL_D} ${DESTDIR}${bindir}
 	${INSTALL_BIN} $^ ${DESTDIR}${bindir}/
 
+.install-bin-links:
+	for l in ${bin_LNKS}; do \
+		rm -f ${DESTDIR}${bindir}/$$l && \
+		ln -s decode-wrapper ${DESTDIR}${bindir}/$$l; \
+	done
 
 .PHONY:	run-tests
