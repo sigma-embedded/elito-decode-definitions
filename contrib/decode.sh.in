@@ -1,0 +1,40 @@
+#! /bin/bash
+
+: ${TYPE:=${0##*decode-}}
+
+_args=()
+
+case $TYPE in
+  tw99x0)
+	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-tw99x0.bin )
+	_args+=( --bus-device "/dev/i2c-${I2C_IDX:-0}" --bus-addr "${I2C_ADDR:-0x44}" )
+	;;
+
+  ar0144)
+	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-ar0144.bin )
+	_args+=( --bus-device "/dev/i2c-${I2C_IDX:-0}" --bus-addr "${I2C_ADDR:-0x10}" )
+	;;
+
+  ar052x)
+	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-ar052x.bin )
+	_args+=( --bus-device "/dev/i2c-${I2C_IDX:-0}" --bus-addr "${I2C_ADDR:-0x10}" )
+	;;
+
+  mx6q|mx6d|mx6qdl)
+	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx6q.bin )
+	;;
+
+  mx6dl)
+	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx6dl.bin )
+	;;
+
+  mx8m)
+	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx8m.bin )
+	;;
+  
+  *)
+	echo "Unsupported type '$TYPE'" >&2
+	exit 1
+esac
+
+exec decode-device "${_args[@]}" "$@"

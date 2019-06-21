@@ -25,6 +25,9 @@ bin_PROGRAMS = \
 	contrib/set-ar0144 \
 	contrib/set-tw99x0 \
 
+bin_SCRIPTS = \
+	decode-wrapper
+
 REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl
 REGISTERS_GENDESC_FLAGS_mx8m  = --define imx8m
@@ -52,7 +55,7 @@ all:
 
 include ${DECODE_PKGDATA_DIR}/mk/build.mk
 
-all:	${bin_PROGRAMS}
+all:	${bin_PROGRAMS} ${bin_SCRIPTS}
 
 install:	.install-bin
 
@@ -69,7 +72,12 @@ $(call set_dev_type,tw99x0,i2c)
 
 decode-tw99x0:	REGISTERS_ADDR_TYPE=uint8_t
 
-.install-bin:	${bin_PROGRAMS}
+decode-wrapper:	contrib/decode.sh.in
+	@rm -f '$@'
+	${SED} ${SED_CMD} < $< > '$@'
+	@chmod a+rX,a-w '$@'
+
+.install-bin:	${bin_PROGRAMS} ${bin_SCRIPTS}
 	${INSTALL_D} ${DESTDIR}${bindir}
 	${INSTALL_BIN} $^ ${DESTDIR}${bindir}/
 
