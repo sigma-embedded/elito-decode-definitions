@@ -1,4 +1,4 @@
 @unit GENERIC
   @reg 0x0000 0x4000
+  @regwidth 16 16 BE
   @registers GENERIC/
-  @regwidth 16
