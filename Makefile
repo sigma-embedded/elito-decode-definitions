@@ -71,7 +71,7 @@ decode-tw99x0:	REGISTERS_ADDR_TYPE=uint8_t
 
 .install-bin:	${bin_PROGRAMS}
 	${INSTALL_D} ${DESTDIR}${bindir}
-	${INSTALL} $^ ${DESTDIR}${bindir}/
+	${INSTALL_BIN} $^ ${DESTDIR}${bindir}/
 
 
 .PHONY:	run-tests
