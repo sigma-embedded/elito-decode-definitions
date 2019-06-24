@@ -15,15 +15,15 @@
   @reg 0x02648000 0x008000
   @registers IPU-DI/
 
-@unit[imx6dq] IPU2
+@unit[imx6qd] IPU2
   @use _IPU
   @reg 0x02A00000 0x100000
 
-@unit[imx6dq] IPU2-DI0
+@unit[imx6qd] IPU2-DI0
   @reg 0x02A40000 0x008000
   @registers IPU-DI/
 
-@unit[imx6dq] IPU2-DI1
+@unit[imx6qd] IPU2-DI1
   @reg 0x02A48000 0x008000
   @registers IPU-DI/
 
