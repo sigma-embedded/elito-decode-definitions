@@ -1,0 +1,145 @@
+@register SENS_CONF
+  @addr 0x0000
+
+  @field VSYNC_POL
+    @boolean
+    @bits 0
+
+  @field HSYNC_POL
+    @boolean
+    @bits 1
+
+  @field DATA_POL
+    @boolean
+    @bits 2
+
+  @field PIX_CLK_POL
+    @boolean 3
+
+  @field SENS_PRTCL
+    @bits 6-4
+    @enum 0 "gated"
+    @enum 1 "non-gated"
+    @enum 2 "bt.656 progressive"
+    @enum 3 "bt.656 interlaced"
+    @enum 4 "bt.1120 ddr progressive"
+    @enum 5 "bt.1120 sdr progressive"
+    @enum 6 "bt.1120 ddr interlaced"
+    @enum 7 "bt.1120 sdr interlaced"
+
+  @field PACK_TIGHT
+    @boolean 7
+
+  @field DATA_FORMAT
+    @bits 10-8
+    @enum 0 "RGB"
+    @enum 1 "YUYV"
+    @enum 2 "UYVY"
+    @enum 3 "generic"
+    @enum 4 "RGB565"
+    @enum 5 "RGB555"
+    @enum 6 "RGB444"
+    @enum 7 "JPEG"
+
+  @field DATA_WIDTH
+    @bits 14-11
+    @enum 0 "4 bpp"
+    @enum 1 "8 bpp"
+    @enum 2 "9 bpp"
+    @enum 3 "10 bpp"
+    @enum 4 "11 bpp"
+    @enum 5 "12 bpp"
+    @enum 6 "13 bpp"
+    @enum 7 "14 bpp"
+    @enum 8 "15 bpp"
+    @enum 9 "16 bpp"
+
+  @field EXT_VSYNC
+    @boolean 15
+
+  @field DIV_RATIO
+    @uint 23-16
+
+  @field DATA_DEST_IC
+    @boolean 25
+
+  @field DATA_DEST_IDMAC
+    @boolean 26
+
+  @field JPEG8_EN
+    @boolean 27
+
+  @field JPEG_MODE
+    @boolean 28
+
+  @field FORCE_EOF
+    @boolean 29
+
+  @field DATA_EN_POL
+    @boolean 31
+
+@register SENS_FRM_SIZE
+  @addr 0x0004
+  @field FRM_WIDTH
+    @uint 12-0
+  @field FRM_HEIGHT
+    @uint 27-16
+
+@register ACT_FRM_SIZE
+  @addr 0x0008
+  @field FRM_WIDTH
+    @uint 12-0
+  @field FRM_HEIGHT
+    @uint 27-16
+
+@register OUT_FRM_CTRL
+  @addr 0x000c
+  @field VSC
+    @uint 11-0
+  @field HSC
+    @uint 28-16
+  @field VERT_DWNS
+    @boolean 30
+  @field HORZ_DWNS
+    @boolean 31
+
+@register TST_CTRL
+  @addr 0x0010
+  @field R
+    @uint 7-0
+  @field G
+    @uint 15-8
+  @field B
+    @uint 23-16
+  @field TEST_GEN_MODE
+    @boolean 24
+
+@register _CCIR_CODE
+  @template
+  @field END_BLNK_1ST
+    @uint 2-0
+  @field STRT_BLNK_1ST
+    @uint 5-3
+  @field END_BLNK_2ND
+    @uint 8-6
+  @field STRT_BLNK_@ND
+    @uint 11-9
+  @field END_ACTV
+    @uint 18-16
+  @field STRT_ACTV
+    @uint 21-19
+
+@register CCIR_CODE_1
+  @addr 0x0014
+  @use _CCIR_CODE
+  @field ERR_DET_EN
+    @boolean 24
+
+@register CCIR_CODE_2
+  @addr 0x0018
+  @use _CCIR_CODE
+
+@register CCIR_CODE_3
+  @addr 0x001c
+  @field PRECOM
+    @uint 29-0

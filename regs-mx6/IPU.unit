@@ -7,6 +7,14 @@
   @use _IPU
   @reg 0x02600000 0x100000
 
+@unit IPU1-CSI0
+  @reg 0x02630000 0x008000
+  @registers IPU-CSI/
+
+@unit IPU1-CSI1
+  @reg 0x02638000 0x008000
+  @registers IPU-CSI/
+
 @unit IPU1-DI0
   @reg 0x02640000 0x008000
   @registers IPU-DI/
@@ -19,6 +27,14 @@
   @use _IPU
   @reg 0x02A00000 0x100000
 
+@unit[imx6qd] IPU2-CSI0
+  @reg 0x02A30000 0x008000
+  @registers IPU-CSI/
+
+@unit[imx6qd] IPU2-CSI1
+  @reg 0x02A38000 0x008000
+  @registers IPU-CSI/
+
 @unit[imx6qd] IPU2-DI0
   @reg 0x02A40000 0x008000
   @registers IPU-DI/
@@ -26,4 +42,3 @@
 @unit[imx6qd] IPU2-DI1
   @reg 0x02A48000 0x008000
   @registers IPU-DI/
-

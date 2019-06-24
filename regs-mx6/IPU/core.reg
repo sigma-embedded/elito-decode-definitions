@@ -1,5 +1,55 @@
 @register CONF
   @addr 0x0000
+  @field CSI0_EN
+    @boolean 0
+  @field[imx6qd] CSI1_EN
+    @boolean 1
+  @field IC_EN
+    @boolean 2
+  @field IRT_EN
+    @boolean 3
+  @field DP_EN
+    @boolean 5
+  @field DI0_EN
+    @boolean 6
+  @field DI1_EN
+    @boolean 7
+  @field SMFC_EN
+    @boolean 8
+  @field DC_EN
+    @boolean 9
+  @field DMFC_EN
+    @boolean 10
+  @field SISG_EN
+    @boolean 11
+  @field VDI_EN
+    @boolean 12
+  @field IDMAC_DIABLE
+    @boolean 22
+  @field DMFC_SEL
+    @bits 25
+    @enum 0 "IDMAC"
+    @enum 1 "DMFC"
+  @field DMFC_SYNC
+    @bits 26
+    @enum 0 "async"
+    @enum 1 "sync"
+  @field CSI0_DAT_SOURCE
+    @bits 28
+    @enum 0 "parallel"
+    @enum 1 "mipi"
+  @field[imx6qd] CSI1_DAT_SOURCE
+    @bits 29
+    @enum 0 "parallel"
+    @enum 1 "mipi"
+  @field IC_INPUT
+    @bits 30
+    @enum 0 "CSI"
+    @enum 1 "VDI"
+  @field[imx6qd] CSI_SEL
+    @bits 30
+    @enum 0 "CSI0"
+    @enum 1 "CSI1"
 
 @register DISP_GEN
   @addr 0x00c4
