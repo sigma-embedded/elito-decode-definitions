@@ -1,0 +1,60 @@
+### 63-32
+@register W0_1
+  @use _W0_1
+  @field SX
+    @uint 25-14
+  @field SY
+    @uint 31-26
+
+### 95-64
+@register W0_2
+  @addr 0x08
+  @field "SY *64"
+    @uint 4-0
+  @field NS
+    @uint 14-5
+  @field SDX
+    @uint 21-15
+  @field SM
+    @uint 31-22
+
+### 127-96
+@register W0_3
+  @use _W0_3
+
+@register W1_2
+  @use _W1_2
+  @field PFS
+    @bits 24-21
+    @enum  5 "LUT"
+    @enum  6 "generic"
+    @enum  7 "RGB"
+    @enum  8 "interleaved 4:2:2 Y1U1Y2V1"
+    @enum  9 "interleaved 4:2:2 Y2U1Y2V1"
+    @enum 10 "interleaved 4:2:2 U1Y1V1Y2"
+    @enum 11 "interleaved 4:2:2 U1Y2V1Y1"
+
+@register W1_3
+  @use _W1_3
+  @field WID0
+    @uint 22-20
+  @field WID1
+    @uint 25-23
+  @field WID2
+    @uint 28-26
+
+### 159-128
+@register W1_4
+  @use _W1_4
+  @field OFS0
+    @uint 4-0
+  @field OFS1
+    @uint 9-5
+  @field OFS2
+    @uint 14-10
+  @field OFS3
+    @uint 19-15
+  @field SXYS
+    @boolean 20
+  @field DEC_SEL2
+    @boolean 22

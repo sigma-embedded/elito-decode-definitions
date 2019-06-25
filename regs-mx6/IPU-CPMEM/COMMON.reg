@@ -1,0 +1,125 @@
+### 0-31
+@register W0_0
+  @addr 0x00
+  @field XV
+    @uint 9-0
+  @field YV
+    @uint 18-10
+  @field XB
+    @uint 31-19
+#  @field YB
+#    @uint 43-32
+
+### 63-32
+@register _W0_1
+  @template
+  @addr 0x04
+  @field YB
+    @uint 11-0
+  @field NSB_B
+    @boolean 12
+  @field CF
+    @bits 13
+    @enum 0 "even"
+    @enum 1 "odd"
+
+### 127-96
+@register _W0_3
+  @template
+  @addr 0x0c
+  @field SO
+    @bits 17
+    @enum 0 "progressive"
+    @enum 1 "interlaced"
+  @field BNDM
+    @bits 20-18
+    @enum 0 "no bands"
+    @enum 1 "4 lines"
+    @enum 2 "8 lines"
+    @enum 3 "16 lines"
+    @enum 4 "32 lines"
+    @enum 5 "64 lines"
+    @enum 6 "128 lines"
+    @enum 7 "256 lines"
+  @field BM
+    @bits 22-21
+    @enum 0 "no block mode"
+    @enum 1 "BW=8, BH=8"
+    @enum 2 "BW=16, BH=16"
+  @field ROT
+    @boolean 23
+  @field HFLIP
+    @boolean 24
+  @field VFLIP
+    @boolean 25
+  @field THE
+    @boolean 26
+  @field CAP
+    @boolean 27
+  @field CAE
+    @boolean 28
+  @field FW
+    @uint 31-29
+
+### 159-128
+@register W0_4
+  @addr 0x10
+  @field "FW *8"
+    @uint 9-0
+  @field FH
+    @uint 21-10
+  @field EOLI
+    @boolean 22
+
+### 31-0
+@register W1_0
+   @addr 0x14
+   @field EBA0
+     @uint 28-0
+   @field EBA1
+     @uint 31-29
+
+### 63-31
+@register W1_1
+   @addr 0x18
+   @field "EBA1 *8"
+     @uint 25-0
+   @field ILO
+     @uint 31-26
+
+### 95-64
+@register _W1_2
+  @template
+  @addr 0x1c
+  @field "ILO *64"
+    @uint 13-0
+  @field NPB
+    @uint 20-14
+  @field PFS
+    @bits 24-21
+  @field ALU
+    @boolean 25
+  @field ALBM
+    @uint 28-26
+  @field ID
+    @uint 30-29
+  @field THRESHOLD
+    @uint 31
+
+### 127-96
+@register _W1_3
+  @template
+  @addr 0x20
+  @field THRESHOLD
+    @uint 5-0
+  @field SLY
+    @uint 19-6
+  @field WID3
+    @uint 31-29
+
+### 159-128
+@register _W1_4
+  @template
+  @addr 0x24
+  @field CRE
+    @boolean 21

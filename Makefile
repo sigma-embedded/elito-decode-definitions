@@ -83,6 +83,14 @@ $(call set_dev_type,ar0144,i2c)
 $(call set_dev_type,ar052x,i2c)
 $(call set_dev_type,tw99x0,i2c)
 
+.prepare-mx6q .prepare-mx6dl:	.prepare-mx6
+
+.prepare-mx6:
+	${MAKE} -C ${srcdir}/regs-mx6
+
+.subdir-%:
+	${MAKE} -C ${srcdir}/regs-mx6 $*
+
 decode-wrapper:	contrib/decode.sh.in
 	@rm -f '$@'
 	${SED} ${SED_CMD} < $< > '$@'

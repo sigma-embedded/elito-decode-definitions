@@ -1,0 +1,18 @@
+0	CSI -> Fmem #0
+1	CSI -> Fmem #1
+2	CSI -> Fmem #2
+3	CSI -> Fmem #3
+
+5	VDIC -> Bmem
+
+8	Fmem -> VDIC (prev)
+9	Fmem -> VDIC (cur)
+10	Fmem -> VDIC (next)
+
+11	Bmem -> IC (post)
+12	Bmem -> IC (vf)
+
+13	VDIC -> Fmem
+
+14	Fmem -> IC (vf)
+15	Fmem -> IC (post)
