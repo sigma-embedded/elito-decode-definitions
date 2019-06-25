@@ -1,0 +1,9 @@
+@unit IPU1-CPMEM
+  @reg 0x02700000 0x10000
+  @regwidth 160 32 BE
+  @registers IPU-CPMEM/
+
+@unit[imx6qd] IPU2-CPMEM
+  @reg 0x02b00000 0x10000
+  @regwidth 160 32 BE
+  @registers IPU-CPMEM/

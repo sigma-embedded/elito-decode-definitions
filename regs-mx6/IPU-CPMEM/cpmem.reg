@@ -1,0 +1,182 @@
+@register _IPU_CPMEM-W0
+  @template
+  @field XV
+    @uint 9-0
+  @field YV
+    @uint 18-10
+  @field XB
+    @uint 31-19
+  @field YB
+    @uint 43-32
+  @field NSB_B
+    @boolean 44
+  @field CF
+    @bits 45
+    @enum 0 "even"
+    @enum 1 "odd"
+
+  @field SO
+    @bits 113
+    @enum 0 "progressive"
+    @enum 1 "interlaced"
+  @field BNDM
+    @bits 116-114
+    @enum 0 "no bands"
+    @enum 1 "4 lines"
+    @enum 2 "8 lines"
+    @enum 3 "16 lines"
+    @enum 4 "32 lines"
+    @enum 5 "64 lines"
+    @enum 6 "128 lines"
+    @enum 7 "256 lines"
+  @field BM
+    @bits 118-117
+    @enum 0 "no block mode"
+    @enum 1 "BW=8, BH=8"
+    @enum 2 "BW=16, BH=16"
+  @field ROT
+    @boolean 119
+  @field HFLIP
+    @boolean 120
+  @field VFLIP
+    @boolean 121
+  @field THE
+    @boolean 122
+  @field CAP
+    @boolean 123
+  @field CAE
+    @boolean 124
+  @field FW
+    @uint 137-125
+  @field FH
+    @uint 149-138
+  @field EOLI
+    @boolean 150
+
+@register _IPU_CPMEM-W1
+  @template
+  @field EBA0
+    @uhex 28-0
+  @field EBA1
+    @uhex 57-29
+  @field ILO
+    @uint 77-58
+  @field NPB
+    @uint 84-78
+  @field PFS
+    @bits 88-85
+  @field ALU
+    @boolean 89
+  @field ALBM
+    @uint 92-90
+  @field ID
+    @uint 94-93
+  @field THRESHOLD
+    @uint 101-95
+  @field SLY
+    @uint 115-102
+  @field WID3
+    @uint 127-125
+  @field CRE
+    @boolean 149
+
+######
+
+@register _IPU_CPMEM-W0-NI
+  @template
+  @use _IPU_CPMEM-W0
+  @field UBO
+    @uint 67-46
+  @field VBO
+    @uint 89-68
+  @field IOX
+    @uint 93-90
+  @field RDWR
+    @boolean 94
+
+@register _IPU_CPMEM-W1-NI
+  @template
+  @use _IPU_CPMEM-W1
+  @field PFS
+    @enum 0 "non-interleaved 4:4:4"
+    @enum 1 "non-interleaved 4:2:2"
+    @enum 2 "non-interleaved 4:2:0"
+    @enum 3 "partial-interleaved 4:2:2"
+    @enum 4 "partial-interleaved 4:2:0"
+  @field SLUV
+    @uint 141-128
+
+#######
+
+@register _IPU_CPMEM-W0-I
+  @template
+  @use _IPU_CPMEM-W0
+  @field SX
+    @uint 57-46
+  @field SY
+    @uint 68-56
+  @field NS
+    @uint 78-69
+  @field SDX
+    @uint 85-79
+  @field SM
+    @uint 95-86
+  @field SCC
+    @boolean 96
+  @field SCE
+    @boolean 97
+  @field SDY
+    @uint 104-98
+  @field SDRX
+    @boolean 105
+  @field SDRY
+    @boolean 106
+  @field BPP
+    @bits 109-107
+    @enum 0 "32 bpp"
+    @enum 1 "24 bpp"
+    @enum 2 "18 bpp"
+    @enum 3 "16 bpp"
+    @enum 4 "12 bpp"
+    @enum 5 "8 bpp"
+    @enum 6 "4 bpp"
+  @field DEC_SEL
+    @bits 111-110
+    @enum 0 "0-15"
+    @enum 1 "64-79"
+    @enum 2 "128-143"
+    @enum 3 "192-207"
+  @field DIM
+    @bits 112
+    @enum 0 "2d"
+    @enum 1 "1d"    
+
+@register _IPU_CPMEM-W1-I
+  @template
+  @use _IPU_CPMEM-W1
+  @field PFS
+    @enum  5 "LUT"
+    @enum  6 "generic"
+    @enum  7 "RGB"
+    @enum  8 "interleaved 4:2:2 Y1U1Y2V1"
+    @enum  9 "interleaved 4:2:2 Y2U1Y2V1"
+    @enum 10 "interleaved 4:2:2 U1Y1V1Y2"
+    @enum 11 "interleaved 4:2:2 U1Y2V1Y1"
+  @field WID0
+    @uint 118-116
+  @field WID1
+    @uint 121-119
+  @field WID2
+    @uint 124-122
+  @field OFS0
+    @uint 132-128
+  @field OFS1
+    @uint 137-133
+  @field OFS2
+    @uint 142-138
+  @field OFS3
+    @uint 147-143
+  @field SXYS
+    @boolean 148
+  @field DEC_SEL2
+    @boolean 150
