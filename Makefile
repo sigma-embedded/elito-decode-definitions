@@ -9,27 +9,29 @@ prefix ?= /usr/local
 bindir ?= ${prefix}/bin
 datadir ?= ${prefix}/data
 pkgdatadir ?= ${datadir}/${PACKAGE}
+decoderdir ?= ${pkgdatadir}
 
 PATH := ${bindir}:${PATH}
 
 DECODE_PKGDATA_DIR ?= ${datadir}/decode-registers
 
 bin_PROGRAMS = \
+	contrib/set-ar0144 \
+	contrib/set-tw99x0 \
+
+bin_DECODERS = \
 	decode-mx6q \
 	decode-mx6dl \
 	decode-mx8m \
 	decode-ar0144 \
 	decode-ar052x \
 	decode-tw99x0 \
-\
-	contrib/set-ar0144 \
-	contrib/set-tw99x0 \
+
+decoder_DATA = \
+	$(patsubst decode-%,regstream-%.bin,${bin_DECODERS})
 
 bin_SCRIPTS = \
 	decode-wrapper
-
-bin_LNKS = \
-	$(addprefix x,$(filter decode-%,${bin_PROGRAMS}))
 
 REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl
@@ -58,11 +60,14 @@ all:
 
 include ${DECODE_PKGDATA_DIR}/mk/build.mk
 
-all:	${bin_PROGRAMS} ${bin_SCRIPTS}
+all:	${bin_PROGRAMS} ${bin_SCRIPTS} ${decoder_DATA}
 
-install:	.install-bin .install-bin-links
+install:	.install-bin .install-bin-decoders .install-data-decoders
 
-run-tests:	${bin_PROGRAMS}
+clean:
+	rm -f ${bin_SCRIPTS} ${decoder_DATA}
+
+run-tests:	${decoder_DATA}
 	${srcdir}/contrib/run-test $^
 
 $(call set_dev_type,mx6q,devmem)
@@ -73,8 +78,6 @@ $(call set_dev_type,ar0144,i2c)
 $(call set_dev_type,ar052x,i2c)
 $(call set_dev_type,tw99x0,i2c)
 
-decode-tw99x0:	REGISTERS_ADDR_TYPE=uint8_t
-
 decode-wrapper:	contrib/decode.sh.in
 	@rm -f '$@'
 	${SED} ${SED_CMD} < $< > '$@'
@@ -84,10 +87,15 @@ decode-wrapper:	contrib/decode.sh.in
 	${INSTALL_D} ${DESTDIR}${bindir}
 	${INSTALL_BIN} $^ ${DESTDIR}${bindir}/
 
-.install-bin-links:
-	for l in ${bin_LNKS}; do \
+.install-bin-decoders:
+	for l in ${bin_DECODERS}; do \
 		rm -f ${DESTDIR}${bindir}/$$l && \
 		ln -s decode-wrapper ${DESTDIR}${bindir}/$$l; \
 	done
+
+.install-data-decoders:	${decoder_DATA}
+	${INSTALL_D} ${DESTDIR}${decoderdir}
+	${INSTALL_DATA} $^ ${DESTDIR}${decoderdir}/
+
 
 .PHONY:	run-tests
