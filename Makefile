@@ -69,7 +69,7 @@ all:	${bin_PROGRAMS} ${bin_SCRIPTS} ${decoder_DATA}
 
 install:	.install-bin .install-bin-decoders .install-data-decoders
 
-clean:
+clean:	.subdir-clean
 	rm -f ${bin_SCRIPTS} ${decoder_DATA}
 
 run-tests:	${decoder_DATA}
