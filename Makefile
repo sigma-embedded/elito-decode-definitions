@@ -5,6 +5,11 @@ abs_srcdir := $(abspath ${srcdir})
 
 VPATH = ${srcdir}
 
+VALGRIND ?=	valgrind --quiet --tool=memcheck --leak-check=full --show-leak-kinds=all --error-exitcode=23
+CHECKER ?=	${VALGRIND}
+
+export CHECKER
+
 prefix ?= /usr/local
 bindir ?= ${prefix}/bin
 datadir ?= ${prefix}/data
@@ -68,7 +73,7 @@ clean:
 	rm -f ${bin_SCRIPTS} ${decoder_DATA}
 
 run-tests:	${decoder_DATA}
-	${srcdir}/contrib/run-test $^
+	${srcdir}/contrib/run-test ${bindir}/decode-device $^
 
 $(call set_dev_type,mx6q,devmem)
 $(call set_dev_type,mx6dl,devmem)
