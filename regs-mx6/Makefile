@@ -5,11 +5,11 @@ define emit_cpmem_chan
 	while read ch desc; do \
 		test -n "$$ch" || continue; \
 		printf '@register "CH-$1#%u_0"\n' "$$ch" && \
-		printf '  @addr 0x%08x\n' $$[ ch * 40 ] && \
+		printf '  @addr 0x%08x\n' $$[ ch * 64 ] && \
 		printf '  @use _IPU_CPMEM-W0-$1\n'; \
 		printf '\n' && \
 		printf '@register "CH-$1#%u_1"\n' "$$ch" && \
-		printf '  @addr 0x%08x\n' $$[ ch * 40 + 0x14 ] && \
+		printf '  @addr 0x%08x\n' $$[ ch * 64 + 0x20 ] && \
 		printf '  @use _IPU_CPMEM-W1-$1\n\n'; \
 	done
 endef
