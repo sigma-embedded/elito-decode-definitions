@@ -1,13 +1,16 @@
 @register ID
   @addr 0x00
+  @ro
   @field id
-    @uint 7-3
+    @bits 7-3
+    @enum  0 "TW9990"
+    @enum 11 "TW9910"
   @field revision
     @uint 2-0
 
-
 @register STATUS1
   @addr 0x01
+  @ro
   @field VDLOSS
     @boolean 7
   @field HLOCK
@@ -27,7 +30,7 @@
 
 @register INFORM
   @addr 0x02
-  @field DIFF_ENB
+  @field[tw9990] DIFF_ENB
     @boolean 7
   @field FC27
     @boolean 6
@@ -49,13 +52,18 @@
   @field LEN
     @bits 6
     @enum 0 "8-bit YCrCb 4:2:2"
+    @enum[tw9910] 1 "16-bit YCrCb 4:2:2"
   @field LLCMODE
     @boolean 5
   @field ANNC
     @boolean 4
-  @field OEN
+  @field[tw9910] VSCTL
+    @bits 3
+    @enum 0 "HACTIVE + DVALID"
+    @enum 1 "DVALID"
+  @field[tw9910] OEN
     @boolean 2
-  @field TRISEL
+  @field[tw9990] TRISEL
     @bits 2-0
     @enum 0 "all on"
     @enum 1 "data + clk on"
@@ -63,6 +71,12 @@
     @enum 4 "tristate except clk"
     @enum 5 "data + clk on"
     @enum 7 "tristate"
+  @field[tw9910] TRISEL
+    @bits 1-0
+    @enum 0 "timing + data on"
+    @enum 1 "data on"
+    @enum 2 "all on"
+    @enum 3 "clk + data on"
 
 @register OCONTROL1
   @addr 0x05
@@ -73,8 +87,9 @@
     @enum 0 "VSYNC"
     @enum 1 "VACT"
     @enum 2 "FIELD"
-    @enum 6 "factory test"
-    @enum 7 "none"
+    @enum[tw9910] 3 "VVALID"
+    @enum[tw9990] 6 "factory test"
+    @enum[tw9990] 7 "none"
   @field HSP
     @boolean 3
   @field HSSL
@@ -83,8 +98,231 @@
     @enum 1 "HSYNC"
     @enum 2 "HLOCK"
     @enum 3 "ASYNCW"
-    @enum 6 "factory test"
-    @enum 7 "none"
+    @enum[tw9990] 6 "factory test"
+    @enum[tw9990] 7 "none"
+
+@register ACNTL
+  @addr 0x06
+  @field SRESET
+    @boolean 7
+    @wo
+  @field IREF
+    @boolean 6
+  @field VREF
+    @boolean 5
+  @field AGC_EN
+    @boolean 4
+  @field CLK_PDN
+    @bits 3
+    @enum 0 "normal"
+    @enum 1 "pdown mode"
+  @field Y_PDN
+    @boolean 2
+  @field C_PDN
+    @boolean 1
+
+@register CROP_HI
+  @addr 0x07
+  @field VDELAY_HI
+    @uint 7-6
+  @field VACTIVE_HI
+    @uint 5-4
+  @field HDELAY_HI
+    @uint 3-2
+  @field HACTIVE_HI
+    @uint 1-0
+
+@register VDELAY_LO
+  @addr 0x08
+  @field VDELAY_LO
+    @uint 7-0
+
+@register VACTIVE_LO
+  @addr 0x09
+  @field VACTIVE_LO
+    @uint 7-0
+
+@register HDELAY_LO
+  @addr 0x0a
+  @field HDELAY_LO
+    @uint 7-0
+
+@register HACTIVE_LO
+  @addr 0x0b
+  @field HACTIVE_LO
+    @uint 7-0
+
+@register CNTRL1
+  @addr 0x0c
+  @field PBW
+    @boolean 7
+  @field DEM
+    @boolean 6
+  @field PALSW
+    @boolean 5
+  @field SET7
+    @boolean 4
+  @field COMB
+    @boolean 3
+  @field HCOMB
+    @boolean 2
+  @field YCOMB
+    @boolean 1
+  @field PDLY
+    @boolean 0
+
+@register[tw9990] MODE_CLAMP
+  @addr 0x0d
+  @field CLMP_LOI
+    @boolean 7
+  @field TOGGLE
+    @boolean 6
+  @field CUR_MODE
+    @boolean 5
+  @field FULL_TIME
+    @boolean 5
+  @field PRECOND
+    @boolean 3
+  @field RSTR_ON
+    @boolean 2
+  @field RSTR_MODE
+    @bits 1-0
+    @enum 0 "hsync middle"
+    @enum 1 "diff clamp"
+    @enum 2 "after color burst"
+    @enum 3 "during color burst"
+
+@register[tw9990] DIAG1
+  @addr 0x0f
+  @field B-CHAN
+    @bits 7-6
+    @enum 0 "Mux0"
+    @enum 1 "Mux1"
+    @enum 2 "Mux2"
+    @enum 3 "Mux3"
+  @field A-CHAN
+    @bits 5-4
+    @enum 0 "Mux0"
+    @enum 1 "Mux1"
+    @enum 2 "Mux2"
+    @enum 3 "Mux3"
+  @field SH_GND_THRESH
+    @bits 3-2
+    @enum 0 "1/15"
+    @enum 1 "2/16"
+    @enum 2 "3/16"
+    @enum 3 "5/16"
+  @field SH_BAT_THRESH
+    @bits 1-0
+    @enum 0 "1/8"
+    @enum 1 "3/8"
+    @enum 2 "5/8"
+    @enum 3 "7/8"
+
+@register[tw9910] VSCALE_LO
+  @addr 0x0d
+  @field VSCALE_LO
+    @uint 7-0
+
+@register[tw9910] SCALE_HI
+  @addr 0x0d
+  @field VSCALE_HI
+    @uint 7-4
+  @field HSCALE_HI
+    @uint 3-0
+
+@register[tw9910] HSCALE_HI
+  @addr 0x0f
+  @field HSCALE_LO
+    @uint 7-0
+
+@register BRIGHTNESS
+  @addr 0x10
+  @field BRIGHT
+    @uint 7-0
+
+@register CONTRAST
+  @addr 0x11
+  @field CONTRAST
+    @uint 7-0
+
+@register SHARPNESS
+  @addr 0x12
+  # TODO
+
+@register SAT_U
+  @addr 0x13
+
+@register SAT_V
+  @addr 0x14
+
+@register SAT_HUE
+  @addr 0x15
+
+@register[tw9990]  SV_DET
+  @addr 0x16
+  @field SV_DET
+    @boolean 6
+
+@register CORING0
+  @addr 0x17
+  @field SHCOR
+    @uint 7-4
+  @field[tw9990] RTSEL3
+    @uint 3
+  @field VSHP
+    @uint 2-0
+
+@register CORING1
+  @addr 0x18
+
+@register VBICNTL
+  @addr 0x19
+  @field VBI_EN
+    @boolean 7
+  @field VBI_BO
+    @boolean 6
+  @field VBI_FRAM
+    @boolean 5
+  @field HA_EN
+    @boolean 4
+  @field[tw9910] CNTL656
+    @boolean 3
+  @field RTSEL
+    @bits 2-0
+    @enum 0 "Video loss"
+    @enum 1 "H-lock"
+    @enum 2 "S-lock"
+    @enum 3 "V-lock"
+    @enum 4 "MONO"
+    @enum 5 "DET50"
+    @enum 6 "FIELD"
+    @enum 7 "RTCO"
+
+@register ACTRL2
+  @addr 0x1a
+
+@register OCTRL2
+  @addr 0x1b
+  @field CK2S
+    ## TODO: really?
+    @bits 4,7-6
+    @enum 0 "VCLK"
+    @enum 1 "CLKX1"
+    @enum 2 "CLKX2"
+    @enum 3 "LLCK"
+    @enum 4 "LLCK2"
+    @enum 5 "LLCK4"
+    @enum[tw9990] 6 "factory test"
+    @enum[tw9990] 7 "0"
+  @field CK1S
+    @uint 5-4
+  @field[tw9990] CM_GAIN_EN
+    @boolean 2
+  @field[tw9990] CM_IN_GAIN
+    @boolean 1
+  @field[tw9990] CM_OUT_ATT_EN
+    @boolean 0
 
 @register SDT
   @addr 0x1c
