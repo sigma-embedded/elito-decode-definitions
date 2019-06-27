@@ -65,8 +65,6 @@ cond_device = $(if $(filter $1,${DEVICES}),$2)
 
 #####
 
-all:
-
 include ${DECODE_PKGDATA_DIR}/mk/build.mk
 
 all:	${bin_PROGRAMS} ${bin_SCRIPTS} ${decoder_DATA}
@@ -116,3 +114,4 @@ decode-wrapper:	contrib/decode.sh.in
 
 
 .PHONY:	run-tests
+.DEFAULT_GOAL: all
