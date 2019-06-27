@@ -20,20 +20,20 @@ PATH := ${bindir}:${PATH}
 
 DECODE_PKGDATA_DIR ?= ${datadir}/decode-registers
 
+DEVICES = \
+	mx6q mx6dl mx8m \
+	ar0144 ar052x \
+	tw99x0
+
 bin_PROGRAMS = \
-	contrib/set-ar0144 \
-	contrib/set-tw99x0 \
+	$(call cond_device,ar0144,contrib/set-ar0144) \
+	$(call cond_device,tw99x0,contrib/set-tw99x0) \
 
 bin_DECODERS = \
-	decode-mx6q \
-	decode-mx6dl \
-	decode-mx8m \
-	decode-ar0144 \
-	decode-ar052x \
-	decode-tw99x0 \
+	$(addprefix decode-,${DEVICES})
 
 decoder_DATA = \
-	$(patsubst decode-%,regstream-%.bin,${bin_DECODERS})
+	$(patsubst %,regstream-%.bin,${DEVICES})
 
 bin_SCRIPTS = \
 	decode-wrapper
@@ -60,6 +60,10 @@ INSTALL_D = ${INSTALL} -d -m 0755
 SED =	sed
 SED_CMD = \
 	-e 's!@PKGDATADIR@!${pkgdatadir}!g'
+
+cond_device = $(if $(filter $1,${DEVICES}),$2)
+
+#####
 
 all:
 
