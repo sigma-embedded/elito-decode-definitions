@@ -3,6 +3,7 @@
 : ${I2CTRANSFER=i2ctransfer}
 : ${ASZ:=1}
 : ${WSZ:=1}
+: ${ENDIAN:=B}
 : ${I2C_BUS:-0}
 : ${I2C_DEV:=/dev/i2c-$I2C_BUS}
 
@@ -18,6 +19,10 @@ _i2c_add_addr() {
     local _cnt=0
 
     case $_wsz in
+      0)
+	    _cnt=0
+	    ;;
+
       1)
 	    _cnt=1
 	    ;;
@@ -32,16 +37,16 @@ _i2c_add_addr() {
 
     case $_asz in
       1)
-	    args+=( "w$[ _wsz + 1 ]"@"${I2C_ADDR}" "$[ _addr & 0xff ]" )
+	    args+=( "w$[ _cnt + 1 ]"@"${I2C_ADDR}" "$[ _addr & 0xff ]" )
 	    ;;
 
       2B)
-	    args+=( "w$[ _wsz + 2 ]"@"${I2C_ADDR}"
+	    args+=( "w$[ _cnt + 2 ]"@"${I2C_ADDR}"
 		    "$[ (_addr >> 8) & 0xff)  ]" "$[ (_addr >> 0) & 0xff ]" )
 	    ;;
 
       2L)
-	    args+=( "w$[ _wsz + 2 ]"@"${I2C_ADDR}"
+	    args+=( "w$[ _cnt + 2 ]"@"${I2C_ADDR}"
 		    "$[ (_addr >> 0) & 0xff)  ]" "$[ (_addr >> 8) & 0xff ]" )
 	    ;;
 
@@ -57,7 +62,7 @@ _i2c_read() {
 
     local args=()
 
-    _i2c_add_addr "$_asz" "$_addr" "$_wsz"
+    _i2c_add_addr "$_asz" "$_addr" 0
 
     case $_wsz in
       1)
@@ -82,14 +87,17 @@ _i2c_write() {
 
     case $_wsz in
       1)
-	    args+=( "r1"@"${I2C_ADDR}" )
+	    args+=( "$[ _val & 0xff ]" )
 	    ;;
-      2*)
-	    args+=( "r2"@"${I2C_ADDR}" )
+      2B)
+	    args+=( "$[ (_val >> 8) & 0xff ]" "$[ (_val >> 0) & 0xff ]" )
+	    ;;
+      2L)
+	    args+=( "$[ (_val >> 0) & 0xff ]" "$[ (_val >> 8) & 0xff ]" )
 	    ;;
     esac
 
-    $I2CTRANSFER -f -y "${I2C_DEV}" "${args[@]}"
+    $I2CTRANSFER -f -y "${I2C_BUS}" "${args[@]}"
 }
 
 run() {
@@ -107,7 +115,7 @@ run() {
 
 	  h)
 		do_get=false
-		wsz=2
+		wsz=2${ENDIAN}
 		shift
 		test $# -ge 2 || panic "missing args"
 		;;
@@ -181,5 +189,5 @@ run() {
 }
 
 do_decode() {
-    ${DECODE_PROG} "$@"
+    env I2C_BUS="$I2C_BUS" I2C_ADDR="$I2C_ADDR" ${DECODE_PROG} "$@"
 }
