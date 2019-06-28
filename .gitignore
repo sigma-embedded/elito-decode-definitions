@@ -6,6 +6,7 @@
 /decode-mx8m
 /decode-tw99?0
 /decode-wrapper
+/registers-*.fill.c
 /registers-*.inc.c
 /registers-*.inc.h
 /symbols-ar0144.h
