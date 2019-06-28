@@ -5,8 +5,8 @@
 _args=()
 
 case $TYPE in
-  tw99x0)
-	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-tw99x0.bin )
+  tw9910|tw9990)
+	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-$TYPE.bin )
 	_args+=( --bus-device "/dev/i2c-${I2C_BUS:-0}" --bus-addr "${I2C_ADDR:-0x44}" )
 	;;
 

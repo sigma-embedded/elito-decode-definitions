@@ -4,7 +4,7 @@
 /decode-mx6dl
 /decode-mx6q
 /decode-mx8m
-/decode-tw99x0
+/decode-tw99?0
 /decode-wrapper
 /registers-*.inc.c
 /registers-*.inc.h
@@ -13,7 +13,7 @@
 /symbols-mx6dl.h
 /symbols-mx6q.h
 /symbols-mx8m.h
-/symbols-tw99x0.h
+/symbols-tw99?0.h
 /set-ar0144
 /set-ar052x
 /set-tw9910
