@@ -1,3 +1,5 @@
+SHELL = bash
+
 all:	IPU-CPMEM/interleaved.reg
 all:	IPU-CPMEM/non-interleaved.reg
 
