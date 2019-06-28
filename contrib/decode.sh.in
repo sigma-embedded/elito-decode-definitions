@@ -37,4 +37,4 @@ case $TYPE in
 	exit 1
 esac
 
-exec decode-device "${_args[@]}" "$@"
+exec @BINDIR@/decode-device "${_args[@]}" "$@"

@@ -64,7 +64,8 @@ INSTALL_D = ${INSTALL} -d -m 0755
 
 SED =	sed
 SED_CMD = \
-	-e 's!@PKGDATADIR@!${pkgdatadir}!g'
+	-e 's!@PKGDATADIR@!${pkgdatadir}!g' \
+	-e 's!@BINDIR@!${bindir}!g' \
 
 cond_device = $(if $(filter $1,${DEVICES}),$2)
 
