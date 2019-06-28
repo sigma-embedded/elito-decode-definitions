@@ -1,0 +1,185 @@
+#! /bin/bash
+
+: ${I2CTRANSFER=i2ctransfer}
+: ${ASZ:=1}
+: ${WSZ:=1}
+: ${I2C_BUS:-0}
+: ${I2C_DEV:=/dev/i2c-$I2C_BUS}
+
+panic() {
+    echo "$*" >&2
+    exit 1
+}
+
+_i2c_add_addr() {
+    local _asz=$1
+    local _addr=$2
+    local _wsz=$3
+    local _cnt=0
+
+    case $_wsz in
+      1)
+	    _cnt=1
+	    ;;
+      2*)
+	    _cnt=2
+	    ;;
+
+      *)
+	    panic "Unsupported word size '$_wsz'"
+	    ;;
+    esac
+
+    case $_asz in
+      1)
+	    args+=( "w$[ _wsz + 1 ]"@"${I2C_ADDR}" "$[ _addr & 0xff ]" )
+	    ;;
+
+      2B)
+	    args+=( "w$[ _wsz + 2 ]"@"${I2C_ADDR}"
+		    "$[ (_addr >> 8) & 0xff)  ]" "$[ (_addr >> 0) & 0xff ]" )
+	    ;;
+
+      2L)
+	    args+=( "w$[ _wsz + 2 ]"@"${I2C_ADDR}"
+		    "$[ (_addr >> 0) & 0xff)  ]" "$[ (_addr >> 8) & 0xff ]" )
+	    ;;
+
+      *)
+	    panic "Unsupported address size '$_asz'"
+    esac
+}
+
+_i2c_read() {
+    local _addr=$1
+    local _asz=${2:-$ASZ}
+    local _wsz=${3:-$WSZ}
+
+    local args=()
+
+    _i2c_add_addr "$_asz" "$_addr" "$_wsz"
+
+    case $_wsz in
+      1)
+	    args+=( "r1"@"${I2C_ADDR}" )
+	    ;;
+
+      2*)
+	    args+=( "r2"@"${I2C_ADDR}" )
+	    ;;
+    esac
+
+    $I2CTRANSFER -f -y "${I2C_BUS}" "${args[@]}"
+}
+
+_i2c_write() {
+    local _addr=$1
+    local _val=$2
+    local _asz=${3:-$ASZ}
+    local _wsz=${4:-$WSZ}
+
+    _i2c_add_addr "$_asz" "$_addr" "$_wsz"
+
+    case $_wsz in
+      1)
+	    args+=( "r1"@"${I2C_ADDR}" )
+	    ;;
+      2*)
+	    args+=( "r2"@"${I2C_ADDR}" )
+	    ;;
+    esac
+
+    $I2CTRANSFER -f -y "${I2C_DEV}" "${args[@]}"
+}
+
+run() {
+    local do_get=false
+    local wsz=${WSZ}
+    local addr=0
+
+    while test $# -gt 0; do
+	case $1 in
+	  b)
+		do_get=false
+		shift
+		test $# -ge 2 || panic "missing args"
+		;;
+
+	  h)
+		do_get=false
+		wsz=2
+		shift
+		test $# -ge 2 || panic "missing args"
+		;;
+
+	  H)
+		test $# -ge 3 || panic "missing args"
+
+		local _val
+
+		do_get=false
+		addr=$2
+		_val=$3
+		shift 3
+		set -- R "$addr" h "$addr" "$_val" "?" "$@"
+
+		unset _val
+		continue
+		;;
+
+	  R)
+		do_get=true
+		shift
+		test $# -ge 1 || panic "missing args"
+		;;
+
+	  \?)
+		do_get=true
+		shift
+		set -- "$addr" "$@"
+		;;
+
+	  *)
+		local par_sft=1
+		local do_continue=true
+		local new_args=( "$@" )
+
+		parse_arg "$@" || panic "bad args '$*'"
+
+		set -- "${new_args[@]}"
+
+		! $do_continue || continue
+		;;
+	esac
+
+	if $do_get; then
+	    local start
+	    local end
+
+	    case $1 in
+	      *-*)
+		    start=${1%%-*}
+		    end=${1##*-}
+		    ;;
+	      *)
+		    start=$1
+		    end=$1
+		    ;;
+	    esac
+	    shift
+
+	    addr=$start
+
+	    do_decode "$start" "$end" || _i2c_read "$addr" '' "$wsz"
+	else
+	    addr=$1
+
+	    _i2c_write "$1" "$2" '' "$wsz"
+	    shift 2
+	fi
+    done
+}
+
+do_decode() {
+    ${DECODE_PROG} "$@"
+}

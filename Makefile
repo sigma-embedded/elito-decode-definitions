@@ -25,18 +25,21 @@ DEVICES = \
 	ar0144 ar052x \
 	tw9910 tw9990
 
-bin_PROGRAMS = \
-	$(call cond_device,ar0144,contrib/set-ar0144) \
-	$(call cond_device,tw99x0,contrib/set-tw99x0) \
-
 bin_DECODERS = \
 	$(addprefix decode-,${DEVICES})
 
 decoder_DATA = \
 	$(patsubst %,regstream-%.bin,${DEVICES})
 
+pkgdata_DATA = \
+	contrib/set-i2c
+
 bin_SCRIPTS = \
-	decode-wrapper
+	decode-wrapper \
+	$(call cond_device,ar0144,set-ar0144) \
+	$(call cond_device,ar052x,set-ar052x) \
+	$(call cond_device,tw9910,set-tw9910) \
+	$(call cond_device,tw9990,set-tw9990) \
 
 REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl
@@ -69,9 +72,9 @@ cond_device = $(if $(filter $1,${DEVICES}),$2)
 
 include ${DECODE_PKGDATA_DIR}/mk/build.mk
 
-all:	${bin_PROGRAMS} ${bin_SCRIPTS} ${decoder_DATA}
+all:	${bin_PROGRAMS} ${bin_SCRIPTS} ${decoder_DATA} ${pkgdata_DATA}
 
-install:	.install-bin .install-bin-decoders .install-data-decoders
+install:	.install-bin .install-bin-decoders .install-data-decoders .install-pkgdata
 
 clean:	.subdir-clean
 	rm -f ${bin_SCRIPTS} ${decoder_DATA}
@@ -101,6 +104,11 @@ decode-wrapper:	contrib/decode.sh.in
 	${SED} ${SED_CMD} < $< > '$@'
 	@chmod a+rX,a-w '$@'
 
+set-%:		contrib/set-%.in
+	@rm -f '$@'
+	${SED} ${SED_CMD} < $< > '$@'
+	@chmod a+rx,a-w '$@'
+
 .install-bin:	${bin_PROGRAMS} ${bin_SCRIPTS}
 	${INSTALL_D} ${DESTDIR}${bindir}
 	${INSTALL_BIN} $^ ${DESTDIR}${bindir}/
@@ -115,6 +123,9 @@ decode-wrapper:	contrib/decode.sh.in
 	${INSTALL_D} ${DESTDIR}${decoderdir}
 	${INSTALL_DATA} $^ ${DESTDIR}${decoderdir}/
 
+.install-pkgdata:	${pkgdata_DATA}
+	${INSTALL_D} ${DESTDIR}${pkgdatadir}
+	${INSTALL_DATA} $^ ${DESTDIR}${pkgdatadir}/
 
 .PHONY:	run-tests
 .DEFAULT_GOAL: all
