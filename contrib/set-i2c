@@ -4,7 +4,7 @@
 : ${ASZ:=1}
 : ${WSZ:=1}
 : ${ENDIAN:=B}
-: ${I2C_BUS:-0}
+: ${I2C_BUS:=0}
 : ${I2C_DEV:=/dev/i2c-$I2C_BUS}
 
 panic() {
@@ -42,12 +42,12 @@ _i2c_add_addr() {
 
       2B)
 	    args+=( "w$[ _cnt + 2 ]"@"${I2C_ADDR}"
-		    "$[ (_addr >> 8) & 0xff)  ]" "$[ (_addr >> 0) & 0xff ]" )
+		    "$[ (_addr >> 8) & 0xff ]" "$[ (_addr >> 0) & 0xff ]" )
 	    ;;
 
       2L)
 	    args+=( "w$[ _cnt + 2 ]"@"${I2C_ADDR}"
-		    "$[ (_addr >> 0) & 0xff)  ]" "$[ (_addr >> 8) & 0xff ]" )
+		    "$[ (_addr >> 0) & 0xff ]" "$[ (_addr >> 8) & 0xff ]" )
 	    ;;
 
       *)
