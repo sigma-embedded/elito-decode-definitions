@@ -1,8 +1,11 @@
 #! /bin/bash
 
 : ${I2C_ADDR:=0x44}
-: ${I2C_BUS=0}
-: ${DECODE_PROG=decode-tw9990}
+: ${I2C_BUS:=0}
+: ${DECODE_PROG:=decode-tw9990}
+
+ASZ=1
+WSZ=1
 
 . @PKGDATADIR@/set-i2c
 
