@@ -17,7 +17,7 @@ case $TYPE in
 
   ar052x)
 	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-ar052x.bin )
-	_args+=( --bus-device "/dev/i2c-${I2C_BUS:-0}" --bus-addr "${I2C_ADDR:-0x10}" )
+	_args+=( --bus-device "/dev/i2c-${I2C_BUS:-0}" --bus-addr "${I2C_ADDR:-0x36}" )
 	;;
 
   mx6q|mx6d|mx6qdl)
