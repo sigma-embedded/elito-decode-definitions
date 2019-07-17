@@ -28,6 +28,9 @@
   @field cols
     @uint 15-0
 
+@register coarse_integration_time_
+  @addr 0x3012
+
 @register row_speed
   @addr 0x3016 16
   @field op_speed
@@ -110,6 +113,11 @@
   @addr 0x3028
   @field v
     @frac 15-4 3-0
+
+@register frame_count_
+  @addr 0x303b 8
+  @field cnt
+    @uint 7-0
 
 @register frame_status
   @addr 0x303c
@@ -389,7 +397,7 @@
     @boolean 3
   @field hispi_sp_protocol
     @bits 2
-    @enum 0 "packatized"
+    @enum 0 "packetized"
     @enum 1 "streaming"
   @field output_msb_first
     @boolean 1
@@ -407,6 +415,9 @@
     @uint 5-0
   @field mipi_padding_en
     @boolean 8
+
+@register t1_t2_interval
+  @addr 0x3400
 
 @register green1_gain_t2
   @addr 0x3402
@@ -453,11 +464,19 @@
   @field analog_fine_gain_t2
     @uint 3-0
 
+@register hispi_control_status2
+  @addr 0x3494
 
 @register analog_control6
   @addr 0x317a
   @field row_sf_bin2
     @boolean 12
+
+@register bm_t0
+  @addr 0x3f00
+
+@register bm_t1
+  @addr 0x3f02
 
 @register analog_control10
   @addr 0x3f3e
