@@ -102,6 +102,7 @@ _i2c_write() {
 
 run() {
     local do_get=false
+    local be_quiet=false
     local wsz=${WSZ}
     local addr=0
 
@@ -139,6 +140,16 @@ run() {
 		do_get=true
 		shift
 		test $# -ge 1 || panic "missing args"
+		;;
+
+	  _Q0)
+		be_quiet=false
+		shift
+		;;
+
+	  _Q1)
+		be_quiet=true
+		shift
 		;;
 
 	  \?)
