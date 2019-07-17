@@ -38,6 +38,18 @@ parse_arg() {
 		       _Q0
 		       "$@" )
 	    ;;
+
+      STATUS)
+	    shift
+	    new_args=( _Q1
+		       R 0x303c
+		       R 0x306a
+		       R 0x31be
+		       R 0x31c6
+		       _Q0
+		       "$@" )
+	    ;;
+
       *)
 	    return 1
 	    ;;
