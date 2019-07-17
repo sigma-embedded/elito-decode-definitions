@@ -10,4 +10,38 @@ ENDIAN=B
 
 . @PKGDATADIR@/set-i2c
 
+parse_arg() {
+    case $1 in
+      Z)			# wiZard
+	    shift
+	    new_args=( _Q1
+		       R 0x300-0x30A
+		       R 0x31AE-0x31BC
+		       R 0x3220
+		       R 0x110-0x112
+		       R 0x3012
+		       R 0x300A-0x300C
+		       R 0x3004
+		       R 0x3002
+		       R 0x3008
+		       R 0x3006
+		       R 0x303e-0x3040
+		       R 0x317A
+		       R 0x3F3E
+		       R 0x3400
+		       R 0x034C-0x034E
+		       R 0x31c6
+		       R 0x3494
+		       R 0x404
+		       R 0x3f00
+		       R 0x3f02
+		       _Q0
+		       "$@" )
+	    ;;
+      *)
+	    return 1
+	    ;;
+    esac
+}
+
 run "$@"
