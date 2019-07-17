@@ -1,16 +1,13 @@
 @register CR18
   @addr 0x0048
-  @field NTSC_EN
-    @boolean 0
-
-  @field TVDECODER_IN_EN
-    @boolean 1
-
   @field CCIR656
     @boolean 2
-    
+
   @field PARALLEL24_EN
     @boolean 3
+
+  @field BASEADDR_SWITCH_ENA
+    @boolean 4
 
   @field BASEADDR_SWITCH_SEL
     @bits 5
@@ -38,7 +35,7 @@
 
   @field AHB_HPROT
     @uint 15-12
- 
+
   @field CSI_LCDIF_BUFFER_LINES
     @bits 17-16
       @enum 0 "4 lines"
