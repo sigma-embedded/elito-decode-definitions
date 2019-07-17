@@ -12,6 +12,11 @@ panic() {
     exit 1
 }
 
+# to be overridden
+parse_arg() {
+    return 1
+}
+
 _i2c_add_addr() {
     local _asz=$1
     local _addr=$2
