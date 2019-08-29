@@ -1,0 +1,93 @@
+@register FSIZE
+  @addr 0x0000
+  @field FHEIGHT
+    @uint 26-16
+  @field FWIDTH
+    @uint 10-0
+
+@register C
+  @addr 0x0004
+  @field TOP_AUTO
+    @bits 31
+    @enum 0 "even"
+    @enum 1 "even"
+  @field TOP_MANUAL
+    @bits 30
+    @enum 0 "even"
+    @enum 1 "even"
+  @field VWM3_CLR
+    @uint 27-25
+  @field VWM3_SET
+    @uint 24-22
+  @field VWM1_CLR
+    @uint 21-19
+  @field VWM1_SET
+    @uint 18-16
+  @field BURST_SIZE3
+    @uint 15-12
+  @field BURST_SIZE2
+    @uint 11-8
+  @field BURST_SIZE1
+    @uint 7-4
+  @field MOT_SEL
+    @bits 3-2
+    @enum  0 "ROM 1"
+    @enum  1 "ROM 2"
+    @enum  2 "full"
+  @field CH_422
+    @bits 1
+    @enum  0 "420"
+    @enum  1 "422"
+
+@register C2
+  @addr 0x0008
+  @field PLANE_1_EN
+    @boolean 3
+  @field GLB_A_EN
+    @boolean 2
+  @field KEY_COLOR_EN
+    @boolean 1
+  @field CMB_EN
+    @boolean 0
+
+@register CMDP_1
+  @addr 0x000c
+  @field ALPHA
+    @uint 31-24
+  @field COLOR_R
+    @uint 23-16
+  @field COLOR_G
+    @uint 15-8
+  @field COLOR_B
+    @uint 7-0
+
+@register CMDP_2
+  @addr 0x0010
+  @field KEY_COLOR_R
+    @uint 23-16
+  @field KEY_COLOR_G
+    @uint 15-8
+  @field KEY_COLOR_B
+    @uint 7-0
+
+@register PS_1
+  @addr 0x0014
+  @field FHEIGHT
+    @uint 26-16
+  @field FWIDTH
+    @uint 10-0
+
+@register PS_2
+  @addr 0x0018
+  @field OFFSET_VER
+    @uint 26-16
+  @field OFFSET_HOR
+    @uint 10-0
+
+@register PS_3
+  @use PS_1
+  @addr 0x001c
+
+@register PS_4
+  @use PS_2
+  @addr 0x0020

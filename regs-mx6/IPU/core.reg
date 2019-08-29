@@ -47,9 +47,173 @@
     @enum 0 "CSI"
     @enum 1 "VDI"
   @field[imx6qd] CSI_SEL
-    @bits 30
+    @bits 31
     @enum 0 "CSI0"
     @enum 1 "CSI1"
+
+@register FS_PROC_FLOW1
+  @addr 0x00a8
+  @field VF_IN_VALID
+    @boolean 31
+  @field ENC_IN_VALID
+    @boolean 30
+  @field VDI_SRC_SEL
+    @bits 29-28
+    @enum 0 "ARM"
+    @enum 1 "CSI"
+    @enum 2 "VDOA"
+  @field PRP_SRC_SEL
+    @bits 27-24
+    @enum  0 "ARM"
+    @enum  1 "SMFC0"
+    @enum  3 "SMFC2"
+    @enum  5 "IC"
+    @enum  6 "IRT Enc"
+    @enum  7 "IRT VF"
+    @enum 11 "autoref"
+    @enum 12 "autoref+snoop1"
+    @enum 13 "autoref+snoop2"
+    @enum 14 "snoop1"
+    @enum 15 "snoop2"
+  @field VDI3_SRC_SEL
+    @bits 23-22
+    @enum 0 "ARM"
+    @enum 1 "IRT VF"
+    @enum 2 "IRT PB"
+    @enum 3 "PP"
+  @field VDI1_SRC_SEL
+    @bits 21-20
+    @enum 0 "ARM"
+    @enum 1 "IRT VF"
+    @enum 2 "IRT PB"
+    @enum 3 "PP"
+  @field PP_ROT_SRC_SEL
+    @bits 19-16
+    @enum  0 "ARM"
+    @enum  1 "SMFC0"
+    @enum  3 "SMFC2"
+    @enum  5 "PP"
+    @enum 11 "autoref"
+    @enum 12 "autoref+snoop1"
+    @enum 13 "autoref+snoop2"
+    @enum 14 "snoop1"
+    @enum 15 "snoop2"
+  @field PP_SRC_SEL
+    @bits 15-12
+    @enum  0 "ARM"
+    @enum  1 "SMFC0"
+    @enum  3 "SMFC2"
+    @enum  6 "PP ROT"
+    @enum  8 "VDOA"
+    @enum 11 "autoref"
+    @enum 12 "autoref+snoop1"
+    @enum 13 "autoref+snoop2"
+    @enum 14 "snoop1"
+    @enum 15 "snoop2"
+  @field PRPVF_ROT_SRC_SEL
+    @bits 11-8
+    @enum  0 "ARM"
+    @enum  1 "SMFC0"
+    @enum  2 "SMFC1"
+    @enum  3 "SMFC2"
+    @enum  4 "SMFC4"
+    @enum  5 "IC"
+    @enum  8 "VF"
+    @enum 11 "autoref"
+    @enum 12 "autoref+snoop1"
+    @enum 13 "autoref+snoop2"
+    @enum 14 "snoop1"
+    @enum 15 "snoop2"
+  @field PRPENC_ROT_SRC_SEL
+    @bits 11-8
+    @enum  0 "ARM"
+    @enum  1 "SMFC0"
+    @enum  2 "SMFC1"
+    @enum  3 "SMFC2"
+    @enum  4 "SMFC4"
+    @enum  5 "IC"
+    @enum  7 "ENC"
+    @enum 11 "autoref"
+    @enum 12 "autoref+snoop1"
+    @enum 13 "autoref+snoop2"
+    @enum 14 "snoop1"
+    @enum 15 "snoop2"
+
+@register FS_PROC_FLOW2
+  @addr 0x00ac
+  @field PRP_DEST_SEL
+    @bits 27-24
+    @enum 0 "ARM"
+    @enum 1 "IC (12)"
+    @enum 2 "PP (11)"
+    @enum 3 "PP_ROT (47)"
+    @enum 4 "DC1 (28)"
+    @enum 5 "DC2 (41)"
+    @enum 6 "DP_ASYNC1 (24)"
+    @enum 7 "DP_ASYNC0 (29)"
+    @enum 8 "DP_SYNC1 (27)"
+    @enum 9 "DP_SYNC0 (23)"
+    @enum 10 "ALT DC2 (41)"
+    @enum 11 "ALT DP_ASYNC1 (24)"
+    @enum 12 "ALT DP_ASYNC0 (29)"
+  @field PRPENC_ROT_DEST_SEL
+    @bits 23-20
+    @enum 0 "ARM"
+    @enum 5 "IC PP"
+    @enum 7 "DC1 (28)"
+    @enum 8 "DC2 (41)"
+    @enum 9 "DP_SYNC0 (23)"
+    @enum 10 "DP_SYNC1 (27)"
+    @enum 11 "DP_ASYNC0 (24)"
+    @enum 12 "DP_ASYNC1 (29)"
+    @enum 13 "ALT DC2 (41)"
+    @enum 14 "ALT DP_ASYNC1 (24)"
+    @enum 15 "ALT DP_ASYNC0 (29)"
+  @field PP_ROT_DEST_SEL
+    @bits 19-16
+    @enum  0 "ARM"
+    @enum  4 "IC PP"
+    @enum  5 "VDI_PLANE3 (25)"
+    @enum  6 "VDI_PLANE1 (26)"
+    @enum  7 "DC1 (28)"
+    @enum  8 "DC2 (41)"
+    @enum  9 "DP_SYNC0 (23)"
+    @enum 10 "DP_SYNC1 (27)"
+    @enum 11 "DP_ASYNC0 (24)"
+    @enum 12 "DP_ASYNC1 (29)"
+    @enum 13 "ALT DC2 (41)"
+    @enum 14 "ALT DP_ASYNC1 (24)"
+    @enum 15 "ALT DP_ASYNC0 (29)"
+  @field PP_DEST_SEL
+    @bits 15-12
+    @enum  0 "ARM"
+    @enum  3 "IRT"
+    @enum  4 "VDI_PLANE3 (25)"
+    @enum  5 "VDI_PLANE1 (26)"
+    @enum  7 "DC1 (28)"
+    @enum  8 "DC2 (41)"
+    @enum  9 "DP_SYNC0 (28)"
+    @enum 10 "DP_SYNC1 (27)"
+    @enum 11 "DP_ASYNC1 (24)"
+    @enum 12 "DP_ASYNC0 (29)"
+    @enum 13 "ALT DC2 (41)"
+    @enum 14 "ALT DP_ASYNC1 (24)"
+    @enum 15 "ALT DP_ASYNC0 (29)"
+
+@register SKIP
+  @addr 0x00bc
+  @field VDI_SKIP
+    @uint 31-20
+  @field VDI_MAX_RATIO_SKIP
+    @uint 19-16
+  @field CSI_SKIP_IC_VF
+    @uint 15-11
+  @field CSI_MAX_RATIO_SKIP_IC_VF
+    @uint 10-8
+  @field CSI_SKIP_IC_ENC
+    @uint 7-3
+  @field CSI_MAX_RATIO_SKIP_IC_ENC
+    @uint 2-0
 
 @register DISP_GEN
   @addr 0x00c4
@@ -112,7 +276,7 @@
 
 @register PM
   @addr 0xe0
- 
+
   @field DI0_CLK_PERIOD_0
     @frac 6-4 3-0
 

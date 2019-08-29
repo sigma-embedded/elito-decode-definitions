@@ -1,0 +1,145 @@
+@register _DB_CH0
+  @template
+
+@register _DB_CH1
+  @template
+
+@register _ALT_CH0
+  @template
+  @field CH29
+    @boolean 29
+  @field CH24
+    @boolean 24
+  @field CH7
+    @boolean 7
+  @field CH6
+    @boolean 6
+  @field CH5
+    @boolean 5
+  @field CH4
+    @boolean 4
+
+@register _ALT_CH1
+  @template
+  @field CH52
+    @boolean 20
+  @field CH41
+    @boolean 9
+  @field CH33
+    @boolean 1
+
+@register _TRB_CH0
+  @template
+  @field CH28
+    @boolean 28
+  @field CH27
+    @boolean 27
+  @field CH23
+    @boolean 23
+  @field CH21
+    @boolean 21
+  @field CH13
+    @boolean 13
+  @field CH10
+    @boolean 10
+  @field CH9
+    @boolean 9
+  @field CH8
+    @boolean 8
+
+@register _TRB_CH1
+  @template
+
+################
+
+@register DB_MODE_SEL0
+  @addr 0x150
+  @use _DB_CH0
+
+@register DB_MODE_SEL1
+  @addr 0x154
+  @use _DB_CH1
+
+@register ALT_CH_DB_MODE_SEL0
+  @addr 0x168
+  @use _ALT_CH0
+    
+@register ALT_CH_DB_MODE_SEL1
+  @addr 0x16c
+  @use _ALT_CH1
+    
+@register ALT_CH_TRB_MODE_SEL0
+  @addr 0x178
+  @use _TRB_CH0
+
+@register ALT_CH_TRB_MODE_SEL1
+  @addr 0x17c
+  @use _TRB_CH1
+
+@register CUR_BUF_0
+  @addr 0x23c
+  @use _DB_CH0
+
+@register CUR_BUF_1
+  @addr 0x240
+  @use _DB_CH1
+
+@register ALT_CUR_0
+  @addr 0x244
+  @use _ALT_CH0
+
+@register ALT_CUR_1
+  @addr 0x24c
+  @use _ALT_CH1
+
+@register TRIPLE_CUR_0
+  @addr 0x258
+  @use _TRB_CH0
+
+@register TRIPLE_CUR_1
+  @addr 0x25c
+  @use _TRB_CH1
+
+##
+
+@register CH_BUF0_RDY0
+  @addr 0x268
+  @use _DB_CH0
+
+@register CH_BUF0_RDY1
+  @addr 0x26c
+  @use _DB_CH1
+
+@register CH_BUF1_RDY0
+  @addr 0x270
+  @use _DB_CH0
+
+@register CH_BUF1_RDY1
+  @addr 0x274
+  @use _DB_CH1
+
+@register CH_BUF2_RDY0
+  @addr 0x288
+  @use _TRB_CH0
+
+@register CH_BUF2_RDY1
+  @addr 0x28c
+  @use _TRB_CH1
+
+##
+
+@register ALT_CH_BUF0_RDY0
+  @addr 0x278
+  @use _ALT_CH0
+
+@register ALT_CH_BUF0_RDY1
+  @addr 0x27c
+  @use _ALT_CH1
+
+@register ALT_CH_BUF1_RDY0
+  @addr 0x280
+  @use _ALT_CH0
+
+@register ALT_CH_BUF1_RDY1
+  @addr 0x284
+  @use _ALT_CH1

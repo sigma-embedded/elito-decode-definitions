@@ -1,0 +1,38 @@
+@register CONF
+  @addr 0
+  @field USED_BUFS_EN_R
+    @boolean 25
+  @field USED_BUFS_MAX_R
+    @uint 24-21
+  @field USED_BUFS_EN_W
+    @boolean 20
+  @field USED_BUFS_MAX_W
+    @uint 19-17
+  @field P_ENIAN
+    @boolean 16
+  @field RDI
+    @boolean 5
+  @field WIDPT
+    @uint 4-3
+  @field MAX_REQ_READ
+    @uint 2-0
+
+@register CH_EN_1
+  @addr 0x0004
+
+@register CH_EN_2
+  @addr 0x0008
+
+@register CH_PRI_1
+  @addr 0x0014
+
+@register CH_PRI_2
+  @addr 0x0018
+
+@register CH_BUSY_1
+  @addr 0x0100
+  @ro
+
+@register CH_BUSY_2
+  @addr 0x0104
+  @ro

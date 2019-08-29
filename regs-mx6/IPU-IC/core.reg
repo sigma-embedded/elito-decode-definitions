@@ -1,0 +1,37 @@
+@register CONF
+  @addr 0x0000
+  @field CSI_MEM_WR_EN
+    @boolean 31
+  @field RWS_EN
+    @boolean 30
+  @field IC_KEY_COLOR_EN
+    @boolean 29
+  @field IC_GLB_LOC_A
+    @boolean 28
+  @field PP_ROT_EN
+    @boolean 20
+  @field PP_CMB
+    @boolean 19
+  @field PP_CSC2
+    @boolean 18
+  @field PP_CSC1
+    @boolean 17
+  @field PP_EN
+    @boolean 16
+  @field PRPVF_ROT_EN
+    @boolean 12
+  @field PRPVF_CMB
+    @boolean 11
+  @field PRPVF_CSC2
+    @boolean 10
+  @field PRPVF_CSC1
+    @boolean 9
+  @field PRPVF_EN
+    @boolean 8
+  @field PRPENC_ROT_EN
+    @boolean 2
+  @field PRPENC_CSC1_EN
+    @boolean 1
+  @field PRPENC_EN
+    @boolean 0
+    

@@ -5,7 +5,15 @@
 
 @unit IPU1
   @use _IPU
-  @reg 0x02600000 0x100000
+  @reg 0x02600000 0x008000
+
+@unit IPU1-IDMAC
+  @reg 0x02608000 0x008000
+  @registers IPU-IDMAC/
+
+@unit IPU1-IC
+  @reg 0x02620000 0x008000
+  @registers IPU-IC/
 
 @unit IPU1-CSI0
   @reg 0x02630000 0x008000
@@ -23,9 +31,25 @@
   @reg 0x02648000 0x008000
   @registers IPU-DI/
 
+@unit IPU1-DC
+  @reg 0x02658000 0x008000
+  @registers IPU-DC/
+
+@unit IPU1-VDI
+  @reg 0x02668000 0x008000
+  @registers IPU-VDI/
+
 @unit[imx6qd] IPU2
   @use _IPU
-  @reg 0x02A00000 0x100000
+  @reg 0x02A00000 0x008000
+
+@unit[imx6qd] IPU2-IDMAC
+  @reg 0x02a08000 0x008000
+  @registers IPU-IDMAC/
+
+@unit[imx6qd] IPU2-IC
+  @reg 0x02620000 0x008000
+  @registers IPU-IC/
 
 @unit[imx6qd] IPU2-CSI0
   @reg 0x02A30000 0x008000
@@ -42,3 +66,11 @@
 @unit[imx6qd] IPU2-DI1
   @reg 0x02A48000 0x008000
   @registers IPU-DI/
+
+@unit[imx6qd] IPU2-DC
+  @reg 0x02A58000 0x008000
+  @registers IPU-DC/
+
+@unit[imx6qd] IPU2-VDI
+  @reg 0x02A68000 0x008000
+  @registers IPU-VDI/

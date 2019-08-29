@@ -1,0 +1,187 @@
+@register _INT_9
+  @template
+  @field CSI1_PUEPE
+    @boolean 31
+  @field CSI0_PUEPE
+    @boolean 30
+  @field IC_VF_BUF_OVF
+    @boolean 28
+  @field IC_ENC_BUF_OVF
+    @boolean 27
+  @field IC_BAYER_BUF_OVF
+    @boolean 26
+  @field VDI_FIFO1_OVF
+    @boolean 0
+
+@register _INT_10
+  @template
+  @field AXIR_ERR
+    @boolean 30
+  @field AXIW_ERR
+    @boolean 29
+  @field NON_PRIVLEGED_ACC_ERR
+    @boolean 28
+  @field IC_BAYER_FRM_LOST_ERR
+    @boolean 26
+  @field IC_ENC_FRM_LOST_ERR
+    @boolean 25
+  @field IC_VF_FRM_LOST_ERR
+    @boolean 24
+  @field D1_TIME_OUT_ERR
+    @boolean 22
+  @field D0_TIME_OUT_ERR
+    @boolean 21
+  @field D1_SYNC_DISP_ERR
+    @boolean 20
+  @field D0_SYNC_DISP_ERR
+    @boolean 19
+  @field DC_TEARING_ERR_6
+    @boolean 18
+  @field DC_TEARING_ERR_2
+    @boolean 17
+  @field DC_TEARING_ERR_1
+    @boolean 16
+  @field SMFC3_FRM_LOST
+    @boolean 3
+  @field SMFC2_FRM_LOST
+    @boolean 2
+  @field SMFC1_FRM_LOST
+    @boolean 1
+  @field SMFC0_FRM_LOST
+    @boolean 0
+
+@register _INT_15
+  @template
+
+###
+
+@register INT_CTRL_EOF_0
+  @addr 0x003c
+
+@register INT_CTRL_EOF_1
+  @addr 0x0040
+
+@register INT_CTRL_NFACK_0
+  @addr 0x0044
+
+@register INT_CTRL_NFACK_1
+  @addr 0x0048
+
+@register INT_CTRL_NFB4EOF_0
+  @addr 0x004c
+
+@register INT_CTRL_NFB4EOF_1
+  @addr 0x0050
+
+@register INT_CTRL_EOS_0
+  @addr 0x0054
+
+@register INT_CTRL_EOS_1
+  @addr 0x0058
+
+@register INT_CTRL_9
+  @addr 0x005c
+  @use _INT_9
+
+@register INT_CTRL_10
+  @addr 0x0060
+  @use _INT_10
+
+@register INT_CTRL_EOBND_0
+  @addr 0x0064
+
+@register INT_CTRL_EOBND_1
+  @addr 0x0068
+
+@register INT_CTRL_TH_0
+  @addr 0x006c
+
+@register INT_CTRL_TH_1
+  @addr 0x0070
+
+@register INT_CTRL_15
+  @addr 0x0074
+  @use _INT_15
+
+###
+
+@register INT_STAT_EOF_0
+  @addr 0x200
+
+@register INT_STAT_EOF_1
+  @addr 0x204
+
+@register INT_STAT_NFACK_0
+  @addr 0x208
+
+@register INT_STAT_NFACK_1
+  @addr 0x20c
+
+@register INT_STAT_NFB4EOF_0
+  @addr 0x210
+
+@register INT_STAT_NFB4EOF_1
+  @addr 0x214
+
+@register INT_STAT_EOS_0
+  @addr 0x218
+
+@register INT_STAT_EOS_1
+  @addr 0x21c
+
+@register INT_STAT_9
+  @addr 0x220
+  @use _INT_9
+
+@register INT_STAT_10
+  @addr 0x224
+  @use _INT_10
+
+@register INT_STAT_EOBND_0
+  @addr 0x228
+
+@register INT_STAT_EOBND_1
+  @addr 0x22c
+
+@register INT_STAT_TH_0
+  @addr 0x230
+
+@register INT_STAT_TH_1
+  @addr 0x234
+
+@register INT_STAT_15
+  @addr 0x238
+  @use _INT_15
+
+###
+
+@register SDMA_EOF_0
+  @addr 0x0078
+
+@register SDMA_EOF_1
+  @addr 0x007c
+
+@register SDMA_NFACK_0
+  @addr 0x0080
+
+@register SDMA_NFACK_1
+  @addr 0x0084
+
+@register SDMA_EOS_0
+  @addr 0x0088
+
+@register SDMA_EOS_1
+  @addr 0x008c
+
+@register SDMA_EOBND_0
+  @addr 0x0090
+
+@register SDMA_EOBND_1
+  @addr 0x0094
+
+@register SDMA_TH_0
+  @addr 0x0098
+
+@register SDMA_TH_1
+  @addr 0x009c
+

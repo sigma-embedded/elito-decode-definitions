@@ -1,5 +1,5 @@
 @register MAP_CONF_0
-  @addr 0x58108
+  @addr 0x0108
   @field MAPPING_PNTR_BYTE0a
     @bits 0-4
     @enum 0 "0"
@@ -22,64 +22,64 @@
 
 @register MAP_CONF_1
   @use  MAP_CONF_0
-  @addr 0x5810c
+  @addr 0x010c
 
 @register MAP_CONF_2
   @use  MAP_CONF_0
-  @addr 0x58110
+  @addr 0x0110
 
 @register MAP_CONF_3
   @use  MAP_CONF_0
-  @addr 0x58114
+  @addr 0x0114
 
 @register MAP_CONF_4
   @use  MAP_CONF_0
-  @addr 0x58118
+  @addr 0x0118
 
 @register MAP_CONF_5
   @use  MAP_CONF_0
-  @addr 0x5811c
+  @addr 0x011c
 
 @register MAP_CONF_6
   @use  MAP_CONF_0
-  @addr 0x58120
+  @addr 0x0120
 
 @register MAP_CONF_7
   @use  MAP_CONF_0
-  @addr 0x58124
+  @addr 0x0124
 
 @register MAP_CONF_8
   @use  MAP_CONF_0
-  @addr 0x58128
+  @addr 0x0128
 
 @register MAP_CONF_9
   @use  MAP_CONF_0
-  @addr 0x5812c
+  @addr 0x012c
 
 @register MAP_CONF_10
   @use  MAP_CONF_0
-  @addr 0x58130
+  @addr 0x0130
 
 @register MAP_CONF_11
   @use  MAP_CONF_0
-  @addr 0x58134
+  @addr 0x0134
 
 @register MAP_CONF_12
   @use  MAP_CONF_0
-  @addr 0x58138
+  @addr 0x0138
 
 @register MAP_CONF_13
   @use  MAP_CONF_0
-  @addr 0x5813c
+  @addr 0x013c
 
 @register MAP_CONF_14
   @use  MAP_CONF_0
-  @addr 0x58140
+  @addr 0x0140
 
 ####
 
 @register MAP_CONF_15
-  @addr 0x58144
+  @addr 0x0144
   @field MD_MASK_a
     @bits 0-7
     @enum 0 "0"
@@ -98,44 +98,44 @@
 
 @register MAP_CONF_16
   @use  MAP_CONF_15
-  @addr 0x58148
+  @addr 0x0148
 
 @register MAP_CONF_17
   @use  MAP_CONF_15
-  @addr 0x5814c
+  @addr 0x014c
 
 @register MAP_CONF_18
   @use  MAP_CONF_15
-  @addr 0x58150
+  @addr 0x0150
 
 @register MAP_CONF_19
   @use  MAP_CONF_15
-  @addr 0x58154
+  @addr 0x0154
 
 @register MAP_CONF_20
   @use  MAP_CONF_15
-  @addr 0x58158
+  @addr 0x0158
 
 @register MAP_CONF_21
   @use  MAP_CONF_15
-  @addr 0x5815c
+  @addr 0x015c
 
 @register MAP_CONF_22
   @use  MAP_CONF_15
-  @addr 0x58160
+  @addr 0x0160
 
 @register MAP_CONF_23
   @use  MAP_CONF_15
-  @addr 0x58164
+  @addr 0x0164
 
 @register MAP_CONF_24
   @use  MAP_CONF_15
-  @addr 0x58168
+  @addr 0x0168
 
 @register MAP_CONF_25
   @use  MAP_CONF_15
-  @addr 0x5816c
+  @addr 0x016c
 
 @register MAP_CONF_26
   @use  MAP_CONF_15
-  @addr 0x58170
+  @addr 0x0170
