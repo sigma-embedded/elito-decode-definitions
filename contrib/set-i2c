@@ -150,11 +150,13 @@ run() {
 	  _Q0)
 		be_quiet=false
 		shift
+		continue
 		;;
 
 	  _Q1)
 		be_quiet=true
 		shift
+		continue
 		;;
 
 	  \?)
