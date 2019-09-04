@@ -181,6 +181,7 @@ run() {
 	if $do_get; then
 	    local start
 	    local end
+	    local o
 
 	    case $1 in
 	      *-*)
@@ -194,9 +195,11 @@ run() {
 	    esac
 	    shift
 
+	    o=( --no-pager --color )
+
 	    addr=$start
 
-	    do_decode "$start" "$end" || _i2c_read "$addr" '' "$wsz"
+	    do_decode "${o[@]}" "$start" "$end" || _i2c_read "$addr" '' "$wsz"
 	else
 	    addr=$1
 
