@@ -1,0 +1,7 @@
+* Purpose
+
+Register definitions of:
+
+- NXP iMX6 + iMX8
+- ONSemi AR0144 + AR0522
+- TW9910 + TW9990
