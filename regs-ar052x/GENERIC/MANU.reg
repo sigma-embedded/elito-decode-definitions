@@ -258,6 +258,58 @@
   @field v
     @uint 15-0
 
+@register crm_control
+  @addr 0x30d2
+  @field crm_disable_vis
+    @boolean 9
+  @field crm_diable_cc
+    @boolean 8
+  @field crm_rol_enable_cc
+    @boolean 5
+  @field crm_col_enable
+    @boolean 4
+  @field crm_override_value
+    @uint 3-1
+  @field crm_override_enable
+    @boolean 0
+
+@register column_correction
+  @addr 0x30d4
+  @field colukn_correction_enable
+    @boolean 15
+  @field sample_code
+    @uint 14-13
+  @field column_correction_every_frame
+    @boolean 12
+  @field clip_level_1
+    @uint 11-0
+
+@register column_correction2
+  @addr 0x30d6
+  @field crm_tracking_cc_enable
+    @boolean 15
+  @field colcorr_12to_10b_en
+    @boolean 14
+  @field column_correction_bw
+    @boolean 13
+  @field threshold_level
+    @uint 11-0
+
+@register dark_control3
+  @addr 0x30ee
+  @field rnc_channel_en
+    @boolean 15
+  @field mc_colcorr
+    @boolean 12
+  @field mc_int_accum_quarter
+    @boolean 11
+  @field mc_int_accum
+    @boolean 10
+  @field fdoc_enable_for_dark_column
+    @boolean 8
+  @field row_noise_factor
+    @uint 6-0
+
 ########
 
 @register gempsens_theshold
@@ -477,6 +529,21 @@
 
 @register bm_t1
   @addr 0x3f02
+
+@register gth_control
+  @addr 0x3f20
+  @field clip_en_fdoc
+    @boolean 11
+  @field limit_en_fdoc
+    @boolean 10
+  @field th_en_fdoc
+    @boolean 9
+  @field clip_en_rtn
+    @boolean 5
+  @field limit_enm_rrtn
+    @boolean 4
+  @field th_en_rtn
+    @boolean 3
 
 @register analog_control10
   @addr 0x3f3e
