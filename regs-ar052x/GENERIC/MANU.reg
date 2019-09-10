@@ -136,6 +136,18 @@
       @enum 1 "group1"
   @field hdr_field_auto_swap
     @boolean 6
+  @field hdr_drk_colcorr_t2
+    @boolean 5
+  @field hdr_drk_row_ignore_t2
+    @boolean 4
+  @field read_style_hdr_gain_mode
+    @boolean 3
+  @field read_style_hdr_field_select
+    @boolean 2
+  @field read_style_hdr_first_field
+    @boolean 1
+  @field read_style_hdr_enable
+    @boolean 0
 
 @register read_mode
   @addr 0x3040
