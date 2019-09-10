@@ -163,7 +163,7 @@
     @uint 15-0
 
 @register ctx_control_reg
-  @addr 0x3038
+  @addr 0x3034
   @field context_load
     @boolean 15
   @field i2c_auto_inc_disable
