@@ -16,3 +16,8 @@
 
 14	Fmem -> IC (vf)
 15	Fmem -> IC (post)
+
+64	ALT #8
+65	ALT #9
+66	ALT #10
+67	ALT #13

@@ -36,3 +36,46 @@
 @register CH_BUSY_2
   @addr 0x0104
   @ro
+
+@register SUB_ADDR_0
+  @addr 0x002c
+
+@register SUB_ADDR_1
+  @addr 0x0030
+  @field ALT_CH23
+    @uint 6-0
+  @field ALT_CH24
+    @uint 14-8
+  @field ALT_CH29
+    @uint 22-16
+  @field ALT_CH33
+    @uint 30-24
+
+@register SUB_ADDR_2
+  @addr 0x0034
+  @field ALT_CH41
+    @uint 6-0
+  @field ALT_CH51
+    @uint 14-8
+  @field ALT_CH52
+    @uint 22-16
+
+@register SUB_ADDR_3
+  @addr 0x0038
+  @field ALT_CH9
+    @uint 6-0
+  @field ALT_CH10
+    @uint 14-8
+  @field ALT_CH13
+    @uint 22-16
+  @field ALT_CH27
+    @uint 30-24
+
+@register SUB_ADDR_4
+  @addr 0x003c
+  @field ALT_CH28
+    @uint 6-0
+  @field ALT_CH8
+    @uint 14-8
+  @field ALT_CH21
+    @uint 22-16

@@ -94,11 +94,25 @@
 
 @register TRIPLE_CUR_0
   @addr 0x258
-  @use _TRB_CH0
+  @field CH8
+    @uint 16-17
+  @field CH9
+    @uint 19-18
+  @field CH10
+    @uint 21-20
+  @field CH13
+    @uint 27-26
 
 @register TRIPLE_CUR_1
   @addr 0x25c
-  @use _TRB_CH1
+  @field CH21
+    @uint 11-10
+  @field CH23
+    @uint 15-14
+  @field CH27
+    @uint 23-22
+  @field CH28
+    @uint 25-24
 
 ##
 
