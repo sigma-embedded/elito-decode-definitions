@@ -48,7 +48,7 @@
   @registers IPU-IDMAC/
 
 @unit[imx6qd] IPU2-IC
-  @reg 0x02620000 0x008000
+  @reg 0x02a20000 0x008000
   @registers IPU-IC/
 
 @unit[imx6qd] IPU2-CSI0
