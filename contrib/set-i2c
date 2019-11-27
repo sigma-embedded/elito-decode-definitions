@@ -195,7 +195,9 @@ run() {
 	    esac
 	    shift
 
-	    o=( --no-pager --color )
+	    o=( --no-pager )
+
+	    test -n "${NO_COLOR}" || o+=( --color )
 
 	    addr=$start
 
