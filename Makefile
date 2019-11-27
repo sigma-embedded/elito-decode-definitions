@@ -114,7 +114,7 @@ set-%:		contrib/set-%.in
 	${INSTALL_D} ${DESTDIR}${bindir}
 	${INSTALL_BIN} $^ ${DESTDIR}${bindir}/
 
-.install-bin-decoders:
+.install-bin-decoders: .install-bin
 	for l in ${bin_DECODERS}; do \
 		rm -f ${DESTDIR}${bindir}/$$l && \
 		ln -s decode-wrapper ${DESTDIR}${bindir}/$$l; \
