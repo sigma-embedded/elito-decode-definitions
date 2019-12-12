@@ -1,0 +1,3 @@
+@unit EIM
+  @registers EIM/
+  @reg 0x21b8000 0x1000

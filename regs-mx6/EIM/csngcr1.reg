@@ -1,0 +1,70 @@
+@register CSnGCR1
+  @addr 0x00
+  @field PSZ
+    @uint 31-28
+
+  @field WP
+    @boolean 27
+
+  @field GBC
+    @uint 26-24
+
+  @field AUS
+    @boolean 23
+
+  @field CSREC
+    @uint 22-20
+
+  @field SP
+    @boolean 19
+
+  @field DSZ
+    @bits 18-16
+    @enum 1 "16 bit D[15:0]"
+    @enum 2 "16 bit D[31:16]"
+    @enum 3 "32 bit D[31:0]"
+    @enum 4 "8 bit D[7:0]"
+    @enum 5 "8 bit D[15:8]"
+    @enum 6 "8 bit D[23:16]"
+    @enum 7 "8 bit D[31:24]"
+
+  @field BCS
+    @uint 15-14
+
+  @field BCD
+    @uint 13-12
+
+  @field WC
+    @boolean 11
+
+  @field BL
+    @bits 10-8
+    @enum 0 "4 words"
+    @enum 1 "8 words"
+    @enum 2 "16 words"
+    @enum 3 "32 words"
+    @enum 4 "continuous"
+
+  @field CREP
+    @boolean 7
+
+  @field CRE
+    @boolean 6
+
+  @field RFL
+    @boolean 5
+
+  @field WFL
+    @boolean 4
+
+  @field MUM
+    @boolean 3
+
+  @field SRD
+    @boolean 2
+
+  @field SWR
+    @boolean 1
+
+  @field CSEN
+    @boolean 0

@@ -1,0 +1,5 @@
+@register EAR
+  @addr 0x98
+
+  @field ADDR
+    @uhex 31-0

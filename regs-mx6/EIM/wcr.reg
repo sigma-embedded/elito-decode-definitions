@@ -1,0 +1,24 @@
+@register WCR
+  @addr 0x90
+
+  @field WDOG_LIMIT
+    @bits 10-9
+      @enum 0 "128 BCLK"
+      @enum 1 "256 BCLK"
+      @enum 2 "512 BCLK"
+      @enum 3 "1024 BCLK"
+
+  @field WDOG_EN
+    @boolean 8
+
+  @field INTPOL
+    @boolean 5
+
+  @field INTEN
+    @boolean 4
+
+  @field GBCD
+    @uint 2-1
+
+  @field BCM
+    @boolean 0

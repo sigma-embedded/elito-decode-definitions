@@ -1,0 +1,26 @@
+@register CSnRCR1
+  @addr 0x08
+
+  @field RWSC
+    @uint 29-24
+
+  @field RADVA
+    @uint 22-20
+
+  @field RAL
+    @boolean 19
+
+  @field RADVN
+    @uint 18-16
+
+  @field OEA
+    @uint 14-12
+
+  @field OEN
+    @uint 10-8
+
+  @field RCSA
+    @uint 6-4
+
+  @field RCSN
+    @uint 2-0

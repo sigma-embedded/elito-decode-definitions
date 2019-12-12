@@ -1,0 +1,20 @@
+@register CSnRCR2
+  @addr 0x0c
+
+  @field APR
+    @boolean 15
+
+  @field PATH
+    @uint 14-12
+
+  @field RL
+    @uint 9-8
+
+  @field RBEA
+    @uint 6-4
+
+  @field RBE
+    @boolean 3
+
+  @field RBEN
+    @uint 2-0

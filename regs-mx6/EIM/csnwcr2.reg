@@ -1,0 +1,5 @@
+@register CSnWCR2
+  @addr 0x14
+
+  @field WBCDD
+    @boolean 0

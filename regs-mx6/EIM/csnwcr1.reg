@@ -1,0 +1,35 @@
+@register CSnWCR1
+  @addr 0x10
+
+  @field WAL
+    @boolean 31
+
+  @field WBED
+    @boolean 30
+
+  @field WWSC
+    @uint 29-24
+
+  @field WADVA
+    @uint 23-21
+
+  @field WADVN
+    @uint 20-18
+
+  @field WBEA
+    @uint 17-15
+
+  @field WBEN
+    @uint 14-12
+
+  @field WEA
+    @uint 11-9
+
+  @field WEN
+    @uint 8-6
+
+  @field WCSA
+    @uint 5-3
+
+  @field WCSN
+    @uint 2-0

@@ -1,0 +1,19 @@
+@register CSnGCR2
+  @addr 0x04
+  @field MUX16_BYP_GRANT
+    @boolean 12
+
+  @field DAP
+    @boolean 9
+
+  @field DAE
+    @boolean 8
+
+  @field DAPS
+    @uint 7-4
+
+  @field ADH
+    @bits 1-0
+    @enum 0 "0 cycle"
+    @enum 1 "1 cycle"
+    @enum 2 "2 cycle"

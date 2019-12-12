@@ -1,0 +1,17 @@
+@register WAR
+  @addr 0x94
+
+  @field ACLK_EN
+    @boolean 4
+
+  @field ERRST
+    @boolean 3
+
+  @field INT
+    @boolean 2
+
+  @field IPS_ACK
+    @boolean 1
+
+  @field IPS_REQ
+    @boolean 0
