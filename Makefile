@@ -49,7 +49,7 @@ REGISTERS_GENDESC_FLAGS_ar052x = --define ar052x
 REGISTERS_GENDESC_FLAGS_tw9910 = --define tw99x0 --define tw9910
 REGISTERS_GENDESC_FLAGS_tw9990 = --define tw99x0 --define tw9990
 
-REGISTERS_DEFDIR_mx6q = 	${srcdir}/regs-mx6
+REGISTERS_DEFDIR_mx6q =		${srcdir}/regs-mx6
 REGISTERS_DEFDIR_mx6dl =	${srcdir}/regs-mx6
 REGISTERS_DEFDIR_mx8m =		${srcdir}/regs-mx8
 REGISTERS_DEFDIR_ar0144 =	${srcdir}/regs-ar0144
