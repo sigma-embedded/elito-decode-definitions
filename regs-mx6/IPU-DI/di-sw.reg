@@ -3,7 +3,7 @@
   @field DISP_CLK_PERIOD
     @bits 24-16
     @enum 0
-   
+
   @field DISPL_CLK_PERIOD
     @frac 11-4 3-0
 
@@ -11,7 +11,7 @@
   @addr 0x0008
   @field DISP_CLK_DOWN
     @frac 24-17 16
-   
+
   @field DISPL_CLK_UP
     @frac 8-1 0
 
@@ -25,12 +25,12 @@
     @enum 5 "CSI VSYNC"
     @enum 6 "External VSYNC"
     @enum 7 "always on"
-    
+
   @field DI0_OFFSET_VALUE
     @bits 14-3
     #Amount of cycles that the counter will be delayed by
     @enum 0 "0"
-    
+
   @field DI0_RUN_RESOLUTION
     @bits 18-16
     #The trigger causing the offset counter to increment

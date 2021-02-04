@@ -16,7 +16,7 @@
     @uint 7-2
   @field RX_RCAL
     @uint 1-0
-    
+
 @register GPR35
   @addr 0x008c
   @ro

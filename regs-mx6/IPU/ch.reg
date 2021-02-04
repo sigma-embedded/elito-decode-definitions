@@ -63,11 +63,11 @@
 @register ALT_CH_DB_MODE_SEL0
   @addr 0x168
   @use _ALT_CH0
-    
+
 @register ALT_CH_DB_MODE_SEL1
   @addr 0x16c
   @use _ALT_CH1
-    
+
 @register ALT_CH_TRB_MODE_SEL0
   @addr 0x178
   @use _TRB_CH0

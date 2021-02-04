@@ -15,7 +15,7 @@
     @enum 0 "GRBG"
     @enum 1 "RGGB"
     @enum 2 "BGGR"
-    @enum 3 "GBRG"     
+    @enum 3 "GBRG"
 
 @register frame_format_model_type
   @addr 0x40 8
@@ -92,22 +92,22 @@
   @field vert_flip
     @boolean 1
   @field horiz_mirror
-    @boolean 0      
+    @boolean 0
 
 @register grouped_parameter_hold
   @addr 0x0104 8
-    
+
 @register mask_corrupted_frames
   @addr 0x0105 8
-    
+
 @register ccp2_channel_mode
   @addr 0x0110 8
   @field id
-    @uint 2-0  
-    
+    @uint 2-0
+
 @register ccp2_signalling_mode
   @addr 0x0111 8
-    
+
 @register ccp_data_format
   @addr 0x0112 16
   @field raw_data_format
@@ -117,7 +117,7 @@
 
 @register gain_mode
   @addr 0x0120 8
-    
+
 #######
 
 @register x_output_size
@@ -135,13 +135,13 @@
 
 @register x_odd_inc
   @addr 0x0382 16
-  
+
 @register y_even_inc
   @addr 0x0384 16
 
 @register y_odd_inc
   @addr 0x0386 16
-  
+
 @register scaling_mode
   @addr 0x0400 16
   @field mode
@@ -149,7 +149,7 @@
       @enum 0 "disabled"
       @enum 1 "horizontal"
       @enum 2 "hoitzontal + vertical"
-  
+
 @register satial_sampling
   @addr 0x0402 16
 

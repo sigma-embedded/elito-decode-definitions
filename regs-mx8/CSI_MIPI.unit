@@ -1,7 +1,7 @@
 @unit MIPI_CSI1
   @reg 0x30a70000 0x10000
-  @registers CSI_MIPI/  
+  @registers CSI_MIPI/
 
 @unit MIPI_CSI2
   @reg 0x30b60000 0x10000
-  @registers CSI_MIPI/  
+  @registers CSI_MIPI/

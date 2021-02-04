@@ -149,7 +149,7 @@
   @field DIM
     @bits 112
     @enum 0 "2d"
-    @enum 1 "1d"    
+    @enum 1 "1d"
 
 @register _IPU_CPMEM-W1-I
   @template

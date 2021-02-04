@@ -154,7 +154,7 @@
 
 @register MDGCTRL0
   @addr 0x83c
-  
+
   @field DG_DL_ABS_OFFSET0
     @uint 6-0
 
@@ -184,7 +184,7 @@
 
 @register MDGCTRL1
   @addr 0x840
-  
+
   @field DG_DL_ABS_OFFSET2
     @uint 6-0
 

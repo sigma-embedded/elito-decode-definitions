@@ -335,4 +335,3 @@
     @enum 0x1f "1GiB"
     @enum 0x3f "2GiB"
     @enum 0x7f "4GiB"
-    

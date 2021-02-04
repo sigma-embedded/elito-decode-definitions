@@ -160,14 +160,14 @@
     @boolean 27
   @field err_ecc_double
     @boolean 28
-    
+
 @register ERR2
   @addr 0x24
 
 @register MASK1
   @use ERR1
   @addr 0x28
-  
+
 @register MASK2
   @use ERR2
   @addr 0x28

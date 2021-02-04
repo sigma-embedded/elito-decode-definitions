@@ -19,7 +19,7 @@
   @addr[imx6qd]  0x0280
   @field MUX_MODE
     @enum 0 IPU1_CSI0_DATA10
-    @enum 1 AUD3_RXC    
+    @enum 1 AUD3_RXC
     @enum 2 AUD3_ECSPI2_MISO
       @seealso IOMUXC ECSPI2_MISO_SELECT_INPUT
     @enum 3 UART1_TX_DATA

@@ -22,7 +22,7 @@
       @enum 1 "RG"
       @enum 2 "BG"
       @enum 3 "GB"
-      
+
   @field SCE
     @boolean 23
 
