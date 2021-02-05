@@ -1,0 +1,3 @@
+@unit MIPI_DSI
+  @reg 0x32e10000 0x100
+  @registers DSI_MIPI/

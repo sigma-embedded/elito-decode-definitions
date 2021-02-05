@@ -1,0 +1,65 @@
+@register VERSION
+  @addr 0x00
+  @field VERSION
+    @uint 31-0
+
+@register CONFIG
+  @addr 0x18
+  @field NON_CONTINUOUS_CLK
+    @boolean 31
+  @field CLK_STOP_START
+    @boolean 30
+  @field MFLUSH
+    @boolean 29
+  @field EOT_R03
+    @boolean 28
+  @field SYNCINFORM
+    @bits 27
+    @enum 0 "Event"
+    @enum 1 "Pulse"
+  @field BURST
+    @boolean 26
+  @field VIDEOMODE
+    @bits 25
+    @enum 0 "COMMMAND"
+    @enum 1 "VIDEO"
+  @field AUTOMODE
+    @bits 24
+    @enum 0 "CONF"
+    @enum 1 "AUTO"
+  @field HSE_DISABLE
+    @boolean 23
+  @field HFP_DISABLE
+    @boolean 22
+  @field HBP_DISABLE
+    @boolean 21
+  @field HSA_DISABLE
+    @boolean 20
+  @field MAIN_VC
+    @uint 19-18
+  @field SUB_VC
+    @uint 17-16
+  @field MAIN_PIX_FMT
+    @bits 14-12
+    @enum 0 "3bpp (cmd)"
+    @enum 1 "8bpp (cmd)"
+    @enum 2 "12bpp (cmd)"
+    @enum 3 "16bpp (cmd)"
+    @enum 4 "RGB565 (video)"
+    @enum 5 "RGB666 (video)"
+    @enum 6 "RGB666 (common)"
+    @enum 7 "RGB888 (common)"
+  @field SUB_PIX_FMT
+    @bits 10-8
+    @enum 0 "3bpp (cmd)"
+    @enum 1 "8bpp (cmd)"
+    @enum 2 "12bpp (cmd)"
+    @enum 3 "16bpp (cmd)"
+    @enum 4 "RGB565 (video)"
+    @enum 5 "RGB666 (video)"
+    @enum 6 "RGB666 (common)"
+    @enum 7 "RGB888 (common)"
+  @field NUM_DAT_LANE
+    @uint 6-5
+  @field LANE_EN
+    @uhex 4-0
