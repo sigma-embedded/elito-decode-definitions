@@ -3,6 +3,58 @@
   @field VERSION
     @uint 31-0
 
+
+@register RGB_STATUS
+  @addr 0x8
+  @field IN_SEL
+    @bits 31
+    @enum 0 "RGB"
+    @enum 1 "S-i80"
+  @field STATE
+    @bits 12-0
+    @enum    1 "IDLE"
+    @enum    2 "STOP"
+    @enum    4 "VSyS"
+    @enum    8 "VSE"
+    @enum   16 "HSS"
+    @enum   32 "HSA"
+    @enum   64 "HSE"
+    @enum  128 "HBP"
+    @enum  256 "RGB"
+    @enum  512 "NULL"
+    @enum 1024 "HFP"
+    @enum 2048 "EOT"
+    @enum 4096 "NHOLD"
+
+@register CLKCTRL
+  @addr 0x10
+  @field TX_REQUESTS_HS_CLK
+    @boolean 31
+  @field DPHY_SEL
+    @bits 29
+    @enum 0 "1.5 Gbps"
+    @enum 1 "1 Gbps"
+  @field ESC_CLK_EN
+    @boolean 28
+  @field PLL_BYPASS
+    @boolean 27
+  @field BYTE_CLK_SRC
+    @bits 26-25
+    @enum 0 "D-PHY PLL"
+  @field BYTE_CLK_EN
+    @boolean 24
+  @field LANE_ESC_CLK_EN
+    @uhex 23-19
+  @field ESC_PRESCALER
+    @uint 15-0
+
+@register TIMEOUT
+  @addr 0x14
+  @field BTA_TOUT
+    @uint 23-16
+  @field LPDR_TOUT
+    @uint 15-0
+
 @register CONFIG
   @addr 0x18
   @field NON_CONTINUOUS_CLK
@@ -63,3 +115,147 @@
     @uint 6-5
   @field LANE_EN
     @uhex 4-0
+
+@register ESCMODE
+  @addr 0x1c
+  @field STOP_STATE_CNT
+    @uint 31-21
+  @field FORCE_STOP_STATE
+    @boolean 20
+  @field FOCE_BTA
+    @boolean 16
+  @field CMD_LPDT
+    @bits 7
+    @enum 0 "HS"
+    @enum 1 "LP"
+  @field TX_LPDT
+    @bits 6
+    @enum 0 "HS"
+    @enum 1 "LP"
+  @field TX_TRIGGER_RST
+    @boolean 4
+  @field TX_UPS_DAT
+    @boolean 3
+  @field TX_UPS_EXIT
+    @boolean 2
+  @field TX_UPS_CLK
+    @boolean 1
+  @field TX_UPS_CLK_EXIT
+    @boolean 0
+
+@register MDRESOL
+  @addr 0x20
+  @field MAIN_STANDBY
+    @boolean 31
+  @field VRESOL
+    @uint 27-16
+  @field HRESOL
+    @uint 11-0
+
+@register MVPORCH
+  @addr 0x24
+  @field CMD_ALLOW
+    @uint 31-28
+  @field STABLE_VFP
+    @uint 26-16
+  @field MAIN_VBP
+    @uint 10-0
+
+@register MHPORCH
+  @addr 0x28
+  @field HFP
+    @uint 31-16
+  @field HBP
+    @uint 15-0
+
+@register MSYNC
+  @addr 0x2c
+  @field VSA
+    @uint 31-22
+  @field HSA
+    @uint 15-0
+
+@register INTSRC
+  @addr 0x34
+  @field PLL_STABLE
+    @boolean 31
+  @field SW_RST_RELEASE
+    @boolean 30
+  @field SFR_PAYLOAD_EMPTY
+    @boolean 29
+  @field SFR_HEADER_EMPTY
+    @boolean 28
+  @field SYNC_OVERRIDE
+    @boolean 27
+  @field BUS_TURN_OVER
+    @boolean 25
+  @field FRAME_DONE
+    @boolean 24
+  @field LPDR_TIMEOUT
+    @boolean 21
+  @field TA_TIMEOUT
+    @boolean 20
+  @field RX_TE
+    @boolean 17
+  @field RX_ACK
+    @boolean 16
+  @field ERR_RX_ECC
+    @boolean 15
+  @field ERR_RX_CRC
+    @boolean 14
+  @field ERR_ESC3
+    @boolean 13
+  @field ERR_ESC2
+    @boolean 12
+  @field ERR_ESC1
+    @boolean 11
+  @field ERR_ESC0
+    @boolean 10
+  @field ERR_SYNC3
+    @boolean 9
+  @field ERR_SYNC2
+    @boolean 8
+  @field ERR_SYNC1
+    @boolean 7
+  @field ERR_SYNC0
+    @boolean 6
+  @field ERR_CTRL3
+    @boolean 5
+  @field ERR_CTRL2
+    @boolean 4
+  @field ERR_CTRL1
+    @boolean 3
+  @field ERR_CTRL0
+    @boolean 2
+  @field ERR_LP0
+    @boolean 1
+  @field ERR_LP1
+    @boolean 0
+
+@register PLLCTRL_1G
+  @addr 0x90
+  @field HS_ZERO_CTL
+    @uint 15-12
+  @field FREQ_BAND
+    @uint 11-8
+  @field PREPR_CTL
+    @uint 6-4
+  @field PRPR_CTL_CLK
+    @uint 2-0
+
+@register PLLCTRL
+  @addr 0x94
+  @field DPDN_SWAP_CL
+    @boolean 25
+  @field DPDN_SWAP_DA
+    @boolean 24
+  @field PLL_EN
+    @boolean 23
+  @field PMS
+    @uint 19-1
+
+@register PLLCTRL1
+  @addr 0x98
+
+@register PLLCTRL2
+  @addr 0x9c
