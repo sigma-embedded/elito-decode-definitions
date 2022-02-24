@@ -12,7 +12,7 @@ export CHECKER
 
 prefix ?= /usr/local
 bindir ?= ${prefix}/bin
-datadir ?= ${prefix}/data
+datadir ?= ${prefix}/share
 pkgdatadir ?= ${datadir}/${PACKAGE}
 decoderdir ?= ${pkgdatadir}
 
