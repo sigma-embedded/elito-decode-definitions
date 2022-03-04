@@ -1,0 +1,62 @@
+@register LAYOUT_VERSION
+  @addr 0x0000 32
+  @field major
+    @uint 31-16
+  @field minor
+    @uint 15-0
+
+@register CAPABILITIES
+  @addr 0x0008 64
+  @field USER_DEFINE_NAME
+    @boolean 0
+  @field V4L_ACCESS
+    @boolean 1
+  @field VIMBA_ACCESS
+    @boolean 2
+  @field STRING_I2C
+    @uint 7-4
+  @field FAMILY_NAME
+    @boolean 8
+
+@register V4L2_MAP_ADDR
+  @addr 0x0014 16
+  @ro
+
+@register DEVICE_GUID
+  @addr 0x0018 # 512
+  @ro
+
+@register MANUFACTURER
+  @addr 0x0058 # 512
+  @ro
+
+@register MODEL
+  @addr 0x0098 # 512
+  @ro
+
+@register FAMILY
+  @addr 0x00D8 # 512
+  @ro
+
+@register VERSION
+  @addr 0x0118 # 512
+  @ro
+
+@register MAN_INFO
+  @addr 0x0158 # 512
+  @ro
+
+@register SERIAL
+  @addr 0x0198 # 512
+  @ro
+
+@register USER_NAME
+  @addr 0x01D8 # 512
+  @ro
+
+@register CRC
+  @addr 0x0218 32
+  @ro
+
+@register I2C_ADDR
+  @addr 0x0220 8

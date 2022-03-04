@@ -1,0 +1,4 @@
+@unit GENERAL
+  @reg 0x0400 0x0020
+  @regwidth 8 16 BE
+  @registers GENERAL.reg

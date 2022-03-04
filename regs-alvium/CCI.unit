@@ -1,0 +1,4 @@
+@unit CCI
+  @reg 0x0000 0x0300
+  @regwidth 8 16 BE
+  @registers CCI.reg

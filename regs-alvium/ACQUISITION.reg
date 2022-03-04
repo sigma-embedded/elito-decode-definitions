@@ -1,0 +1,93 @@
+@register START
+  @addr 0x0080 8
+
+@register STOP
+  @addr 0x0084 8
+
+@register STATUS
+  @addr 0x008c 8
+  @field STATUS
+    @bits 7-0
+    @enum 0 "stopped"
+    @enum 1 "running"
+
+@register FRAME_RATE
+  @addr 0x0090 64
+  @field V_uHz
+    @uint 63-0
+
+@register FRAME_RATE_MIN
+  @addr 0x0098 64
+  @field V_uHz
+    @ro
+    @uint 63-0
+
+@register FRAME_RATE_MAX
+  @addr 0x00a0 64
+  @field V_uHz
+    @ro
+    @uint 63-0
+
+@register FRAME_RATE_ENA
+  @addr 0x00b0 8
+  @field STATUS
+    @bits 7-0
+    @enum 0 "disabled"
+    @enum 1 "enabled"
+
+@register TRIGGER_MODE
+  @addr 0x00b4 8
+  @field STATUS
+    @bits 7-0
+    @enum 0 "disabled"
+    @enum 1 "enabled"
+
+@register TRIGGER_SOURCE
+  @addr 0x00b8 8
+  @field SOURCE
+    @bits 7-0
+    @enum 0 "line 0"
+    @enum 1 "line 1"
+    @enum 4 "sw"
+
+@register TRIGGER_ACT
+  @addr 0x00bc 8
+  @field ACT
+    @bits 7-0
+    @enum 0 "rising edge"
+    @enum 1 "falling edge"
+    @enum 2 "any edge"
+    @enum 3 "hi level"
+    @enum 4 "lo level"
+
+@register EXPOSURE_MODE
+  @addr 0x00c8 8
+  @field V
+    @boolean 0
+
+@register EXPOSURE_LINE
+  @addr 0x00cc 8
+  @field LINE
+    @bits 7-0
+    @enum 0 "line 0"
+    @enum 1 "line 1"
+
+@register LINE_CFG
+  @addr 0x00d0 32
+  @field L0_OUTPUT
+    @boolean 0
+  @field L0_INV
+    @boolean 1
+  @field L1_OUTPUT
+    @boolean 8
+  @field L1_INV
+    @boolean 9
+
+@register LINE_STATUS
+  @addr 0x00d4 8
+  @field L0
+    @boolean 0
+    @ro
+  @field L1
+    @boolean 1
+    @ro

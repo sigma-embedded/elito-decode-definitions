@@ -1,0 +1,61 @@
+@register VERSION
+  @addr 0x0000 32
+  @field major
+    @uint 31-16
+  @field minor
+    @uint 15-0
+
+@register INQUIRY
+  @addr 0x0008 64
+  @ro
+  @field REVERSE_X
+    @boolean 0
+  @field REVERSE_Y
+    @boolean 1
+  @field INTENSITY_AUTO
+    @boolean 2
+  @field BL_CTRL
+    @boolean 3
+  @field GAIN_CTRL
+    @boolean 4
+  @field GAMMA_CTRL
+    @boolean 5
+  @field SATURATION_CTRL
+    @boolean 7
+  @field HUE_CTRL
+    @boolean 8
+  @field WHITE_BALANCE_CTRL
+    @boolean 9
+  @field EXPOSURE_AUTO
+    @boolean 11
+  @field GAIN_AUTO
+    @boolean 12
+  @field WHITE_BALANCE_AUTO
+    @boolean 13
+  @field DEVICE_TEMPERATURE
+    @boolean 13
+  @field ACQ_FRAME_RATE
+    @boolean 16
+  @field TRIGGER
+    @boolean 17
+  @field EXP_ACTIVE_OUTPUT_LINE
+    @boolean 18
+
+@register FW_VERSION
+  @addr 0x0010 64
+  @field patch
+    @uint 63-32
+  @field minor
+    @uint 31-16
+  @field major
+    @uint 15-8
+  @field special
+    @uint  7-0
+
+@register WR_DONE_HS
+  @addr 0x0018 8
+  @field CAM_CONFIRM
+    @boolean 0
+  @field SUPPORTED
+    @boolean 7
+    @ro

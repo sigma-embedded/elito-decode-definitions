@@ -23,7 +23,8 @@ DECODE_PKGDATA_DIR ?= ${datadir}/decode-registers
 DEVICES = \
 	mx6q mx6dl mx8mm mx8mq \
 	ar0144 ar052x \
-	tw9910 tw9990
+	tw9910 tw9990 \
+	alvium \
 
 bin_DECODERS = \
 	$(addprefix decode-,${DEVICES})
@@ -58,6 +59,7 @@ REGISTERS_DEFDIR_ar0144 =	${srcdir}/regs-ar0144
 REGISTERS_DEFDIR_ar052x =	${srcdir}/regs-ar052x
 REGISTERS_DEFDIR_tw9910 =	${srcdir}/regs-tw99x0
 REGISTERS_DEFDIR_tw9990 =	${srcdir}/regs-tw99x0
+REGISTERS_DEFDIR_alvium =	${srcdir}/regs-alvium
 
 INSTALL = install
 INSTALL_BIN = ${INSTALL} -p -m 0755
@@ -94,6 +96,7 @@ $(call set_dev_type,ar0144,i2c)
 $(call set_dev_type,ar052x,i2c)
 $(call set_dev_type,tw9910,i2c)
 $(call set_dev_type,tw9990,i2c)
+$(call set_dev_type,alvium,i2c)
 
 .prepare-mx6q .prepare-mx6dl:	.prepare-mx6
 

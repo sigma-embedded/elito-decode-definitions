@@ -1,0 +1,4 @@
+@unit ACQUISITION_CONTROL
+  @reg 0x0400 0x1000
+  @regwidth 8 16 BE
+  @registers ACQUISITION.reg

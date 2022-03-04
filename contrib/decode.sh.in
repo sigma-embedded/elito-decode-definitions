@@ -20,6 +20,11 @@ case $TYPE in
 	_args+=( --bus-device "/dev/i2c-${I2C_BUS:-0}" --bus-addr "${I2C_ADDR:-0x36}" )
 	;;
 
+  alvium)
+	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-alvium.bin )
+	_args+=( --bus-device "/dev/i2c-${I2C_BUS:-0}" --bus-addr "${I2C_ADDR:-0x3c}" )
+	;;
+
   mx6q|mx6d|mx6qdl)
 	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx6q.bin )
 	;;

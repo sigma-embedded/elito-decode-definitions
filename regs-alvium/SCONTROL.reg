@@ -1,0 +1,46 @@
+@register LANE_COUNTS_SUPPORTED
+  @addr 0x0040
+  @ro
+  @field 1LANE
+    @boolean 0
+  @field 2LANE
+    @boolean 1
+  @field 3LANE
+    @boolean 2
+  @field 4LANE
+    @boolean 3
+
+@register LANE_COUNT
+  @addr 0x0044
+  @ro
+
+@register CLK_MIN
+  @addr 0x0048 32
+  @ro
+  @field V
+    @uint 31-0
+
+@register CLK_MAX
+  @addr 0x004C 32
+  @ro
+  @field V
+    @uint 31-0
+
+@register CLK
+  @addr 0x0050 32
+  @ro
+  @field V
+    @uint 31-0
+
+@register BUF_SIZE
+  @addr 0x0054 32
+  @ro
+  @field V
+    @uint 31-0
+
+@register PHY_RESET
+  @addr 0x0078 8
+  @field STATE
+    @bits 7-0
+    @enum 0 "normal"
+    @enum 1 "reset"

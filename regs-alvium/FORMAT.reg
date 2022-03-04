@@ -1,0 +1,168 @@
+@register WIDTH
+  @addr 0x0100 32
+  @field V
+    @uint 31-0
+
+@register WIDTH_MIN
+  @addr 0x0104 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register WIDTH_MAX
+  @addr 0x0108 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register WIDTH_INC
+  @addr 0x010C 32
+  @field V
+    @ro
+    @uint 31-0
+
+###
+
+@register HEIGHT
+  @addr 0x0110 32
+  @field V
+    @uint 31-0
+
+@register HEIGHT_MIN
+  @addr 0x0114 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register HEIGHT_MAX
+  @addr 0x0118 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register HEIGHT_INC
+  @addr 0x011C 32
+  @field V
+    @ro
+    @uint 31-0
+
+###
+
+@register OFFSET_X
+  @addr 0x0120 32
+  @field V
+    @uint 31-0
+
+@register OFFSET_X_MIN
+  @addr 0x0124 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register OFFSET_X_MAX
+  @addr 0x0128 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register OFFSET_X_INC
+  @addr 0x012C 32
+  @field V
+    @ro
+    @uint 31-0
+
+###
+
+@register OFFSET_Y
+  @addr 0x0130 32
+  @field V
+    @uint 31-0
+
+@register OFFSET_Y_MIN
+  @addr 0x0134 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register OFFSET_Y_MAX
+  @addr 0x0138 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register OFFSET_Y_INC
+  @addr 0x013C 32
+  @field V
+    @ro
+    @uint 31-0
+
+###
+
+@register MIPI_FMT
+  @addr 0x0140 32
+  @field FMT
+    @bits 31-0
+    @enum 0x1e "yuv422 8bpp"
+    @enum 0x1f "yuv422 10bpp"
+    @enum 0x24 "rgb888"
+    @enum 0x2a "RAW8"
+    @enum 0x2b "RAW10"
+    @enum 0x2c "RAW12"
+
+@register MIPI_FMT_AVAIL
+  @addr 0x0148 64
+  @field YUV422
+    @boolean 6
+  @field RGB888
+    @boolean 7
+  @field RAW8
+    @boolean 14
+  @field RAW10
+    @boolean 15
+  @field RAW12
+    @boolean 16
+
+@register BAYER_PATTERN_INQUIRY
+  @addr 0x0150 8
+  @ro
+  @field MONO
+    @boolean 0
+  @field BAYER_GR
+    @boolean 1
+  @field BAYER_RG
+    @boolean 2
+  @field BAYER_GB
+    @boolean 3
+  @field BAYER_BG
+    @boolean 4
+
+@register BAYER_PATTERN
+  @addr 0x0154 8
+
+### TODO: bayer
+
+@register SENSOR_WIDTH
+  @addr 0x0160 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register SENSOR_HEIGHT
+  @addr 0x0164 32
+  @field V
+    @ro
+    @uint 31-0
+
+@register SENSOR_WIDTH_MAX
+  @addr 0x0168 32
+  @ro
+  @field V
+    @ro
+    @uint 31-0
+
+@register SENSOR_HEIGHT_MAX
+  @addr 0x016c 32
+  @ro
+  @field V
+    @ro
+    @uint 31-0
