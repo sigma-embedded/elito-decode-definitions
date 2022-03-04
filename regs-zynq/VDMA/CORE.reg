@@ -1,0 +1,12 @@
+@register MM2S_REG_INDEX
+  @addr 0x0014
+  @field reg_index
+    @bits 0
+    @enum 0 "1-16"
+    @enum 1 "17-32"
+
+@register PARK_PTR_REG
+  @addr 0x0028
+
+@register VDMA_VERSION
+  @addr 0x002c

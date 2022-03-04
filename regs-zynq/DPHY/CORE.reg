@@ -1,0 +1,90 @@
+@register CONTROL
+  @addr 0x00
+  @field DPHY_EN
+    @boolean 1
+  @field SRST
+    @boolean 0
+
+@register IDELAY_TAP_VALUE
+  @addr 0x04
+  @field LANE3
+    @uint 28-24
+  @field LANE2
+    @uint 20-16
+  @field LANE1
+    @uint 12-8
+  @field LANE0
+    @uint 4-0
+
+@register INIT
+  @addr 0x08
+  @field TM_ns
+    @uint 31-0
+
+@register HS_TIMEOUT
+  @addr 0x10
+  @field FRAME_LEN_bytes
+    @uint 31-0
+
+@register ESC_TIMEOUT
+  @addr 0x14
+  @field TM_ns
+    @uint 31-0
+
+@register CL_STATUS
+  @addr 0x18
+  @field ERR_CONTROL
+    @boolean 5
+    @ro
+  @field STOP_STATE
+    @boolean 4
+    @ro
+  @field INIT_DONE
+    @boolean 3
+    @ro
+  @field ULPS
+    @boolean 2
+    @ro
+  @field MODE
+    @bits 1-0
+    @ro
+    @enum 0 "LP"
+    @enum 1 "HS"
+    @enum 2 "ESC"
+
+@register DL0_STATUS
+  @addr 0x1c
+  @field PKT_CNT
+    @uint 31-16
+    @ro
+  @field STOP_STATE
+    @boolean 6
+    @ro
+  @field ESC_ABORT
+    @boolean 5
+  @field HS_ABORT
+    @boolean 4
+  @field INIT_DONE
+    @boolean 3
+    @ro
+  @field ULPS
+    @boolean 2
+    @ro
+  @field MODE
+    @bits 1-0
+    @ro
+    @enum 0 "LP"
+    @enum 1 "HS"
+    @enum 2 "ESC"
+
+@register DL1_STATUS
+  @addr 0x20
+  @use    DL0_STATUS
+
+@register DL2_STATUS
+  @addr 0x24
+  @use    DL0_STATUS
+
+@register DL3_STATUS
+  @addr 0x28
+  @use    DL0_STATUS

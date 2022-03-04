@@ -1,0 +1,128 @@
+@register _VDMACR
+  @template
+  @field irq_delay_count
+    @uint 31-24
+  @field irq_frame_count
+    @uint 23-16
+  @field repeat_en
+    @boolean 15
+  @field err_irq_en
+    @boolean 14
+  @field dly_cnt_irq_en
+    @boolean 13
+  @field frm_cnt_irq_en
+    @boolean 12
+  @field genlock_src
+    @bits 7
+    @enum 0 "external"
+    @enum 1 "internal"
+  @field frm_cnt_en
+    @boolean 4
+  @field genlock_en
+    @boolean 3
+  @field reset
+    @boolean 2
+  @field circular_park
+    @boolean 1
+  @field rs
+    @boolean 0
+
+@register _VDMASR
+  @template
+  @field irq_delay_count_sts
+    @uint 31-24
+    @ro
+  @field irq_frame_count_sts
+    @uint 23-16
+    @ro
+  @field err_irq
+    @boolean 14
+  @field dly_cnt_irq
+    @boolean 13
+  @field frm_cnt_irq
+    @boolean 12
+  @field sof_early_err
+    @boolean 7
+  @field vdma_dec_err
+    @boolean 6
+    @ro
+  @field vdma_slv_err
+    @boolean 5
+    @ro
+  @field vdma_int_err
+    @boolean 4
+  @field halted
+    @boolean 0
+    @ro
+
+########
+
+@register MM2S_VDMACR
+  @addr 0x0000
+  @use _VDMACR
+  @field rd_pntr_num
+    @uint 11-8
+
+@register MM2S_VDMASR
+  @addr 0x0004
+  @use _VDMASR
+
+@register S2MM_VDMACR
+  @addr 0x0030
+  @use _VDMACR
+  @field wr_pntr_num
+    @uint 11-8
+
+@register S2MM_VDMASR
+  @addr 0x0034
+  @use MM2S_VDMACR
+  @field eol_late_err
+    @boolean 15
+  @field sof_late_err
+    @boolean 11
+  @field eof_early_err
+    @boolean 8
+
+@register S2MM_REG_INDEX
+  @addr 0x0044
+
+@register MM2S_VSIZE
+  @addr 0x0050
+
+@register MM2S_HSIZE
+  @addr 0x0054
+
+@register MM2S_FRMDLY_STRIDE
+  @addr 0x0058
+
+@register MM2S_START_ADDRESS_0
+  @addr 0x005c
+
+@register S2MM_VSIZE
+  @addr 0x00a0
+  @field vsize
+    @uint 12-0
+
+@register S2MM_HSIZE
+  @addr 0x00a4
+  @field hsize
+    @uint 15-0
+
+@register S2MM_FRMDLY_STRIDE
+  @addr 0x00a8
+  @field frame_delay
+    @uint 28-24
+  @field stride
+    @uint 15-0
+
+@register S2MM_START_ADDRESS_0
+  @addr 0x00ac
+
+@register S2MM_START_ADDRESS_1
+  @addr 0x00b0
+
+@register S2MM_START_ADDRESS_2
+  @addr 0x00b4
+
+@register S2MM_START_ADDRESS_3
+  @addr 0x00b8

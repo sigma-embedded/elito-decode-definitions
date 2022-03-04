@@ -1,0 +1,173 @@
+@register CORE_CFG
+  @addr 0x00
+  @field SOFT_RESET
+    @boolean 1
+  @field ENABLE
+    @boolean 0
+
+@register PRODUCT_CFG
+  @addr 0x04
+  @field MAX_LANES
+    @bits 4-3
+      @enum 0 "1 Lane"
+      @enum 1 "2 Lane"
+      @enum 2 "3 Lane"
+      @enum 3 "4 Lane"
+  @field ACT_LANES
+    @bits 1-0
+      @enum 0 "1 Lane"
+      @enum 1 "2 Lane"
+      @enum 2 "3 Lane"
+      @enum 3 "4 Lane"
+
+@register CORE_STATUS
+  @addr 0x10
+  @field PACKET_COUNT
+    @uint 31-16
+  @field SHORT_PKT_FIFO_FULL
+    @boolean 3
+  @field SHORT_PKT_FIFO_EMPTY
+    @boolean 2
+  @field STREAM_LINE_FULL
+    @boolean 1
+  @field SOFT_RESET
+    @boolean 0
+
+@register GLOBAL_INT_ENABLE
+  @addr 0x20
+  @field IE
+    @boolean 0
+
+@register INTERRUPT_STATUS
+  @addr 0x24
+  @field FRAME_RECEIVED
+    @boolean 31
+  @field VCX_ERR
+    @boolean 30
+  @field RX_SKEWCALHS
+    @boolean 29
+  @field YUV420_WC_ERR
+    @boolean 28
+  @field WC_CORRUPTION
+    @boolean 22
+  @field INCORRECT_LANE_CFG
+    @boolean 21
+  @field SHORT_PKT_FIFO_FULL
+    @boolean 20
+  @field SHORT_PKT_FIFO_EMPTY
+    @boolean 19
+  @field STREAM_LINE_FULL
+    @boolean 18
+  @field STOP_STATE
+    @boolean 17
+  @field SOT_ERR
+    @boolean 13
+  @field SOT_SYNC_ERR
+    @boolean 12
+  @field ECC_2BIT_ERR
+    @boolean 11
+  @field ECC_1BIT_ERR
+    @boolean 10
+  @field CRC_ERR
+    @boolean 9
+  @field ID_ERR
+    @boolean 8
+  @field VC3_SYNC_ERR
+    @boolean 7
+  @field VC3_LVL_ERR
+    @boolean 6
+  @field VC2_SYNC_ERR
+    @boolean 5
+  @field VC2_LVL_ERR
+    @boolean 4
+  @field VC1_SYNC_ERR
+    @boolean 3
+  @field VC1_LVL_ERR
+    @boolean 2
+  @field VC0_SYNC_ERR
+    @boolean 1
+  @field VC0_LVL_ERR
+    @boolean 0
+
+@register INTERRUPT_ENABLE
+  @addr 0x28
+  @use INTERRUPT_STATUS
+
+@register SHORT_PKT
+  @addr 0x30
+  @field DATA
+    @uint 23-8
+  @field VC
+    @uint 7-6
+  @field TYPE
+    @uint 5-0
+
+@register VCX_FRAME_ERROR
+  @addr 0x34
+
+@register CLK_STATE
+  @addr 0x3C
+  @field STOP_STATE
+    @boolean 1
+
+@register LANE0_STATE
+  @addr 0x40
+  @field STOP_STATE
+    @boolean 5
+  @field SKEWCALHS
+    @boolean 2
+  @field SOT_ERR
+    @boolean 1
+  @field SOT_SYNC_ERR
+    @boolean 0
+
+@register LANE1_STATE
+  @addr 0x44
+  @use  LANE0_STATE
+
+@register LANE2_STATE
+  @addr 0x48
+  @use  LANE0_STATE
+
+@register LANE4_STATE
+  @addr 0x4C
+  @use  LANE0_STATE
+
+@register VC0_STATE0
+  @addr 0x60
+  @field LINE_COUNT
+    @uint 31-16
+  @field BYTE_COUNT
+    @uint 15-0
+
+@register VC0_STATE1
+  @addr 0x64
+  @field TYPE
+    @bits 5-0
+    @enum 0x24 "rgb888"
+    @enum 0x2a "raw8"
+    @enum 0x2b "raw10"
+
+@register VC1_STATE0
+  @addr 0x68
+  @use    VC0_STATE0
+
+@register VC1_STATE1
+  @addr 0x6c
+  @use    VC0_STATE1
+
+@register VC2_STATE0
+  @addr 0x70
+  @use    VC0_STATE0
+
+@register VC2_STATE1
+  @addr 0x74
+  @use    VC0_STATE1
+
+@register VC3_STATE0
+  @addr 0x78
+  @use    VC0_STATE0
+
+@register VC3_STATE1
+  @addr 0x7c
+  @use    VC0_STATE1
