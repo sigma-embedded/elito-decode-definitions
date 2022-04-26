@@ -1,0 +1,9 @@
+@unit DP0-CLK
+  @reg 0x000 0xfff
+  @regwidth 32 16 BE LE
+  @registers DP/0x600-CLK.reg
+
+@unit DP0
+  @reg 0x000 0xfff
+  @regwidth 32 16 BE LE
+  @registers DP/0x600-GENERIC.reg

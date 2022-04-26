@@ -1,0 +1,8 @@
+@register DSIERRCNT
+  @addr 0x0300
+  @field ErrCnt
+    @uint 6-0
+  @field Overflow
+    @boolean 7
+  @field Err_Mask
+    @uhex 31-16

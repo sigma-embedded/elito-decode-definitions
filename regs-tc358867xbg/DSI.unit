@@ -1,0 +1,23 @@
+## 0x100
+@unit DSI-PPI
+  @reg 0x000 0xfff
+  @regwidth 32 16 BE LE
+  @registers DSI/0x100-PPI.reg
+
+## 0x200
+@unit DSI-PROTO
+  @reg 0x000 0xfff
+  @regwidth 32 16 BE LE
+  @registers DSI/0x200-PROTO.reg
+
+## 0x300
+@unit DSI-GENERAL
+  @reg 0x000 0xfff
+  @regwidth 32 16 BE LE
+  @registers DSI/0x300-GENERAL.reg
+
+## 0x400
+@unit DSI-APP
+  @reg 0x000 0xfff
+  @regwidth 32 16 BE LE
+  @registers DSI/0x400-APP.reg

@@ -1,0 +1,17 @@
+@register DP0_VIDMNGEN0
+  @addr 0x610
+
+@register DP0_VIDMNGEN1
+  @addr 0x614
+
+@register DP0_VIDMNGENSTATUS
+  @addr 0x618
+
+@register DP0_AUDMNGEN0
+  @addr 0x628
+
+@register DP0_AUDMNGEN1
+  @addr 0x62c
+
+@register DP0_AUDMNGENSTATUS
+  @addr 0x630

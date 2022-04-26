@@ -1,0 +1,44 @@
+@register IDREG
+  @addr 0x500
+  @ro
+  @field REVID
+    @uhex 7-0
+  @field CHIPID
+    @uhex 15-8
+
+@register SYSBOOT
+  @addr 0x504
+  @ro
+  @field ClkSrc
+    @bits 1-0
+    @enum 0 "REFCLK"
+    @enum 1 "REFCLK"
+    @enum 2 "DSI"
+    @enum 3 "DPI"
+  @field DSIRef
+    @bits 2
+    @enum 0 "HSCKBY2/7 364 MHz"
+    @enum 1 "HSCKBY2/9 468 MHz"
+  @field I2CAdr
+    @boolean 5
+
+@register SYSCTRL
+  @addr 0x510
+  @field DP0_VidSrc
+    @bits 3-0
+    @enum 0 "No input"
+    @enum 1 "DSI Rx"
+    @enum 2 "DPI Rx"
+    @enum 3 "Color Bar"
+  @field DP0_AudSrc
+    @bits 3
+    @enum 0 "No input"
+    @enum 1 "I2S Rx"
+  @field AudOS_Val
+    @bits 10-8
+    @enum 0 "512 x F_sample"
+    @enum 1 "256 x F_sample"
+    @enum 2 "128 x F_sample"
+    @enum 3 "64 x F_sample"
+  @field ExtClkEn
+    @boolean 11

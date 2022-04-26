@@ -1,0 +1,15 @@
+@register INTCTL_G
+  @addr 0x560
+  @field SysErr
+    @boolean 16
+
+@register INTSTS_G
+  @addr 0x564
+  @field SysErr
+    @boolean 16
+
+@register INTGP0LCNT
+  @addr 0x584
+
+@register INTGP1LCNT
+  @addr 0x588

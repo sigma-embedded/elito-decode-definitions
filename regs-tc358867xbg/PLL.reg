@@ -1,0 +1,51 @@
+@register DP0_PLLCTRL
+  @addr 0x900
+  @field PLLEn
+    @boolean 0
+  @field PLLByp
+    @boolean 1
+
+@register PXL_PLLCTRL
+  @addr 0x908
+  @field PLLEn
+    @boolean 0
+  @field PLLByp
+    @boolean 1
+
+@register PXL_PLLPARAM
+  @addr 0x914
+  @field FBD
+    @uint 6-0
+  @field PRE_DIV
+    @uint 11-8
+  @field IN_SEL
+    @bits 15-14
+    @enum 0 "RefClk"
+    @enum 1 "HSCK"
+    @enum 2 "HSCKBY2"
+    @enum 3 "HSCKBY4"
+  @field EXT_POST_DIV
+    @uint 18-16
+  @field EXT_PRE_DIV
+    @uint 22-20
+  @field LBWS
+    @bits 24
+    @enum 0 "<300 MHz"
+    @enum 1 ">=300 Mhz"
+
+@register SYS_PLLPARAM
+  @addr 0x918
+  @field LSCLK_DIV
+    @bits 0
+    @enum 0 "/1"
+    @enum 1 "/2"
+  @field SYSCLK_SEL
+    @bits 4
+    @enum 0 "LSCLK"
+    @enum 1 "HSBYTECLK"
+  @field REF_FREQ
+    @bits 9-8
+    @enum 0 "38.4 MHz"
+    @enum 1 "19.2 MHz"
+    @enum 2 "26 MHz"
+    @enum 3 "13 MHz"

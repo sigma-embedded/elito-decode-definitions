@@ -1,0 +1,4 @@
+@unit SYS
+  @reg 0x000 0xfff
+  @regwidth 32 16 BE LE
+  @registers SYS.reg

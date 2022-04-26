@@ -25,6 +25,11 @@ case $TYPE in
 	_args+=( --bus-device "/dev/i2c-${I2C_BUS:-0}" --bus-addr "${I2C_ADDR:-0x3c}" )
 	;;
 
+  tc358867xbg)
+	_args+=( --type i2c --definitions @PKGDATADIR@/regstream-tc358867xbg.bin )
+	_args+=( --bus-device "/dev/i2c-${I2C_BUS:-16}" --bus-addr "${I2C_ADDR:-0x0f}" )
+	;;
+
   mx6q|mx6d|mx6qdl)
 	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx6q.bin )
 	;;

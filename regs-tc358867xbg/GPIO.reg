@@ -1,0 +1,11 @@
+@register GPIOM
+  @addr 0x540
+
+@register GPIOC
+  @addr 0x544
+
+@register GPIOO
+  @addr 0x548
+
+@register GPIOI
+  @addr 0x54c

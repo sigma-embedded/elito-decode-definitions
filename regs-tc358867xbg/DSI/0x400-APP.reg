@@ -1,0 +1,13 @@
+@register APLCCTRL
+  @addr 0x400
+  @field ECCDBLMSK
+    @boolean 0
+  @field CHKSUMMSK
+    @boolean 1
+  @field NOPKTENDMSK
+    @boolean 2
+
+@register RDPKTLN
+  @addr 0x404
+  @field RDPKTLN
+    @uint 2-0

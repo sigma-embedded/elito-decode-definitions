@@ -1,0 +1,15 @@
+@register DPIPXLFMT
+  @addr 0x440
+
+@register PICTRL
+  @addr 0x448
+  @field DE_Pol
+    @boolean 0
+  @field HS_Pol
+    @boolean 1
+  @field VS_Pol
+    @boolean 2
+  @field PCLK_Pol
+    @boolean 3
+  @field S2P
+    @boolean 7

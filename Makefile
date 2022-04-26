@@ -25,6 +25,7 @@ DEVICES = \
 	ar0144 ar052x \
 	tw9910 tw9990 \
 	alvium \
+	tc358867xbg \
 
 bin_DECODERS = \
 	$(addprefix decode-,${DEVICES})
@@ -41,6 +42,7 @@ bin_SCRIPTS = \
 	$(call cond_device,ar052x,set-ar052x) \
 	$(call cond_device,tw9910,set-tw9910) \
 	$(call cond_device,tw9990,set-tw9990) \
+	$(call cond_device,tc358867xbg,set-tc358867xbg) \
 
 REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl
@@ -50,6 +52,7 @@ REGISTERS_GENDESC_FLAGS_ar0144 = --define ar0144
 REGISTERS_GENDESC_FLAGS_ar052x = --define ar052x
 REGISTERS_GENDESC_FLAGS_tw9910 = --define tw99x0 --define tw9910
 REGISTERS_GENDESC_FLAGS_tw9990 = --define tw99x0 --define tw9990
+REGISTERS_GENDESC_FLAGS_tc358867xbg = --define tc358867xbg
 
 REGISTERS_DEFDIR_mx6q =		${srcdir}/regs-mx6
 REGISTERS_DEFDIR_mx6dl =	${srcdir}/regs-mx6
@@ -60,6 +63,7 @@ REGISTERS_DEFDIR_ar052x =	${srcdir}/regs-ar052x
 REGISTERS_DEFDIR_tw9910 =	${srcdir}/regs-tw99x0
 REGISTERS_DEFDIR_tw9990 =	${srcdir}/regs-tw99x0
 REGISTERS_DEFDIR_alvium =	${srcdir}/regs-alvium
+REGISTERS_DEFDIR_tc358867xbg =	${srcdir}/regs-tc358867xbg
 
 INSTALL = install
 INSTALL_BIN = ${INSTALL} -p -m 0755
@@ -97,6 +101,7 @@ $(call set_dev_type,ar052x,i2c)
 $(call set_dev_type,tw9910,i2c)
 $(call set_dev_type,tw9990,i2c)
 $(call set_dev_type,alvium,i2c)
+$(call set_dev_type,tc358867xbg,i2c)
 
 .prepare-mx6q .prepare-mx6dl:	.prepare-mx6
 

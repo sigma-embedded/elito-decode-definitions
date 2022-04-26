@@ -1,0 +1,92 @@
+@register LANEENABLE
+  @addr 0x0210
+
+@register LANESTATUS0
+  @addr 0x0214
+  @ro
+  @field ClRxActiveHs
+    @boolean 0
+  @field L0RxActiveHs
+    @boolean 1
+  @field L1RxActiveHs
+    @boolean 2
+  @field L2RxActiveHs
+    @boolean 3
+  @field L3RxActiveHs
+    @boolean 4
+
+@register LANESTATUS1
+  @addr 0x0218
+  @ro
+  @field ClStop
+    @boolean 0
+  @field L0Stop
+    @boolean 1
+  @field L1Stop
+    @boolean 2
+  @field L2Stop
+    @boolean 3
+  @field L3Stop
+    @boolean 4
+  @field ClUlpsEsc
+    @boolean 8
+  @field L0UlpsEsc
+    @boolean 9
+  @field L1UlpsEsc
+    @boolean 10
+  @field L2UlpsEsc
+    @boolean 11
+  @field L3UlpsEsc
+    @boolean 12
+
+@register INTSTATUS
+  @addr 0x0220
+  @ro
+  @field ErrSotHs
+    @boolean 0
+  @field ErrSotSyncHs
+    @boolean 1
+  @field ErrEotSyncHs
+    @boolean 2
+  @field ErrEsc
+    @boolean 3
+  @field ErrSyncEsc
+    @boolean 4
+  @field ErrHsRxTo
+    @boolean 5
+  @field ErrCntr
+    @boolean 6
+  @field ErrEccCrctd
+    @boolean 8
+  @field ErrEccDbl
+    @boolean 9
+  @field ErrDataType
+    @boolean 11
+  @field ErrInvalid
+    @boolean 13
+  @field ErrDsiProtocol
+    @boolean 15
+  @field L0Trigger
+    @uint 19-16
+  @field L0UlpsEscON
+    @boolean 20
+  @field L0UlpsEscOff
+    @boolean 21
+  @field L0BTARequest
+    @boolean 22
+  @field ErrCntlLP0
+    @boolean 28
+  @field ErrCntlLP1
+    @boolean 29
+  @field ErrLpTxTo
+    @boolean 30
+  @field ErrRxFifoOvf
+    @boolean 31
+
+@register INTMASK
+  @addr 0x0224
+
+@register LPTXTO
+  @addr 0x0230
+  @field LPTXTO
+    @uint 31-0

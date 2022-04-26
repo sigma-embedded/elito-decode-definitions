@@ -1,0 +1,20 @@
+@register DP0Ctl
+  @addr 0x600
+
+@register DP0_SECSAMPLE
+  @addr 0x640
+
+@register DP0_AUXCFG0
+  @addr 0x660
+
+@register DP0_SRCCTRL
+  @addr 0x6a0
+
+@register AUDCFG0
+  @addr 0x700
+
+@register PHY_CTRL
+  @addr 0x800
+
+@register DP1_SRCCTRL
+  @addr 0x7a0

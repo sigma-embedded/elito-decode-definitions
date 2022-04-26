@@ -1,0 +1,40 @@
+@register VPCTRL
+  @addr 0x0450
+  @field MSF
+    @boolean 0
+  @field FRMSYNC
+    @boolean 4
+  @field OPXLFMT
+    @bits 8
+    @enum 0 "RGB666"
+    @enum 1 "RGB888"
+  @field VSDELAY
+    @uint 31-20
+
+@register HTIM01
+  @addr 0x0454
+  @field HPW
+    @uint 8-0
+  @field HBPR
+    @uint 24-16
+
+@register HTIM02
+  @addr 0x0458
+  @field HDISPR
+    @uint 10-0
+  @field HFPR
+    @uint 24-16
+
+@register VTIM01
+  @addr 0x045c
+  @field VSPR
+    @uint 7-0
+  @field VBPR
+    @uint 23-16
+
+@register VTIM02
+  @addr 0x0460
+  @field VDISPR
+    @uint 10-0
+  @field VFPR
+    @uint 23-16
