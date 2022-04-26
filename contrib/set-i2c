@@ -77,6 +77,10 @@ _i2c_read() {
       2*)
 	    args+=( "r2"@"${I2C_ADDR}" )
 	    ;;
+
+      4*)
+	    args+=( "r4"@"${I2C_ADDR}" )
+	    ;;
     esac
 
     $I2CTRANSFER -f -y "${I2C_BUS}" "${args[@]}"
@@ -99,6 +103,14 @@ _i2c_write() {
 	    ;;
       2L)
 	    args+=( "$[ (_val >> 0) & 0xff ]" "$[ (_val >> 8) & 0xff ]" )
+	    ;;
+      4B)
+	    args+=( "$[ (_val >> 24) & 0xff ]" "$[ (_val >> 16) & 0xff ]"
+		    "$[ (_val >>  8) & 0xff ]" "$[ (_val >>  0) & 0xff ]" )
+	    ;;
+      4L)
+	    args+=( "$[ (_val >>  0) & 0xff ]" "$[ (_val >>  8) & 0xff ]"
+		    "$[ (_val >> 16) & 0xff ]" "$[ (_val >> 24) & 0xff ]" )
 	    ;;
     esac
 
