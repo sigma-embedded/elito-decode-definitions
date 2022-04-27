@@ -1,0 +1,134 @@
+@register PD_DPHY
+  @addr 0x300
+  @field pd_dphy
+    @boolean 0
+
+@register M_HS_PREPARE
+  @addr 0x304
+  @field m_hs_prepare
+    @bits 1-0
+    @enum 0 "1"
+    @enum 1 "1.5"
+    @enum 2 "2"
+    @enum 3 "2.5"
+
+@register MC_HS_PREPARE
+  @addr 0x308
+  @field mc_hs_prepare
+    @bits 0
+    @enum 0 "1"
+    @enum 1 "1.5"
+
+@register M_HS_ZERO
+  @addr 0x30c
+  @field m_hs_zero
+    @uint 4-0
+
+@register MC_HS_ZERO
+  @addr 0x310
+  @field mc_hs_zero
+    @uint 5-0
+
+@register M_HS_TRAIL
+  @addr 0x310
+  @field m_hs_trail
+    @uint 3-0
+
+@register MC_HS_TRAIL
+  @addr 0x310
+  @field m_hs_trail
+    @uint 3-0
+
+@register PD_PLL
+  @addr 0x31c
+  @field pd
+    @boolean 0
+
+@register TST
+  @addr 0x320
+  @field tst
+    @uhex 5-0
+
+@register DPHY_CN
+  @addr 0x324
+  @field cn
+    @bits 4-0
+    @enum 31 "/1"
+    @enum  0 "/2"
+    @enum 16 "/3"
+    @enum 24 "/4"
+    @enum 28 "/5"
+    @enum 14 "/6"
+    @enum  7 "/7"
+    @enum 19 "/8"
+    @enum  9 "/9"
+    @enum  4 "/10"
+    @enum  2 "/11"
+    @enum 17 "/12"
+    @enum  8 "/13"
+    @enum 20 "/14"
+    @enum 10 "/15"
+    @enum 21 "/16"
+    @enum 26 "/17"
+    @enum 29 "/18"
+    @enum 30 "/19"
+    @enum 15 "/20"
+    @enum 23 "/21"
+    @enum 27 "/22"
+    @enum 13 "/23"
+    @enum 22 "/24"
+    @enum 11 "/25"
+    @enum  5 "/26"
+    @enum 18 "/27"
+    @enum 25 "/28"
+    @enum 12 "/29"
+    @enum  6 "/30"
+    @enum  3 "/31"
+    @enum  1 "/32"
+
+@register CM
+  @addr 0x328
+  @field CM
+    @uint 7-0
+  @field CM_hex
+    @uhex 7-0
+
+@register CO
+  @addr 0x32c
+  @field CO
+    @bits 1-0
+    @enum 0 "/1"
+    @enum 1 "/2"
+    @enum 2 "/4"
+    @enum 3 "/8"
+
+@register LOCK
+  @addr 0x330
+  @ro
+  @field lock
+    @boolean 0
+
+@register LOCK_BYP
+  @addr 0x334
+  @field lock_byp
+    @boolean 0
+
+@register RTERM_SEL
+  @addr 0x338
+  @field rterm_sel
+    @boolean 0
+
+@register AUTO_PD_EN
+  @addr 0x33c
+  @field auto_pd_en
+    @boolean 0
+
+@register RXLPRP
+  @addr 0x340
+  @field rxlprp
+    @uint 1-0
+
+@register RXCDRP
+  @addr 0x340
+  @field rxcdrp
+    @uint 1-0

@@ -1,3 +1,7 @@
 @unit[imx8mm] MIPI-DSI
   @reg 0x32e10000 0x100
   @registers DSI_MIPI-dsim/
+
+@unit[imx8mq] MIPI-DSI
+  @reg 0x30a00000 0x400
+  @registers DSI_MIPI-nwl/

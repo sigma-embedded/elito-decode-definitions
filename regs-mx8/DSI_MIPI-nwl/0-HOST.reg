@@ -1,0 +1,63 @@
+@register NUM_LANES
+  @addr 0x0000
+  @field num-lanes
+    @uint 1-0
+
+@register NON_CONTINUOUS_CLK
+  @addr 0x0004
+  @field non_continuous_clk
+    @boolean 0
+
+@register CFG_T_PRE
+  @addr 0x0008
+  @field cfg_t_pre
+    @uint 6-0
+
+@register CFG_T_POST
+  @addr 0x000c
+  @field cfg_t_post
+    @uint 6-0
+
+@register CFG_TX_GAP
+  @addr 0x0010
+  @field cfg_tx_gap
+    @uint 6-0
+
+@register AUTOINSERT_EOTP
+  @addr 0x0014
+  @field autoinsert_eotp
+    @boolean 0
+
+@register EXTRA_CMDS_AFTER_EOTP
+  @addr 0x0018
+  @field extra_cmds_after_eotp
+    @uint 7-0
+
+@register CFG_HTX_TO_COUNT
+  @addr 0x001c
+  @field cfg_htx_to_count
+    @uint 23-0
+
+@register CFG_LRX_H_TO_COUNT
+  @addr 0x0020
+  @field cfg_lrx_h_to_count
+    @uint 23-0
+
+@register CFG_BTA_H_TO_COUNT
+  @addr 0x0024
+  @field cfg_bta_h_to_count
+    @uint 23-0
+
+@register CFG_TWAKEUP
+  @addr 0x0028
+  @field cfg_twakeup
+    @uint 18-0
+
+@register CFG_STATUS_OUT
+  @addr 0x002c
+  @ro
+
+@register RX_ERROR_STATUS
+  @addr 0x0030
+  @ro
+

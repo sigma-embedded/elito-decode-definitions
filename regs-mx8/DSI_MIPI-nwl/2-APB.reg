@@ -1,0 +1,76 @@
+@register PKT_STATUS
+  @addr 0x28c
+  @ro
+  @field not_idle
+    @boolean 0
+  @field tx_done
+    @boolean 1
+  @field direction
+    @bits 2
+    @enum 0 "tx master"
+    @enum 1 "rx master"
+  @field tx_fifo_overflow
+    @boolean 3
+  @field tx_fifo_underflow
+    @boolean 4
+  @field rx_fifo_overflow
+    @boolean 5
+  @field rx_fifo_underflow
+    @boolean 6
+  @field rx_hdr_received
+    @boolean 7
+  @field rx_payload_received
+    @boolean 8
+
+@register FIFO_WR_LEVEL
+  @addr 0x290
+  @ro
+  @field fifo_wr_level
+    @uint 15-0
+
+@register FIFO_RD_LEVEL
+  @addr 0x294
+  @ro
+  @field fifo_rd_level
+    @uint 15-0
+
+@register RX_PAYLOAD
+  @addr 0x298
+
+@register RX_PKT_HEADER
+  @addr 0x29c
+  @field word_count
+    @uint 15-0
+  @field data_type
+    @uint 21-16
+  @field vc
+    @uint 23-22
+
+@register IRQ_STATUS
+  @addr 0x2a0
+  @use PKT_STATUS
+  @field status_out
+    @uhex 28-9
+  @field host_bta_timeout
+    @boolean 29
+  @field lp_rx_timeout
+    @boolean 30
+  @field hs_tx_timeout
+    @boolean 31
+
+@register IRQ_STATUS2
+  @addr 0x2a4
+  @field single_bit_ecc
+    @boolean 0
+  @field multi_bit_ecc
+    @boolean 1
+  @field crc
+    @boolean 2
+
+@register IRQ_MASK
+  @addr 0x2a8
+  @use IRQ_STATUS
+
+@register IRQ_MASK2
+  @addr 0x2ac
+  @use IRQ_STATUS2
