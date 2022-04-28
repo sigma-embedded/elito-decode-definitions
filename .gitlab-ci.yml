@@ -1,5 +1,5 @@
 variables:
-  X_CI_LIBURI: "https://github.com/sigma-embedded/elito-decode-registers.git"
+  X_CI_LIBURI: "https://gitlab-ext.sigma-chemnitz.de/elito/misc/elito-decode-registers.git"
   X_CI_INSTDIR: "${CI_PROJECT_DIR}/../inst"
 
 before_script:
