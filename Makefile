@@ -21,7 +21,7 @@ PATH := ${bindir}:${PATH}
 DECODE_PKGDATA_DIR ?= ${datadir}/decode-registers
 
 DEVICES = \
-	mx6q mx6dl mx8mm mx8mq \
+	mx6qp mx6q mx6dl mx8mm mx8mq \
 	ar0144 ar052x \
 	tw9910 tw9990 \
 	alvium \
@@ -45,6 +45,7 @@ bin_SCRIPTS = \
 	$(call cond_device,tc358867xbg,set-tc358867xbg) \
 
 REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
+REGISTERS_GENDESC_FLAGS_mx6qp = --define imx6qd --define imx6qp
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl
 REGISTERS_GENDESC_FLAGS_mx8mm  = --define imx8m --define imx8mm
 REGISTERS_GENDESC_FLAGS_mx8mq  = --define imx8m --define imx8mq
@@ -55,6 +56,7 @@ REGISTERS_GENDESC_FLAGS_tw9990 = --define tw99x0 --define tw9990
 REGISTERS_GENDESC_FLAGS_tc358867xbg = --define tc358867xbg
 
 REGISTERS_DEFDIR_mx6q =		${srcdir}/regs-mx6
+REGISTERS_DEFDIR_mx6qp =	${srcdir}/regs-mx6
 REGISTERS_DEFDIR_mx6dl =	${srcdir}/regs-mx6
 REGISTERS_DEFDIR_mx8mm =	${srcdir}/regs-mx8
 REGISTERS_DEFDIR_mx8mq =	${srcdir}/regs-mx8
@@ -92,6 +94,7 @@ run-tests:	${decoder_DATA}
 	${srcdir}/contrib/run-test ${bindir}/decode-device $^
 
 $(call set_dev_type,mx6q,devmem)
+$(call set_dev_type,mx6qp,devmem)
 $(call set_dev_type,mx6dl,devmem)
 $(call set_dev_type,mx8mm,devmem)
 $(call set_dev_type,mx8mq,devmem)
@@ -103,7 +106,7 @@ $(call set_dev_type,tw9990,i2c)
 $(call set_dev_type,alvium,i2c)
 $(call set_dev_type,tc358867xbg,i2c)
 
-.prepare-mx6q .prepare-mx6dl:	.prepare-mx6
+.prepare-mx6qp .prepare-mx6q .prepare-mx6dl:	.prepare-mx6
 
 .prepare-mx6:
 	${MAKE} -C ${srcdir}/regs-mx6

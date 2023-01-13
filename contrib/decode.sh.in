@@ -34,6 +34,10 @@ case $TYPE in
 	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx6q.bin )
 	;;
 
+  mx6qp|mx6dp)
+	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx6qp.bin )
+	;;
+
   mx6dl)
 	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx6dl.bin )
 	;;
