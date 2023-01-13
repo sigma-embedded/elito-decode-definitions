@@ -185,13 +185,124 @@
 
 @register GPR5
   @addr 0x14
-  #readonly
 
   @field ARM_WFI
+    @read-only
     @uint 3-0
 
   @field ARM_WFE
+    @read-only
     @uint 7-4
 
   @field L2_CLK_STOP
+    @read-only
     @boolean 8
+
+  @field[imx6qp] ENET_TXCLK_SEL
+    @boolean 9
+
+  @field[imx6qp] SATA_SW_PD
+    @boolean 10
+
+  @field[imx6qp] SATA_SW_RST
+    @boolean 11
+
+  @field[imx6qp] PRE_PRG_SEL0
+    @bits 13-12
+    @enum 0 "PRE1: PRG1 chan 1"
+    @enum 1 "PRE1: PRG1 chan 2"
+    @enum 2 "PRE1: PRG2 chan 1"
+    @enum 3 "PRE1: PRG2 chan 2"
+
+  @field[imx6qp] PRE_PRG_SEL1
+    @bits 15-13
+    @enum 0 "PRE2: PRG1 chan 1"
+    @enum 1 "PRE2: PRG1 chan 2"
+    @enum 2 "PRE2: PRG2 chan 1"
+    @enum 3 "PRE2: PRG2 chan 2"
+
+  @field[imx6qp] OCRAM_PR0_CTL
+    @uint 19-16
+
+  @field[imx6qp] OCRAM_PR1_CTL
+    @uint 23-20
+
+  @field[imx6qp] OCRAM_PR0_STATUS
+    @read-only
+    @uint 27-24
+
+  @field[imx6qp] OCRAM_PR1_STATUS
+    @read-only
+    @uint 31-28
+
+@register GPR6
+  @addr 0x18
+
+  @field IPU1_ID11_RD_QoS
+    @uint 31-28
+
+  @field IPU1_ID10_RD_QoS
+    @uint 27-24
+
+  @field IPU1_ID01_RD_QoS
+    @uint 23-20
+
+  @field IPU1_ID00_RD_QoS
+    @uint 19-16
+
+  @field IPU1_ID11_WR_QoS
+    @uint 15-12
+
+  @field IPU1_ID10_WR_QoS
+    @uint 11-8
+
+  @field IPU1_ID01_WR_QoS
+    @uint 7-4
+
+  @field IPU1_ID00_WR_QoS
+    @uint 3-0
+
+@register GPR7
+  @addr 0x1c
+
+  @field IPU2_ID11_RD_QoS
+    @uint 31-28
+
+  @field IPU2_ID10_RD_QoS
+    @uint 27-24
+
+  @field IPU2_ID01_RD_QoS
+    @uint 23-20
+
+  @field IPU2_ID00_RD_QoS
+    @uint 19-16
+
+  @field IPU2_ID11_WR_QoS
+    @uint 15-12
+
+  @field IPU2_ID10_WR_QoS
+    @uint 11-8
+
+  @field IPU2_ID01_WR_QoS
+    @uint 7-4
+
+  @field IPU2_ID00_WR_QoS
+    @uint 3-0
+
+@register GPR8
+  @addr 0x20
+
+@register GPR9
+  @addr 0x24
+
+@register GPR10
+  @addr 0x28
+
+@register GPR11
+  @addr 0x2c
+
+@register GPR12
+  @addr 0x30
+
+@register GPR13
+  @addr 0x34
