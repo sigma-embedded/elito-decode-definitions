@@ -78,19 +78,68 @@
 
 @register CUR_BUF_0
   @addr 0x23c
+  @read-only
   @use _DB_CH0
 
 @register CUR_BUF_1
   @addr 0x240
+  @read-only
   @use _DB_CH1
 
 @register ALT_CUR_0
   @addr 0x244
+  @read-only
   @use _ALT_CH0
 
 @register ALT_CUR_1
-  @addr 0x24c
+  @addr 0x248
+  @read-only
   @use _ALT_CH1
+
+@register SRM_STAT
+  @addr 0x24c
+  @read-only
+
+@register PROC_TASKS_STAT
+  @addr 0x250
+  @read-only
+  @field ENC
+    @bits 1-0
+    @enum 0 "IDLE"
+    @enum 1 "ACTIVE"
+    @enum 2 "WAIT_RDY"
+  @field VF
+    @bits 3-2
+    @enum 0 "IDLE"
+    @enum 1 "ACTIVE"
+    @enum 2 "WAIT_RDY"
+  @field PP
+    @bits 5-4
+    @enum 0 "IDLE"
+    @enum 1 "ACTIVE"
+    @enum 2 "WAIT_RDY"
+  @field ENC_ROT
+    @bits 7-6
+    @enum 0 "IDLE"
+    @enum 1 "ACTIVE"
+    @enum 2 "WAIT_RDY"
+  @field VF_ROT
+    @bits 9-8
+    @enum 0 "IDLE"
+    @enum 1 "ACTIVE"
+    @enum 2 "WAIT_RDY"
+  @field PP_ROT
+    @bits 11-10
+    @enum 0 "IDLE"
+    @enum 1 "ACTIVE"
+    @enum 2 "WAIT_RDY"
+  @field MEM2PRP
+    @bits 14-12
+    @enum 0 "IDLE"
+    @enum 1 "BOTH ACTIVE"
+    @enum 2 "ENC ACTIVE"
+    @enum 3 "VF ACTIVE"
+    @enum 4 "BOTH PAUSE"
 
 @register TRIPLE_CUR_0
   @addr 0x258

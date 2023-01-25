@@ -302,3 +302,42 @@
 
   @field LPSR_MODE
     @boolean 31
+
+@register GPR
+  @addr 0xe4
+
+  @field BUF1_RDY1_CLR
+    @boolean 31
+
+  @field BUF1_RDY0_CLR
+    @boolean 30
+
+  @field BUF0_RDY1_CLR
+    @boolean 29
+
+  @field BUF0_RDY0_CLR
+    @boolean 28
+
+  @field ALT_BUF1_RDY1_CLR
+    @boolean 27
+
+  @field ALT_BUF1_RDY0_CLR
+    @boolean 26
+
+  @field ALT_BUF0_RDY1_CLR
+    @boolean 25
+
+  @field ALT_BUF0_RDY0_CLR
+    @boolean 24
+
+  @field DI1_CLK_CHG_DIS
+    @boolean 23
+
+  @field DI0_CLK_CHG_DIS
+    @boolean 22
+
+  @field BUF2_RDY1_CLR
+    @boolean 21
+
+  @field BUF2_RDY0_CLR
+    @boolean 20

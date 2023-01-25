@@ -38,33 +38,33 @@
 @register PRP_ENC_RSC
   @addr 0x0004
   @field RS_R_H
-    @uint 13-0
+    @frac 13-13 12-0
   @field DS_R_H
     @uint 15-14
   @field RS_R_V
-    @uint 29-16
+    @frac 29-29 28-16
   @field DS_R_V
     @uint 31-30
 
 @register PRP_VF_RSC
   @addr 0x0008
   @field RS_R_H
-    @uint 13-0
+    @frac 13-13 12-0
   @field DS_R_H
     @uint 15-14
   @field RS_R_V
-    @uint 29-16
+    @frac 29-29 28-16
   @field DS_R_V
     @uint 31-30
 
-@register PRP_RSC
+@register PP_RSC
   @addr 0x0008
   @field RS_R_H
-    @uint 13-0
+    @frac 13-13 12-0
   @field DS_R_H
     @uint 15-14
   @field RS_R_V
-    @uint 29-16
+    @frac 29-29 28-16
   @field DS_R_V
     @uint 31-30
 
