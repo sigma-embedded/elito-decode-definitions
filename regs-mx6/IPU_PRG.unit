@@ -1,0 +1,12 @@
+@unit _IPU_PRG
+    @disabled
+    @name "IPU_PRG"
+    @registers IPU_PRG/
+
+@unit[imx6qp] IPU_PRG1
+    @use _IPU_PRG
+    @reg 0x21cc000 0x1000
+
+@unit[imx6qp] IPU_PRG2
+    @use _IPU_PRG
+    @reg 0x21cd000 0x1000

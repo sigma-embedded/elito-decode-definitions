@@ -1,0 +1,67 @@
+@register CTRL
+  @addr 0x00
+  @field ENABLE
+    @boolean 0
+  @field BLOCK_EN
+    @boolean 1
+  @field BLOCK_16
+    @boolean 2
+  @field SDW_UPDATE
+    @boolean 4
+  @field VFLIP
+    @boolean 5
+  @field SO
+    @bits 6
+    @enum 0 "progressive"
+    @enum 1 "interlace"
+  @field FIELD
+    @bits 7
+    @enum 0 "top-bottom"
+    @enum 1 "bottom-top"
+  @field HANDSHAKE_EN
+    @boolean 8
+  @field HANDSHAKE_LINE_NUM
+    @uint 10-9
+  @field HANDSHAKE_ABORT_SKIP_EN
+    @boolean 11
+  @field EN_REPEAT
+    @boolean 28
+  @field TPR_REST_SEL
+    @boolean 29
+  @field CLKGATE
+    @boolean 30
+  @field SFTRST
+    @boolean 31
+
+@register IRQ_MASK
+  @addr 0x10
+
+@register IRQ_STAT
+  @addr 0x20
+  @field PREFETCH
+    @boolean 0
+  @field STORE
+    @boolean 1
+  @field HS_ABORT
+    @boolean 2
+  @field TPR_OVFL
+    @boolean 3
+  @field HS_ERROR
+    @boolean 4
+  @field AXI_W
+    @boolean 8
+  @field AXI_R
+    @boolean 9
+  @field AXI_ERROR
+    @uint 13-10
+
+@register ENGINE_CTRL
+  @addr 0x80
+  @field EN
+    @boolean 0
+  @field RD_NUM_BYTES
+    @uint 3-1
+  @field INPUT_ACTIVE_BPP
+    @uint 5-4
+  @field INPUT_PIXEL_FORMAT
+    @uint 10-8

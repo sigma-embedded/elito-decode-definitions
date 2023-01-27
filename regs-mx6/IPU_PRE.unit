@@ -1,0 +1,20 @@
+@unit _IPU_PRE
+    @disabled
+    @name "IPU_PRE"
+    @registers IPU_PRE/
+
+@unit[imx6qp] IPU_PRE0
+    @use _IPU_PRE
+    @reg 0x21c8000 0x1000
+
+@unit[imx6qp] IPU_PRE1
+    @use _IPU_PRE
+    @reg 0x21c9000 0x1000
+
+@unit[imx6qp] IPU_PRE2
+    @use _IPU_PRE
+    @reg 0x21ca000 0x1000
+
+@unit[imx6qp] IPU_PRE3
+    @use _IPU_PRE
+    @reg 0x21cb000 0x1000

@@ -1,0 +1,52 @@
+@register CTRL
+  @addr 0x00
+  @field CH0_BYPASS
+    @boolean 0
+  @field CH1_BYPASS
+    @boolean 1
+  @field CH2_BYPASS
+    @boolean 2
+  @field CH0_ARID
+    @uint 9-8
+  @field CH1_ARID
+    @uint 11-10
+  @field CH2_ARID
+    @uint 13-12
+  @field CH0_SO
+    @bits 16
+    @enum 0 "progressive"
+    @enum 1 "interlace"
+  @field CH1_SO
+    @bits 17
+    @enum 0 "progressive"
+    @enum 1 "interlace"
+  @field CH2_SO
+    @bits 18
+    @enum 0 "progressive"
+    @enum 1 "interlace"
+  @field CH0_VFLIP
+    @boolean 19
+  @field CH1_VFLIP
+    @boolean 20
+  @field CH2_VFLIP
+    @boolean 21
+  @field CH0_BM
+    @boolean 22
+  @field CH1_BM
+    @boolean 23
+  @field CH2_BM
+    @boolean 24
+  @field CH0_CNT_LOAD_EN
+    @boolean 25
+  @field CH1_CNT_LOAD_EN
+    @boolean 26
+  @field CH2_CNT_LOAD_EN
+    @boolean 27
+  @field SOFTRST
+    @boolean 30
+  @field SHADOW_EN
+    @boolean 31
+
+@register STATUS
+  @addr 0x04
+  @read-only
