@@ -16,8 +16,6 @@ datadir ?= ${prefix}/share
 pkgdatadir ?= ${datadir}/${PACKAGE}
 decoderdir ?= ${pkgdatadir}
 
-PATH := ${bindir}:${PATH}
-
 DECODE_PKGDATA_DIR ?= ${datadir}/decode-registers
 
 DEVICES = \
