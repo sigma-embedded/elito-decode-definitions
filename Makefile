@@ -65,6 +65,8 @@ REGISTERS_DEFDIR_tw9990 =	${srcdir}/regs-tw99x0
 REGISTERS_DEFDIR_alvium =	${srcdir}/regs-alvium
 REGISTERS_DEFDIR_tc358867xbg =	${srcdir}/regs-tc358867xbg
 
+REGISTERS_GENDESC :=	$(shell bash -c 'PATH="${bindir}:$PATH" type -P decode-registers-gendesc' || echo 'decode-registers-gendesc-missing')
+
 INSTALL = install
 INSTALL_BIN = ${INSTALL} -p -m 0755
 INSTALL_DATA = ${INSTALL} -p -m 0644
