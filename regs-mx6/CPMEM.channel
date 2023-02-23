@@ -17,9 +17,34 @@
 14	Fmem -> IC (vf)
 15	Fmem -> IC (post)
 
+17	Fmem -> IC (alpha #14)
+18	Fmem -> IC (alpha #15)
+19	Fmem -> VDIC (alpha #25)
 20	IC   -> Bmem (enc)
 21	IC   -> Bmem (vf)
 22	IC   -> Bmem (mem)
+23	Fmem -> DP (primary; main)
+24	Fmem -> DP (secondary; main)
+25	Fmem -> VDIC (plane #1)
+26	Fmem -> VDIC (plane #3)
+27	Fmem -> DP (primary; aux)
+28	Fmem -> DC
+29	Fmem -> DP (seconday; aux)
+
+40	DC -> Fmem
+41	Fmem -> DC (async)
+42	Fmem -> DC (cmd)
+43	Fmem -> DC (cmd)
+44	Fmem -> DC (out)
+
+45	Bmem -> IRT (enc)
+46	Bmem -> IRT (vf)
+47	Bmem -> IRT (pp)
+48	IRT -> Bmem (enc)
+49	IRT -> Bmem (vf)
+50	IRT -> Bmem (pp)
+51	Fmem -> DP (alpha #23)
+52	Fmem -> DP (alpha #24)
 
 64	ALT #8
 65	ALT #9
