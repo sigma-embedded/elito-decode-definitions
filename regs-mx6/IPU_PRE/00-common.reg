@@ -1,0 +1,29 @@
+@register _CTRL
+  @template
+  @field EN
+    @boolean 0
+  @field NUM_BYTES
+    @bits 3-1
+    @enum 0 "8 bytes"
+    @enum 1 "16 bytes"
+    @enum 2 "32 bytes"
+    @enum 3 "64 bytes"
+    @enum 4 "128 bytes"
+  @field ACTIVE_BPP
+    @bits 5-4
+    @enum 0 "8 bpp"
+    @enum 1 "16 bpp"
+    @enum 2 "32 bpp"
+    @enum 3 "64 bpp"
+
+@register _STATUS
+  @template
+  @read-only
+  @field BLOCK_X
+    @uint 15-0
+  @field BLOCK_Y
+    @uint 29-16
+  @field FIFO_FULL
+    @boolean 30
+  @field FIELD
+    @boolean 31

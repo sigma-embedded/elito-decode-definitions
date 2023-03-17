@@ -1,0 +1,69 @@
+@register PREFETCH_CTRL
+  @addr 0x80
+  @use _CTRL
+  @field INPUT_PIXEL_FORMAT
+    @bits 10-8
+    @enum 0 "generic data"
+    @enum 1 "non-interleaved YUV444"
+    @enum 2 "non-interleaved YUV422"
+    @enum 3 "non-interleaved YUV420"
+    @enum 4 "partial interleaved YUV422"
+    @enum 5 "partial interleaved YUV420"
+  @field SHIFT_BYPASS
+    @boolean 11
+  @field FIELD_INVERSE
+    @boolean 12
+  @field PARTIAL_UV_SWAP
+    @boolean 14
+  @field TPR_COOR_OFFSET_EN
+    @boolean 15
+
+@register PREFETCH_STATUS
+  @register 0x90
+  @use _STATUS
+
+@register PREFETCH_INPUT_SIZE
+  @addr 0xa0
+  @field WIDTH
+    @uint 15-0
+  @field HEIGHT
+    @uint 31-16
+
+@register PREFETCH_OUTPUT_SIZE
+  @addr 0xb0
+  @field ULC_X
+    @uint 15-0
+  @field ULC_Y
+    @uint 31-16
+
+@register PREFETCH_PITCH
+  @addr 0xd0
+  @field Y
+    @uint 15-0
+  @field UV
+    @uint 31-16
+
+@register PREFETCH_SHIFT_OFFSET
+  @addr 0xe0
+  @field OFFSET0
+    @uint 4-0
+  @field OFFSET1
+    @uint 12-8
+  @field OFFSET2
+    @uint 20-16
+  @field OFFSET3
+    @uint 28-24
+
+@register PREFETCH_SHIFT_WIDTH
+  @addr 0xe0
+  @field WIDTH0
+    @uint 3-0
+  @field WIDTH1
+    @uint 7-4
+  @field WIDTH2
+    @uint 11-8
+  @field WIDTH3
+    @uint 15-12
+
+@register PREFETCH_INTERLACE_OFFSET
+  @addr 0x100

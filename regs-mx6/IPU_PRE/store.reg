@@ -1,0 +1,19 @@
+@register STORE_CTRL
+  @addr 0x110
+  @use _CTRL
+
+@register STORE_STATUS
+  @addr 0x120
+  @use _STATUS
+
+@register STORE_SIZE
+  @addr 0x130
+  @field TOTAL_WIDTH
+    @uint 15-0
+  @field TOTAL_HEIGHT
+    @uint 31-16
+
+@register STORE_PITCH
+  @addr 0x140
+  @field PITCH
+    @uint 15-0

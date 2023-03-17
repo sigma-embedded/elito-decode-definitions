@@ -50,3 +50,125 @@
 @register STATUS
   @addr 0x04
   @read-only
+
+@register QOS
+  @addr 0x08
+  @field ARID0_QOS
+    @uint 3-0
+  @field ARID1_QOS
+    @uint 7-4
+  @field ARID2_QOS
+    @uint 11-8
+  @field ARID3_QOS
+    @uint 15-12
+
+### STRIDE
+
+@register _STRIDE
+  @template
+  @field STRIDE0
+    @uint 13-0
+
+@register STRIDE0
+  @addr 0x10
+  @use _STRIDE
+
+@register STRIDE1
+  @addr 0x14
+  @use _STRIDE
+
+@register STRIDE2
+  @addr 0x18
+  @use _STRIDE
+
+###
+
+@register CROP_LINE
+  @addr 0x1c
+  @field CH0_CROP_LINE
+    @uint 1-0
+  @field CH1_CROP_LINE
+    @uint 5-4
+  @field CH2_CROP_LINE
+    @uint 9-8
+
+@register ADDR_THD
+  @addr 0x20
+  @field ADDR_THD
+    @uhex 31-0
+
+@register _BADDR
+  @template
+  @field BADDR
+    @uhex 31-0
+
+### BADDR
+
+@register CH0_BADDR
+  @addr 0x24
+  @use _BADDR
+
+@register CH1_BADDR
+  @addr 0x28
+  @use _BADDR
+
+@register CH2_BADDR
+  @addr 0x2c
+  @use _BADDR
+
+### OFFSET
+
+@register _OFFSET
+  @template
+  @field OFFSET
+    @uhex 31-0
+
+@register CH0_OFFSET
+  @addr 0x30
+  @use _OFFSET
+
+@register CH1_OFFSET
+  @addr 0x34
+  @use _OFFSET
+
+@register CH2_OFFSET
+  @addr 0x38
+  @use _OFFSET
+
+### ILO
+
+@register _ILO
+  @field ILO
+    @uhex 31-0
+
+@register CH0_ILO
+  @addr 0x3c
+  @use _ILO
+
+@register CH1_ILO
+  @addr 0x40
+  @use _ILO
+
+@register CH2_ILO
+  @addr 0x44
+  @use _ILO
+
+### HEIGHT
+
+@register _HEIGHT
+  @field PRE_HEIGHT
+    @uint 11-0
+  @field IPU_HEIGHT
+    @uint 27-16
+
+@register CH0_HEIGHT
+  @addr 0x48
+  @use _HEIGHT
+
+@register CH1_HEIGHT
+  @addr 0x4c
+  @use _HEIGHT
+
+@register CH2_HEIGHT
+  @addr 0x50
+  @use _HEIGHT
