@@ -141,6 +141,37 @@
     @enum 3 "VF ACTIVE"
     @enum 4 "BOTH PAUSE"
 
+@register DISP_TASKS_STAT
+  @addr 0x254
+  @read-only
+  @field DP_ASYNC_STAT
+    @bits 2-0
+    @enum 0 "IDLE"
+    @enum 1 "PRIM_ACTIVE"
+    @enum 2 "ALT_ACTIVE"
+    @enum 3 "UPDATE_PARAM"
+    @enum 4 "PAUSE"
+  @field DP_ASYNC_CUR_FLOW
+    @bits 3
+    @enum 0 "main"
+    @enum 1 "alternate"
+  @field DC_ASYNC1_STAT
+    @bits 5-4
+    @enum 0 "IDLE"
+    @enum 1 "ACTIVE"
+    @enum 2 "WAIT_FOR_READY"
+  @field DC_ASYNC2_STAT
+    @bits 10-8
+    @enum 0 "IDLE"
+    @enum 1 "PRIM_ACTIVE"
+    @enum 2 "ALT_ACTIVE"
+    @enum 3 "UPDATE_PARAM"
+    @enum 4 "PAUSE"
+  @field DP_ASYNC2_CUR_FLOW
+    @bits 11
+    @enum 0 "main"
+    @enum 1 "alternate"
+
 @register TRIPLE_CUR_0
   @addr 0x258
   @field CH8
