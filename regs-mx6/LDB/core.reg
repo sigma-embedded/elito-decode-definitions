@@ -1,0 +1,40 @@
+@register CTRL
+  @addr 0x08
+  @field CH0_MODE
+    @bits 1-0
+    @enum 0 "disabled"
+    @enum 1 "DI0"
+    @enum 2 "disabled"
+    @enum 3 "DI1"
+  @field CH1_MODE
+    @bits 3-2
+    @enum 0 "disabled"
+    @enum 1 "DI0"
+    @enum 2 "disabled"
+    @enum 3 "DI1"
+  @field SPLIT_MODE_EN
+    @boolean 4
+  @field DATA_WIDTH_CH0
+    @bits 5
+    @enum 0 "18 bit"
+    @enum 1 "24 bit"
+  @field MAPPING_CH0
+    @bits 6
+    @enum 0 "SPWG"
+    @enum 1 "JEIDA"
+  @field DATA_WIDTH_CH1
+    @bits 7
+    @enum 0 "18 bit"
+    @enum 1 "24 bit"
+  @field MAPPING_CH1
+    @bits 8
+    @enum 0 "SPWG"
+    @enum 1 "JEIDA"
+  @field DI0_VSPOL
+    @boolean 9
+  @field DI1_VSPOL
+    @boolean 10
+  @field CLK_SHFT
+    @uint 18-16
+  @field CNT_RESET
+    @uint 21-20

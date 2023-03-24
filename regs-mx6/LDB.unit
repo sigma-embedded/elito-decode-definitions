@@ -1,0 +1,4 @@
+@unit LDB
+  @name "LDB"
+  @reg 0x020e0008 0x10
+  @registers LDB/
