@@ -55,7 +55,7 @@
     @uint 28-24
 
 @register PREFETCH_SHIFT_WIDTH
-  @addr 0xe0
+  @addr 0xf0
   @field WIDTH0
     @uint 3-0
   @field WIDTH1
