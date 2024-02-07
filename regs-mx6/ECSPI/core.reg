@@ -1,0 +1,115 @@
+@register CONREG
+  @addr 0x08
+  @field EN
+    @boolean 0
+  @field HT
+    @boolean 1
+  @field XCH
+    @boolean 2
+  @field SMC
+    @boolean 3
+  @field CHANNEL_MODE
+    @uhex 7-4
+  @field POST_DIVIDER
+    @uint 11-8
+  @field PRE_DIVIDER
+    @uint 15-12
+  @field DRCTL
+    @bits 17-16
+    @enum 0 "disabled"
+    @enum 1 "edge-triggered"
+    @enum 2 "level-triggered"
+  @field CHANNEL_SELECT
+    @uint 19-18
+  @field BURST_LENGTH
+    @uint 31-20
+
+@register CONFIGREG
+  @addr 0x0c
+  @field SCLK_PHA
+    @uhex 3-0
+  @field SCLK_POL
+    @uhex 7-4
+  @field SS_CTL
+    @uhex 11-8
+  @field SS_POL
+    @uhex 15-12
+  @field DATA_CTL
+    @uhex 19-16
+  @field SCLK_CTL
+    @uhex 23-20
+  @field HT_LENGTH
+    @uint 28-24
+
+@register INTREG
+  @addr 0x10
+  @field TEEN
+    @boolean 0
+  @field TDREN
+    @boolean 1
+  @field TFEN
+    @boolean 2
+  @field RREN
+    @boolean 3
+  @field RDREN
+    @boolean 4
+  @field RFEN
+    @boolean 5
+  @field ROEN
+    @boolean 6
+  @field TCEN
+    @boolean 7
+
+@register DMAREG
+  @addr 0x14
+  @field TX_THRESHOLD
+    @uint 5-0
+  @field TEDEN
+    @boolean 7
+  @field RX_THRESHOLD
+    @uint 21-16
+  @field TXDEN
+    @boolean 23
+  @field RX_DMA_LENGTH
+    @uint 29-24
+  @field RXTDEN
+    @boolean 31
+
+@register STATREG
+  @addr 0x18
+  @field TE
+    @boolean 0
+  @field TDR
+    @boolean 1
+  @field TF
+    @boolean 2
+  @field RR
+    @boolean 3
+  @field RDR
+    @boolean 4
+  @field RF
+    @boolean 5
+  @field RO
+    @boolean 6
+  @field TC
+    @boolean 7
+
+@register PERIODREG
+  @addr 0x1c
+  @field SAMPLE_PERIOD
+    @uint 14-0
+  @field CSRC
+    @bits 15
+    @enum 0 "SCLK"
+    @enum 1 "32.768 kHz"
+  @field CSD_CTL
+    @uint 21-16
+
+@register TESTREG
+  @addr 0x20
+  @field TXCNT
+    @uint 6-0
+  @field RXCNT
+    @uint 14-8
+  @field LBC
+    @boolean 31
