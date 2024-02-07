@@ -205,7 +205,7 @@
   @addr 0x004c
   @use SW_GEN1_6
 
-### counter #8
+### counter #9
 
 @register SW_GEN0_9
   @addr 0x002c
@@ -236,6 +236,50 @@
 
   @field SYNC_START_EN
     @boolean 28
+
+##########
+
+@register DW_GEN
+  @addr 0x0058
+  @field ACCESS_SIZE
+    @uint 31-24
+  @field COMPONENT_SIZE
+    @uint 23-16
+  @field CST
+    @uint 15-14
+  @field PT_6
+    @uint 13-12
+  @field PT_5
+    @uint 11-10
+  @field PT_4
+    @uint 9-8
+  @field PT_3
+    @uint 7-6
+  @field PT_2
+    @uint 5-4
+  @field PT_1
+    @uint 3-2
+  @field PT_0
+    @uint 1-0
+
+@register DW_SET0
+  @addr 0x0088
+  @field CNT_DOWN
+    @uint 24-16
+  @field CNT_UP
+    @uint 8-0
+
+@register DW_SET1
+  @addr 0x00B8
+  @use DW_SET0
+
+@register DW_SET2
+  @addr 0x00E8
+  @use DW_SET0
+
+@register DW_SET3
+  @addr 0x0118
+  @use DW_SET0
 
 ##########
 
@@ -279,9 +323,8 @@
     @bits 27-16
     @enum 0 "0"
 
-
 @register STP_REP_9
-  @addr 0x0154
+  @addr 0x0158
   @field STEP_REPEAT_9
     @bits 11-0
     @enum 0 "0"
@@ -289,4 +332,17 @@
 ############
 
 @register SER_CONF
-  @
+  @addr 0x15c
+
+@register SSC
+  @addr 0x160
+
+
+@register POL
+  @addr 0x164
+
+@register AWO
+  @addr 0x168
+
+@register AW1
+  @addr 0x16c
