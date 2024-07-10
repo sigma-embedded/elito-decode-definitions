@@ -1,0 +1,50 @@
+@register ROI_0_ALPHA
+    @addr 0x0040
+
+@register ROI_0_ULC
+    @addr 0x0044
+
+@register ROI_0_LRC
+    @addr 0x0048
+
+###
+
+@register ROI_1_ALPHA
+    @use  ROI_0_ALPHA
+    @addr 0x004c
+
+@register ROI_1_ULC
+    @use  ROI_0_ULC
+    @addr 0x0050
+
+@register ROI_1_LRC
+    @use  ROI_0_LRC
+    @addr 0x0054
+
+###
+
+@register ROI_2_ALPHA
+    @use  ROI_0_ALPHA
+    @addr 0x0058
+
+@register ROI_2_ULC
+    @use  ROI_0_ULC
+    @addr 0x005c
+
+@register ROI_2_LRC
+    @use  ROI_0_LRC
+    @addr 0x0060
+
+###
+
+@register ROI_3_ALPHA
+    @use  ROI_0_ALPHA
+    @addr 0x0064
+
+@register ROI_3_ULC
+    @use  ROI_0_ULC
+    @addr 0x0068
+
+@register ROI_3_LRC
+    @use  ROI_0_LRC
+    @addr 0x006c

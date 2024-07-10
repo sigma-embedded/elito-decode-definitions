@@ -1,0 +1,3 @@
+@unit ISI
+  @reg 0x32e00000 0x10000
+  @registers ISI/

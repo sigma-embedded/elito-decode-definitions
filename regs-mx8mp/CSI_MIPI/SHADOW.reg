@@ -1,0 +1,14 @@
+@register SHADOW_CONFIG0
+  @use ISP_CONFIG0
+  @ro
+  @addr 0x0080
+
+@register SHADOW_RESOLUTION0
+  @use ISP_RESOLUTION0
+  @ro
+  @addr 0x0084
+
+@register SHADOW_SYNC0
+  @use ISP_SYNC0
+  @ro
+  @addr 0x0084

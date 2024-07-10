@@ -1,0 +1,52 @@
+@register CTRL
+  @addr 0x0000
+
+@register IMG_CTRL
+  @addr 0x0004
+
+@register OUT_BUF_CTRL
+  @addr 0x0008
+
+@register IMG_CFG
+  @addr 0x000c
+
+@register IER
+  @addr 0x0010
+
+@register STS
+  @addr 0x0014
+
+@register SCALE_FACTOR
+  @addr 0x0018
+
+@register SCALE_OFFSET
+  @addr 0x001c
+
+@register CROP_ULC
+  @addr 0x0020
+
+@register CSC_COEFF0
+  @addr 0x0028
+
+@register CSC_COEFF1
+  @addr 0x002c
+
+@register CSC_COEFF2
+  @addr 0x0030
+
+@register CSC_COEFF3
+  @addr 0x0034
+
+@register CSC_COEFF4
+  @addr 0x0038
+
+@register CSC_COEFF5
+  @addr 0x003c
+
+###
+
+@register SCL_IMG_CFG
+  @addr 0x98
+
+@register FLOW_CTRL
+  @addr 0x9c

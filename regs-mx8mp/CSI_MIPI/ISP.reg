@@ -1,0 +1,8 @@
+@register ISP_CONFIG0
+  @addr 0x0040
+
+@register ISP_RESOLUTION0
+  @addr 0x0044
+
+@register ISP_SYNC0
+  @addr 0x0048

@@ -1,0 +1,25 @@
+@register COMMON_CTRL
+  @addr 0x0004
+
+@register CLOCK_CTRL
+  @addr 0x0008
+
+@register INTERRUPT_MASK_0
+  @addr 0x0010
+
+@register INTERRUPT_SOURCE_0
+  @addr 0x0014
+
+@register INTERRUPT_MASK_1
+  @addr 0x0018
+
+@register INTERRUPT_SOURCE_1
+  @addr 0x001c
+
+#####
+
+@register FRAME_COUNTER0
+  @addr 0x0100
+
+@register LINE_INTERRUPT_RATIO0
+  @addr 0x0110

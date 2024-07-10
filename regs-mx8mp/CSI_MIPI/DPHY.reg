@@ -1,0 +1,17 @@
+@register DPHY_STATUS
+  @addr 0x0020
+
+@register DPHY_CTRL
+  @addr 0x0024
+
+@register DPHY_MASTER_SLAVE_CTRL_LOW
+  @addr 0x30
+
+@register DPHY_MASTER_SLAVE_CTRL_HIGH0
+  @addr 0x34
+
+@register DPHY_SLAVE_CTRL_LOW
+  @addr 0x38
+
+@register DPHY_SLAVE_CTRL_HIGH0
+  @addr 0x3c

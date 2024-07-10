@@ -1,0 +1,62 @@
+@register OUT_BUF1_ADDR_Y
+  @addr 0x0070
+
+@register OUT_BUF1_ADDR_U
+  @addr 0x0074
+
+@register OUT_BUF1_ADDR_V
+  @addr 0x0078
+
+@register OUT_BUF1_ADDR_Y_EXT
+  @addr 0x00a0
+
+@register OUT_BUF1_ADDR_U_EXT
+  @addr 0x00a4
+
+@register OUT_BUF1_ADDR_V_EXT
+  @addr 0x00a8
+
+###
+
+@register OUT_BUF2_ADDR_Y
+  @use OUT_BUF1_ADDR_Y
+  @addr 0x0070
+
+@register OUT_BUF2_ADDR_U
+  @use OUT_BUF1_ADDR_U
+  @addr 0x0074
+
+@register OUT_BUF2_ADDR_V
+  @use OUT_BUF1_ADDR_V
+  @addr 0x0078
+
+@register OUT_BUF2_ADDR_Y_EXT
+  @use OUT_BUF1_ADDR_Y_EXT
+  @addr 0x00ac
+
+@register OUT_BUF2_ADDR_U_EXT
+  @use OUT_BUF1_ADDR_U_EXT
+  @addr 0x00b0
+
+@register OUT_BUF2_ADDR_V_EXT
+  @use OUT_BUF1_ADDR_V_EXT
+  @addr 0x00b4
+
+###
+
+@register OUT_BUF_PITCH
+  @addr 0x7c
+
+###
+
+@register IN_BUF_ADDR
+  @addr 0x80
+
+@register IN_BUF_ADDR_EXT
+  @addr 0xb8
+
+@register IN_BUF_PITCH
+  @addr 0x84
+
+@register MEM_RD_CTRL
+  @addr 0x88
