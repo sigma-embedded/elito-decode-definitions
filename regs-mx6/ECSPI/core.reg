@@ -20,7 +20,11 @@
     @enum 1 "edge-triggered"
     @enum 2 "level-triggered"
   @field CHANNEL_SELECT
-    @uint 19-18
+    @bits 19-18
+    @enum 0 "SS0"
+    @enum 1 "SS1"
+    @enum 2 "SS2"
+    @enum 3 "SS3"
   @field BURST_LENGTH
     @uint 31-20
 
