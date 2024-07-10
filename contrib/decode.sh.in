@@ -54,6 +54,10 @@ case $TYPE in
 	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx8mq.bin )
 	;;
 
+  mx8qm)
+	_args+=( --type mem --definitions @PKGDATADIR@/regstream-mx8qm.bin )
+	;;
+
   *)
 	echo "Unsupported type '$TYPE'" >&2
 	exit 1
