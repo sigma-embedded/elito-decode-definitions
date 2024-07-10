@@ -19,7 +19,7 @@ decoderdir ?= ${pkgdatadir}
 DECODE_PKGDATA_DIR ?= ${datadir}/decode-registers
 
 DEVICES = \
-	mx6qp mx6q mx6dl mx8mm mx8mq \
+	mx6qp mx6q mx6dl mx8mm mx8mq mx8mp \
 	ar0144 ar052x \
 	tw9910 tw9990 \
 	alvium \
@@ -46,6 +46,7 @@ REGISTERS_GENDESC_FLAGS_mx6q  = --define imx6qd
 REGISTERS_GENDESC_FLAGS_mx6qp = --define imx6qd --define imx6qp
 REGISTERS_GENDESC_FLAGS_mx6dl = --define imx6sdl
 REGISTERS_GENDESC_FLAGS_mx8mm  = --define imx8m --define imx8mm
+REGISTERS_GENDESC_FLAGS_mx8mp  = --define imx8m --define imx8mp
 REGISTERS_GENDESC_FLAGS_mx8mq  = --define imx8m --define imx8mq
 REGISTERS_GENDESC_FLAGS_ar0144 = --define ar0144
 REGISTERS_GENDESC_FLAGS_ar052x = --define ar052x
@@ -58,6 +59,7 @@ REGISTERS_DEFDIR_mx6qp =	${srcdir}/regs-mx6
 REGISTERS_DEFDIR_mx6dl =	${srcdir}/regs-mx6
 REGISTERS_DEFDIR_mx8mm =	${srcdir}/regs-mx8
 REGISTERS_DEFDIR_mx8mq =	${srcdir}/regs-mx8
+REGISTERS_DEFDIR_mx8mp =	${srcdir}/regs-mx8mp
 REGISTERS_DEFDIR_ar0144 =	${srcdir}/regs-ar0144
 REGISTERS_DEFDIR_ar052x =	${srcdir}/regs-ar052x
 REGISTERS_DEFDIR_tw9910 =	${srcdir}/regs-tw99x0
@@ -98,6 +100,7 @@ $(call set_dev_type,mx6qp,devmem)
 $(call set_dev_type,mx6dl,devmem)
 $(call set_dev_type,mx8mm,devmem)
 $(call set_dev_type,mx8mq,devmem)
+$(call set_dev_type,mx8mp,devmem)
 
 $(call set_dev_type,ar0144,i2c)
 $(call set_dev_type,ar052x,i2c)
