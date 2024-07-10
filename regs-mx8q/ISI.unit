@@ -1,0 +1,23 @@
+@unit ISI0
+  @reg 0x58100000 0x10000
+  @registers ISI/
+
+@unit ISI1
+  @reg 0x58110000 0x10000
+  @registers ISI/
+
+@unit ISI2
+  @reg 0x58120000 0x10000
+  @registers ISI/
+
+@unit ISI3
+  @reg 0x58130000 0x10000
+  @registers ISI/
+
+@unit ISI4
+  @reg 0x58140000 0x10000
+  @registers ISI/
+
+@unit ISI5
+  @reg 0x58150000 0x10000
+  @registers ISI/

@@ -1,0 +1,20 @@
+@register OUT_BUF1_ADDR_Y
+  @addr 0x70
+
+@register OUT_BUF1_ADDR_U
+  @addr 0x74
+
+@register OUT_BUF1_ADDR_V
+  @addr 0x78
+
+@register OUT_BUF_PITCH
+  @addr 0x7c
+
+@register OUT_BUF2_ADDR_Y
+  @addr 0x8c
+
+@register OUT_BUF2_ADDR_U
+  @addr 0x90
+
+@register OUT_BUF2_ADDR_V
+  @addr 0x94

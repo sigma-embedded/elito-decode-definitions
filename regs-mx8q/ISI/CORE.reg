@@ -1,0 +1,17 @@
+@register CTRL
+  @addr 0x00
+
+@register IMG_CTRL
+  @addr 0x04
+
+@register OUT_BUF_CTRL
+  @addr 0x08
+
+@register IMG_CFG
+  @addr 0x0c
+
+@register IER
+  @addr 0x10
+
+@register STS
+  @addr 0x14
